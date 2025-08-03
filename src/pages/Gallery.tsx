@@ -20,11 +20,11 @@ const galleryData = [
 	},
 	{
 		id: 2,
-		title: "Jimi Jagne",
-		imageUrl: "/lovable-uploads/df7af177-9146-4cf1-b23a-7122d4811d4f.png",
+		title: "Bea Freeman",
+		imageUrl: "/lovable-uploads/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
 		description:
-			"An intimate black and white portrait study exploring contrast and emotion through dramatic lighting and composition.",
-		audioUrl: "/audio/JimmiJagne.mp3",
+			"A pioneer in the world of media and television captured Bea the city she lived, showcasing her likeness in visual 3D photography.",
+		audioUrl: "",
 	},
 	{
 		id: 3,
@@ -53,28 +53,49 @@ const galleryData = [
 	// Blank people
 	{
 		id: 6,
-		title: "Person 6",
+		title: "Jimi Jagne",
 		imageUrl: "/placeholder.svg",
-		description: "",
-		audioUrl: "",
+		description: "A creative force in Liverpool's cultural scene, Jimi Jagne is known for his pioneering work in music, community activism, and the arts, inspiring generations with his vision and leadership.",
+		audioUrl: "/audio/jimmiJagne.mp3",
 	},
 	{
 		id: 7,
-		title: "Person 7",
+		title: "Jacob Baptista",
 		imageUrl: "/placeholder.svg",
-		description: "",
+		description: "A young community member who was a promising footballer and advocate, and mentor for young people at the Belv Boxing Gym L8.",
 		audioUrl: "",
 	},
 	{
 		id: 8,
-		title: "Person 8",
+		title: "John Archer",
 		imageUrl: "/placeholder.svg",
 		description: "",
 		audioUrl: "",
 	},
 	{
 		id: 9,
-		title: "Person 9",
+		title: "Jerome Priest",
+		imageUrl: "/placeholder.svg",
+		description: "",
+		audioUrl: "",
+	},
+	{
+		id: 10,
+		title: "Person 10",
+		imageUrl: "/placeholder.svg",
+		description: "",
+		audioUrl: "",
+	},
+	{
+		id: 11,
+		title: "Person 11",
+		imageUrl: "/placeholder.svg",
+		description: "",
+		audioUrl: "",
+	},
+	{
+		id: 12,
+		title: "Person 12",
 		imageUrl: "/placeholder.svg",
 		description: "",
 		audioUrl: "",
@@ -155,11 +176,11 @@ const Gallery = () => {
 				<section className="py-20 px-6 bg-gradient-hero">
 					<div className="max-w-4xl mx-auto text-center">
 						<h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-							Digital Canvas
+							Digital Gallery
 						</h1>
 						<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
 							Explore our curated collection of digital art, showcasing the
-							intersection of technology and creativity.
+							intersection of technology and creativity. Our exhibition creates a space for reflection, dialogue, and understanding of L8's unique story, featuring a diverse range of digital artworks, from interactive installations to virtual reality experiences. Each piece tells a story of the community's rich cultural heritage and vibrant present.
 						</p>
 					</div>
 				</section>

@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Home, User, Headphones, Mail, Info } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +11,10 @@ const Navigation = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: <Home className="h-5 w-5" />, text: "Home" },
+    { path: "/gallery", label: <Headphones className="h-5 w-5" />, text: "Gallery" },
+    { path: "/contact", label: <Mail className="h-5 w-5" />, text: "Contact" },
+    { path: "/about", label: <Info className="h-5 w-5" />, text: "About" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -32,9 +33,10 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`transition-colors hover:text-primary ${
+                className={`flex items-center gap-2 transition-colors hover:text-primary ${
                   isActive(item.path) ? "text-primary font-medium" : "text-muted-foreground"
                 }`}
+                title={item.text}
               >
                 {item.label}
               </Link>
@@ -55,17 +57,16 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-border bg-background">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border z-40">
+            <div className="flex flex-col py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive(item.path)
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  className={`flex items-center gap-2 px-4 py-2 transition-colors hover:text-primary ${
+                    isActive(item.path) ? "text-primary font-medium" : "text-muted-foreground"
                   }`}
+                  title={item.text}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
