@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Home, User, Headphones, Mail, Info } from "lucide-react";
+import { GiCube } from "react-icons/gi";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +42,15 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+            <NavLink
+              to="/3d"
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-3 py-2 rounded hover:bg-accent transition ${isActive ? "bg-accent font-bold" : ""}`
+              }
+            >
+              <GiCube size={20} />
+              <span>3D</span>
+            </NavLink>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -72,6 +82,16 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              <NavLink
+                to="/3d"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-3 py-2 rounded hover:bg-accent transition ${isActive ? "bg-accent font-bold" : ""}`
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                <GiCube size={20} />
+                <span>3D</span>
+              </NavLink>
             </div>
           </div>
         )}

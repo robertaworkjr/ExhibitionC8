@@ -181,10 +181,16 @@ const Index = () => {
         <DialogContent className="sm:max-w-[425px] bg-background border-border">
           <DialogHeader>
             <DialogTitle className="text-foreground text-center">Exhibition Dates</DialogTitle>
-            <DialogDescription className="text-muted-foreground text-center">
-              "Capture the Essence of the Eighth" Digital Art Exhibition
-            </DialogDescription>
+            <div className="flex items-center justify-center gap-4 py-2">
+              <img src="/logos/LCC logo 2023 Landscp MASTER.jpg" alt="LCC Logo" className="h-8" />
+              <img src="/logos/grant_jpeg_black.jpg" alt="Grant Logo" className="h-8" />
+              <img src="/logos/funded-by-the-uk.jpg" alt="Funded by the UK" className="h-8" />
+              <img src="/logos/Culturelogo_wht.png" alt="Culture Liverpool Logo" className="h-8" />
+            </div>
           </DialogHeader>
+          <DialogDescription className="text-muted-foreground text-center">
+            "Capture the Essence of the Eighth" Digital Art Exhibition
+          </DialogDescription>
           <div className="py-6">
             <div className="text-center space-y-4">
               <div className="bg-gradient-primary/10 rounded-lg p-6 border border-primary/20">

@@ -13,7 +13,7 @@ const galleryData = [
 	{
 		id: 1,
 		title: "Charles Wooten",
-		imageUrl: "/lovable-uploads/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
+		imageUrl: "/images/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
 		description:
 			"A striking urban silhouette captured charles the city he lived, showcasing the his likeness of face and shadow in visual 3D photography.",
 		audioUrl: "/audio/CharlesWooten.mp3",
@@ -21,7 +21,7 @@ const galleryData = [
 	{
 		id: 2,
 		title: "Bea Freeman",
-		imageUrl: "/lovable-uploads/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
+		imageUrl: "/images/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
 		description:
 			"A pioneer in the world of media and television captured Bea the city she lived, showcasing her likeness in visual 3D photography.",
 		audioUrl: "",
@@ -29,7 +29,7 @@ const galleryData = [
 	{
 		id: 3,
 		title: "Joanne Anderson",
-		imageUrl: "/lovable-uploads/c4a65cb4-1f9f-46a9-953b-98e8a08b8e24.png",
+		imageUrl: "/images/c4a65cb4-1f9f-46a9-953b-98e8a08b8e24.png",
 		description:
 			"A contemplative portrait showcasing the subtle nuances of human expression and the artistry of monochromatic photography.",
 		audioUrl: "/audio/JoanneAnderson.mp3",
@@ -37,7 +37,7 @@ const galleryData = [
 	{
 		id: 4,
 		title: "Leroy Cooper",
-		imageUrl: "/lovable-uploads/01ac894b-7177-43b1-b129-57e5d815170d.png",
+		imageUrl: "/images/01ac894b-7177-43b1-b129-57e5d815170d.png",
 		description:
 			"A beautifully crafted classical sculpture bust demonstrating traditional artistic techniques and attention to detail in three-dimensional form.",
 		audioUrl: "/audio/LeroyCopper.mp3",
@@ -45,7 +45,7 @@ const galleryData = [
 	{
 		id: 5,
 		title: "Margret Simey",
-		imageUrl: "/lovable-uploads/307d02bf-74fb-40e4-a422-fc8ee8fe12c2.png",
+		imageUrl: "/images/307d02bf-74fb-40e4-a422-fc8ee8fe12c2.png",
 		description:
 			"A curated collection of sculptural works showcasing various artistic styles and the mastery of form in three-dimensional art.",
 		audioUrl: "/audio/MargretSimey.mp3",
@@ -81,16 +81,16 @@ const galleryData = [
 	},
 	{
 		id: 10,
-		title: "Person 10",
+		title: "Kate Garder",
 		imageUrl: "/placeholder.svg",
-		description: "",
+		description: "GP in the community and advocate for young females and health.",
 		audioUrl: "",
 	},
 	{
 		id: 11,
-		title: "Person 11",
+		title: "Kim Johnson",
 		imageUrl: "/placeholder.svg",
-		description: "",
+		description: "Local L8 politician who has advocated for the community for years and has more recently joined the current party in Government.",
 		audioUrl: "",
 	},
 	{

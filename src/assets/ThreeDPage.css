@@ -1,0 +1,23 @@
+.model-viewer-9-16 {
+  width: 100px;
+  height: 180px;
+  background: white;
+  border-radius: 0.5rem;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 640px) {
+  .model-viewer-9-16 {
+    width: 140px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .model-viewer-9-16 {
+    width: 180px;
+    height: 320px;
+  }
+}
