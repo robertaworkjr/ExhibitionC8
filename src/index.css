@@ -329,3 +329,35 @@ All colors MUST be HSL.
 .dark .gradient-hero {
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
+
+/* Navigation styling for better text visibility */
+.nav-icon {
+  flex-shrink: 0;
+}
+
+/* Ensure navigation text is visible and properly spaced */
+nav a span {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Desktop navigation spacing */
+@media (min-width: 768px) {
+  nav .hidden.md\\:flex a {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+  
+  nav .hidden.md\\:flex a:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Mobile navigation text styling */
+@media (max-width: 767px) {
+  nav .flex.flex-col a span {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

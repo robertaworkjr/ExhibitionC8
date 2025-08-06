@@ -14,8 +14,8 @@ const Navigation = () => {
   const navItems = [
     { path: "/", label: <Home className="h-5 w-5 nav-icon" />, text: "Home" },
     { path: "/gallery", label: <Headphones className="h-5 w-5 nav-icon" />, text: "Gallery" },
-    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research" },
-    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact" },
+    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research & Methodology" },
+    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact Us" },
     { path: "/about", label: <Info className="h-5 w-5 nav-icon" />, text: "About" },
   ];
 
@@ -30,29 +30,30 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 transition-colors hover:text-primary ${
-                  isActive(item.path) ? "text-primary font-medium" : "text-muted-foreground"
+                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors hover:text-primary hover:bg-primary/10 ${
+                  isActive(item.path) ? "text-primary font-medium bg-primary/10" : "text-muted-foreground"
                 }`}
                 title={item.text}
               >
                 {item.label}
+                <span className="text-sm font-medium">{item.text}</span>
               </Link>
             ))}
             <NavLink
               to="/3d"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded hover:bg-teal-500 hover:text-white transition nav-icon ${
+                `flex items-center gap-2 px-3 py-2 rounded-md hover:bg-teal-500 hover:text-white transition ${
                   isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
                 }`
               }
             >
               <GiCube className="nav-icon" />
-              <span>3D</span>
+              <span className="text-sm font-medium">3D Objects</span>
             </NavLink>
           </div>
 
@@ -76,26 +77,27 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center gap-2 px-4 py-2 transition-colors hover:text-primary ${
-                    isActive(item.path) ? "text-primary font-medium" : "text-muted-foreground"
+                  className={`flex items-center gap-3 px-4 py-3 transition-colors hover:text-primary hover:bg-primary/10 ${
+                    isActive(item.path) ? "text-primary font-medium bg-primary/10" : "text-muted-foreground"
                   }`}
                   title={item.text}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
+                  <span className="font-medium">{item.text}</span>
                 </Link>
               ))}
               <NavLink
                 to="/3d"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded hover:bg-teal-500 hover:text-white transition nav-icon ${
+                  `flex items-center gap-3 px-4 py-3 rounded-md hover:bg-teal-500 hover:text-white transition ${
                     isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
                   }`
                 }
                 onClick={() => setIsOpen(false)}
               >
                 <GiCube className="nav-icon" />
-                <span>3D</span>
+                <span className="font-medium">3D Objects</span>
               </NavLink>
             </div>
           </div>
