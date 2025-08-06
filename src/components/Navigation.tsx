@@ -14,8 +14,8 @@ const Navigation = () => {
   const navItems = [
     { path: "/", label: <Home className="h-5 w-5 nav-icon" />, text: "Home" },
     { path: "/gallery", label: <Headphones className="h-5 w-5 nav-icon" />, text: "Gallery" },
-    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research & Methodology" },
-    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact Us" },
+    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research" },
+    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact" },
     { path: "/about", label: <Info className="h-5 w-5 nav-icon" />, text: "About" },
   ];
 
