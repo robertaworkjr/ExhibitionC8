@@ -341,6 +341,33 @@ nav a span {
   font-weight: 500;
 }
 
+/* Force navigation text visibility */
+nav a span {
+  color: #000000 !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+nav a:hover span {
+  color: #2563eb !important; /* blue-600 */
+}
+
+nav a.active span,
+nav a[aria-current="page"] span {
+  color: #2563eb !important; /* blue-600 */
+  font-weight: 600 !important;
+}
+
+/* 3D Objects link specific styling */
+nav a[href="/3d"]:hover span {
+  color: white !important;
+}
+
+nav a[href="/3d"].active span,
+nav a[href="/3d"][aria-current="page"] span {
+  color: white !important;
+}
+
 /* Desktop navigation spacing */
 @media (min-width: 768px) {
   nav .hidden.md\\:flex a {

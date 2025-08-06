@@ -22,7 +22,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="text-xl font-bold text-blue-500 hover:text-teal-500 transition-colors">
@@ -35,20 +35,20 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors hover:text-primary hover:bg-primary/10 ${
-                  isActive(item.path) ? "text-primary font-medium bg-primary/10" : "text-muted-foreground"
+                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors hover:text-blue-600 hover:bg-gray-100 ${
+                  isActive(item.path) ? "text-blue-600 font-medium bg-blue-50" : "text-black"
                 }`}
                 title={item.text}
               >
                 {item.label}
-                <span className="text-sm font-medium">{item.text}</span>
+                <span className="text-sm font-medium text-black">{item.text}</span>
               </Link>
             ))}
             <NavLink
               to="/3d"
               className={({ isActive }) =>
                 `flex items-center gap-2 px-3 py-2 rounded-md hover:bg-teal-500 hover:text-white transition ${
-                  isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
+                  isActive ? "bg-blue-500 text-white font-bold" : "text-black hover:text-white"
                 }`
               }
             >
@@ -71,27 +71,27 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border z-40">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-white border-b border-gray-200 z-40 shadow-lg">
             <div className="flex flex-col py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center gap-3 px-4 py-3 transition-colors hover:text-primary hover:bg-primary/10 ${
-                    isActive(item.path) ? "text-primary font-medium bg-primary/10" : "text-muted-foreground"
+                  className={`flex items-center gap-3 px-4 py-3 transition-colors hover:text-blue-600 hover:bg-gray-50 ${
+                    isActive(item.path) ? "text-blue-600 font-medium bg-blue-50" : "text-black"
                   }`}
                   title={item.text}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                  <span className="font-medium">{item.text}</span>
+                  <span className="font-medium text-black">{item.text}</span>
                 </Link>
               ))}
               <NavLink
                 to="/3d"
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-md hover:bg-teal-500 hover:text-white transition ${
-                    isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
+                    isActive ? "bg-blue-500 text-white font-bold" : "text-black hover:text-white"
                   }`
                 }
                 onClick={() => setIsOpen(false)}
