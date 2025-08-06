@@ -341,11 +341,12 @@ nav a span {
   font-weight: 500;
 }
 
-/* Force navigation text visibility */
+/* Force navigation text visibility - Updated */
 nav a span {
   color: #000000 !important;
   font-weight: 500 !important;
   text-shadow: none !important;
+  background: transparent !important;
 }
 
 nav a:hover span {
@@ -365,6 +366,19 @@ nav a[href="/3d"]:hover span {
 
 nav a[href="/3d"].active span,
 nav a[href="/3d"][aria-current="page"] span {
+  color: white !important;
+}
+
+/* Ensure navigation icons are black by default */
+nav a svg {
+  color: #000000 !important;
+}
+
+nav a:hover svg {
+  color: #2563eb !important;
+}
+
+nav a[href="/3d"]:hover svg {
   color: white !important;
 }
 
@@ -388,3 +402,31 @@ nav a[href="/3d"][aria-current="page"] span {
     font-weight: 500;
   }
 }
+
+/* Gallery progress bar styling */
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* Audio progress indicators */
+.audio-progress-0 { width: 0%; }
+.audio-progress-5 { width: 5%; }
+.audio-progress-10 { width: 10%; }
+.audio-progress-15 { width: 15%; }
+.audio-progress-20 { width: 20%; }
+.audio-progress-25 { width: 25%; }
+.audio-progress-30 { width: 30%; }
+.audio-progress-35 { width: 35%; }
+.audio-progress-40 { width: 40%; }
+.audio-progress-45 { width: 45%; }
+.audio-progress-50 { width: 50%; }
+.audio-progress-55 { width: 55%; }
+.audio-progress-60 { width: 60%; }
+.audio-progress-65 { width: 65%; }
+.audio-progress-70 { width: 70%; }
+.audio-progress-75 { width: 75%; }
+.audio-progress-80 { width: 80%; }
+.audio-progress-85 { width: 85%; }
+.audio-progress-90 { width: 90%; }
+.audio-progress-95 { width: 95%; }
+.audio-progress-100 { width: 100%; }

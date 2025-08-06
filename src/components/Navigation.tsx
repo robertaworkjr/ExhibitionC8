@@ -35,25 +35,29 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors hover:text-blue-600 hover:bg-gray-100 ${
-                  isActive(item.path) ? "text-blue-600 font-medium bg-blue-50" : "text-black"
+                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
+                  isActive(item.path) 
+                    ? "text-blue-600 font-medium bg-blue-50" 
+                    : "text-black hover:text-blue-600 hover:bg-gray-100"
                 }`}
                 title={item.text}
               >
-                {item.label}
+                <span className="text-black">{item.label}</span>
                 <span className="text-sm font-medium text-black">{item.text}</span>
               </Link>
             ))}
             <NavLink
               to="/3d"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded-md hover:bg-teal-500 hover:text-white transition ${
-                  isActive ? "bg-blue-500 text-white font-bold" : "text-black hover:text-white"
+                `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                  isActive 
+                    ? "bg-blue-500 text-white font-bold" 
+                    : "text-black hover:bg-teal-500 hover:text-white"
                 }`
               }
             >
-              <GiCube className="nav-icon" />
-              <span className="text-sm font-medium">3D Objects</span>
+              <GiCube className="nav-icon text-black" />
+              <span className="text-sm font-medium text-black">3D Objects</span>
             </NavLink>
           </div>
 
@@ -77,27 +81,31 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center gap-3 px-4 py-3 transition-colors hover:text-blue-600 hover:bg-gray-50 ${
-                    isActive(item.path) ? "text-blue-600 font-medium bg-blue-50" : "text-black"
+                  className={`flex items-center gap-3 px-4 py-3 transition-colors ${
+                    isActive(item.path) 
+                      ? "text-blue-600 font-medium bg-blue-50" 
+                      : "text-black hover:text-blue-600 hover:bg-gray-50"
                   }`}
                   title={item.text}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                  <span className="text-black">{item.label}</span>
                   <span className="font-medium text-black">{item.text}</span>
                 </Link>
               ))}
               <NavLink
                 to="/3d"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-md hover:bg-teal-500 hover:text-white transition ${
-                    isActive ? "bg-blue-500 text-white font-bold" : "text-black hover:text-white"
+                  `flex items-center gap-3 px-4 py-3 rounded-md transition ${
+                    isActive 
+                      ? "bg-blue-500 text-white font-bold" 
+                      : "text-black hover:bg-teal-500 hover:text-white"
                   }`
                 }
                 onClick={() => setIsOpen(false)}
               >
-                <GiCube className="nav-icon" />
-                <span className="font-medium">3D Objects</span>
+                <GiCube className="nav-icon text-black" />
+                <span className="font-medium text-black">3D Objects</span>
               </NavLink>
             </div>
           </div>
