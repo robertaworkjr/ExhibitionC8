@@ -12,7 +12,7 @@ const About = () => (
       </div>
       <section className="py-20 px-6 bg-gradient-hero">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             About the Exhibition
           </h1>
           <h2 className="text-2xl font-semibold mb-4 text-foreground">What to Expect</h2>

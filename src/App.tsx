@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
+import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import ThreeDPage from "./pages/ThreeDPage";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/research" element={<Research />} />
           <Route path="/about" element={<About />} />
           <Route path="/3d" element={<ThreeDPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

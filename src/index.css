@@ -8,45 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 15% 6%;
-    --foreground: 220 8% 95%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 220 12% 8%;
-    --card-foreground: 220 8% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 220 12% 8%;
-    --popover-foreground: 220 8% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 260 85% 65%;
-    --primary-foreground: 220 15% 6%;
-    --primary-glow: 260 100% 75%;
+    --primary: 214 100% 60%; /* Blue primary */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 184 100% 40%; /* Teal glow */
 
-    --secondary: 220 10% 12%;
-    --secondary-foreground: 220 8% 85%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    --muted: 220 8% 12%;
-    --muted-foreground: 220 5% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 45 95% 70%;
-    --accent-foreground: 220 15% 6%;
-    --accent-glow: 45 100% 80%;
+    --accent: 184 100% 40%; /* Teal accent */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 214 100% 60%; /* Blue glow */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 8% 18%;
-    --input: 220 8% 18%;
-    --ring: 260 85% 65%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.75rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
 
-    /* Exhibition-specific design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(220 15% 6%) 0%, hsl(260 25% 12%) 50%, hsl(220 15% 6%) 100%);
-    --shadow-elegant: 0 20px 40px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 60px hsl(var(--primary-glow) / 0.4);
-    --shadow-accent: 0 10px 30px -5px hsl(var(--accent) / 0.3);
+    --radius: 0.5rem;
+
+    /* Exhibition-specific design tokens - Black, White, Blue, Teal theme */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+    --gradient-accent: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --shadow-elegant: 0 20px 40px -10px rgba(59, 130, 246, 0.3);
+    --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.4);
+    --shadow-accent: 0 10px 30px -5px rgba(30, 41, 59, 0.3);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -76,24 +82,24 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 214 100% 60%; /* Blue primary for dark mode */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 220 14% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 220 14% 15%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 184 100% 40%; /* Teal accent for dark mode */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 224.3 76.3% 94.1%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -113,4 +119,213 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom gradient classes */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.text-teal {
+  color: #14b8a6;
+}
+
+.text-blue {
+  color: #3b82f6;
+}
+
+.border-teal {
+  border-color: #14b8a6;
+}
+
+.hover\:bg-teal:hover {
+  background-color: #0d9488;
+}
+
+.hover\:bg-blue:hover {
+  background-color: #2563eb;
+}
+
+/* Custom utility classes for blue/teal theme */
+.text-teal-500 {
+  color: #14b8a6;
+}
+
+.text-blue-500 {
+  color: #3b82f6;
+}
+
+.border-teal-500 {
+  border-color: #14b8a6;
+}
+
+.bg-teal-500 {
+  background-color: #14b8a6;
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.hover\:bg-teal-600:hover {
+  background-color: #0d9488;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #2563eb;
+}
+
+/* Logo styling with consistent sizing and responsive design */
+.logo-img {
+  height: 3rem;
+  max-width: 8rem;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: brightness(1) contrast(1);
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Single combined logo styling */
+.logo-img-single {
+  height: 4rem;
+  max-width: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: brightness(1) contrast(1);
+}
+
+.logo-img-single:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05) contrast(1.05);
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 2.5rem;
+    max-width: 6rem;
+  }
+  
+  .logo-img-single {
+    height: 3rem;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 2rem;
+    max-width: 4.5rem;
+  }
+  
+  .logo-img-single {
+    height: 2.5rem;
+    max-width: 90%;
+  }
+}
+
+/* Logo container for consistent spacing */
+.logos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: rgba(248, 250, 252, 0.9);
+  border-radius: 0.75rem;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .logos-container {
+    gap: 1.5rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-container {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Dark mode support for logo container */
+.dark .logos-container {
+  background-color: rgba(30, 41, 59, 0.9);
+  border-color: rgba(71, 85, 105, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dialog logo container - smaller for modal */
+.dialog-logos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  background-color: rgba(248, 250, 252, 0.9);
+  border-radius: 0.5rem;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dialog-logos-container .logo-img {
+  height: 2rem;
+  max-width: 5rem;
+}
+
+.dialog-logos-container .logo-img-single {
+  height: 2.5rem;
+  max-width: 90%;
+}
+
+@media (max-width: 480px) {
+  .dialog-logos-container {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .dialog-logos-container .logo-img {
+    height: 1.5rem;
+    max-width: 3.5rem;
+  }
+  
+  .dialog-logos-container .logo-img-single {
+    height: 2rem;
+    max-width: 85%;
+  }
+}
+
+/* Dark mode support for dialog logo container */
+.dark .dialog-logos-container {
+  background-color: rgba(30, 41, 59, 0.9);
+  border-color: rgba(71, 85, 105, 0.5);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.dark .gradient-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }

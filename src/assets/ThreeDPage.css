@@ -8,16 +8,31 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-@media (min-width: 640px) {
+@media (max-width: 640px) {
   .model-viewer-9-16 {
-    width: 140px;
-    height: 250px;
+    width: 120px;
+    height: 220px;
+  }
+  .carousel .font-semibold, .carousel .text-lg {
+    font-size: 1.1rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 641px) and (max-width: 1024px) {
+  .model-viewer-9-16 {
+    width: 160px;
+    height: 290px;
+  }
+}
+
+@media (min-width: 1025px) {
   .model-viewer-9-16 {
     width: 180px;
     height: 320px;
   }
+}
+
+.nav-icon {
+  width: 2.5rem;
+  height: 2.5rem;
 }

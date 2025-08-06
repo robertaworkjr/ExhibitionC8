@@ -4,7 +4,7 @@ import AdFooter from "@/components/AdFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight, BarChart4, Camera, LayoutDashboard, MessageSquare, Settings } from "lucide-react";
+import { ArrowRight, BarChart4, Camera, LayoutDashboard, MessageSquare, Settings, Building2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -34,17 +34,17 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative py-20 px-6 bg-gradient-hero overflow-hidden">
           <div className="max-w-4xl mx-auto text-center relative">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               Capture the Essence of the Eighth
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               A digital art exhibition that brings the spirit of the 8 to life through immersive experiences with archive and legacy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" className="bg-gradient-primary hover:shadow-glow" onClick={handleExploreGallery}>
+              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white shadow-lg" onClick={handleExploreGallery}>
                 Explore the Gallery <ArrowRight className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={handleBookVisit}>
+              <Button size="lg" variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white" onClick={handleBookVisit}>
                 Book Your Visit <ArrowRight className="ml-2" />
               </Button>
             </div>
@@ -81,7 +81,7 @@ const Index = () => {
         <section className="py-20 px-6 bg-card/30">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-12 text-foreground">Key Features</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="bg-card/50 border-border hover:shadow-elegant transition-all duration-500">
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center space-y-4">
@@ -123,6 +123,28 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
+              
+              <Card className="bg-card/50 border-border hover:shadow-elegant transition-all duration-500">
+                <CardContent className="p-8">
+                  <div className="flex flex-col items-center space-y-4">
+                    <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center">
+                      <Building2 className="h-8 w-8 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">Heritage Research</h3>
+                    <p className="text-muted-foreground">
+                      Discover the methodology behind preserving L8's heritage through digital innovation.
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="mt-2"
+                      onClick={() => navigate('/research')}
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -158,7 +180,7 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-20 px-6 bg-gradient-hero">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
               Experience "Capturethe8" Today
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -181,11 +203,13 @@ const Index = () => {
         <DialogContent className="sm:max-w-[425px] bg-background border-border">
           <DialogHeader>
             <DialogTitle className="text-foreground text-center">Exhibition Dates</DialogTitle>
-            <div className="flex items-center justify-center gap-4 py-2">
-              <img src="/logos/LCC logo 2023 Landscp MASTER.jpg" alt="LCC Logo" className="h-8" />
-              <img src="/logos/grant_jpeg_black.jpg" alt="Grant Logo" className="h-8" />
-              <img src="/logos/funded-by-the-uk.jpg" alt="Funded by the UK" className="h-8" />
-              <img src="/logos/Culturelogo_wht.png" alt="Culture Liverpool Logo" className="h-8" />
+            <div className="dialog-logos-container py-2">
+              <img
+                src="/LogoHeadFoot.png"
+                alt="Exhibition Partners and Sponsors"
+                className="logo-img-single"
+                loading="lazy"
+              />
             </div>
           </DialogHeader>
           <DialogDescription className="text-muted-foreground text-center">

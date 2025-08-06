@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Home, User, Headphones, Mail, Info } from "lucide-react";
+import { Home, User, Headphones, Mail, Info, Building2 } from "lucide-react";
 import { GiCube } from "react-icons/gi";
 
 const Navigation = () => {
@@ -12,10 +12,11 @@ const Navigation = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { path: "/", label: <Home className="h-5 w-5" />, text: "Home" },
-    { path: "/gallery", label: <Headphones className="h-5 w-5" />, text: "Gallery" },
-    { path: "/contact", label: <Mail className="h-5 w-5" />, text: "Contact" },
-    { path: "/about", label: <Info className="h-5 w-5" />, text: "About" },
+    { path: "/", label: <Home className="h-5 w-5 nav-icon" />, text: "Home" },
+    { path: "/gallery", label: <Headphones className="h-5 w-5 nav-icon" />, text: "Gallery" },
+    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research" },
+    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact" },
+    { path: "/about", label: <Info className="h-5 w-5 nav-icon" />, text: "About" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -24,7 +25,7 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <Link to="/" className="text-xl font-bold text-blue-500 hover:text-teal-500 transition-colors">
             Capturethe8
           </Link>
 
@@ -45,10 +46,12 @@ const Navigation = () => {
             <NavLink
               to="/3d"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded hover:bg-accent transition ${isActive ? "bg-accent font-bold" : ""}`
+                `flex items-center gap-2 px-3 py-2 rounded hover:bg-teal-500 hover:text-white transition nav-icon ${
+                  isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
+                }`
               }
             >
-              <GiCube size={20} />
+              <GiCube className="nav-icon" />
               <span>3D</span>
             </NavLink>
           </div>
@@ -85,11 +88,13 @@ const Navigation = () => {
               <NavLink
                 to="/3d"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded hover:bg-accent transition ${isActive ? "bg-accent font-bold" : ""}`
+                  `flex items-center gap-2 px-3 py-2 rounded hover:bg-teal-500 hover:text-white transition nav-icon ${
+                    isActive ? "bg-blue-500 text-white font-bold" : "text-gray-700 hover:text-white"
+                  }`
                 }
                 onClick={() => setIsOpen(false)}
               >
-                <GiCube size={20} />
+                <GiCube className="nav-icon" />
                 <span>3D</span>
               </NavLink>
             </div>

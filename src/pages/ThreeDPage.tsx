@@ -3,6 +3,14 @@ import { GiCube } from "react-icons/gi";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import "@/assets/ThreeDPage.css";
 
+declare global {
+  namespace JSX {
+	interface IntrinsicElements {
+	  'model-viewer': any;
+	}
+  }
+}
+
 const usdzObjects = [
 	{
 		name: "Charles Wooten",
@@ -29,12 +37,12 @@ const ThreeDPage = () => {
 	return (
 		<div className="max-w-3xl mx-auto py-8 px-4">
 			<div className="flex items-center gap-3 mb-6">
-				<GiCube size={32} />
-				<h1 className="text-2xl font-bold">3D Objects & Research</h1>
+				<GiCube size={32} className="text-blue-500" />
+				<h1 className="text-2xl font-bold text-foreground">3D Objects & Research</h1>
 			</div>
 			<section className="mb-8">
-				<h2 className="text-xl font-semibold mb-2">About the 3D Process</h2>
-				<p>
+				<h2 className="text-xl font-semibold mb-2 text-foreground">About the 3D Process</h2>
+				<p className="text-muted-foreground">
 					This page showcases 3D objects created for the exhibition, including
 					details about the digital modeling process, material choices, and
 					academic research. Iterations and prototypes are presented to
@@ -42,19 +50,19 @@ const ThreeDPage = () => {
 				</p>
 			</section>
 			<section className="mb-8">
-				<h2 className="text-xl font-semibold mb-2">Academic Research</h2>
-				<p>
+				<h2 className="text-xl font-semibold mb-2 text-foreground">Academic Research</h2>
+				<p className="text-muted-foreground">
 					The creation of these 3D objects was informed by research into
 					digital fabrication, sustainable materials, and community engagement.
 					Documentation and references are available for further reading.
 				</p>
 			</section>
 			<section>
-				<h2 className="text-xl font-semibold mb-2">3D Object Gallery</h2>
+				<h2 className="text-xl font-semibold mb-2 text-foreground">3D Object Gallery</h2>
 				<div className="border rounded-lg p-4 bg-card/50">
 					<div className="flex items-center gap-2 mb-2">
-						<GiCube size={24} />
-						<span className="font-semibold">Prototypes Carousel</span>
+						<GiCube size={24} className="text-teal-500" />
+						<span className="font-semibold text-foreground">Prototypes Carousel</span>
 					</div>
 					<Carousel>
 						<CarouselContent>
@@ -62,7 +70,6 @@ const ThreeDPage = () => {
 								<CarouselItem key={idx}>
 									<div className="flex flex-col items-center gap-2">
 										{obj.name === "Charles Wooten" ? (
-											// @ts-expect-error: model-viewer is a custom web component not recognized by JSX
 											<model-viewer
 												src={obj.file}
 												alt={obj.name}
