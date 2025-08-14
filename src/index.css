@@ -121,63 +121,6 @@ All colors MUST be HSL.
   }
 }
 
-/* Custom gradient classes */
-.bg-gradient-primary {
-  background: var(--gradient-primary);
-}
-
-.bg-gradient-hero {
-  background: var(--gradient-hero);
-}
-
-.text-teal {
-  color: #14b8a6;
-}
-
-.text-blue {
-  color: #3b82f6;
-}
-
-.border-teal {
-  border-color: #14b8a6;
-}
-
-.hover\:bg-teal:hover {
-  background-color: #0d9488;
-}
-
-.hover\:bg-blue:hover {
-  background-color: #2563eb;
-}
-
-/* Custom utility classes for blue/teal theme */
-.text-teal-500 {
-  color: #14b8a6;
-}
-
-.text-blue-500 {
-  color: #3b82f6;
-}
-
-.border-teal-500 {
-  border-color: #14b8a6;
-}
-
-.bg-teal-500 {
-  background-color: #14b8a6;
-}
-
-.bg-blue-500 {
-  background-color: #3b82f6;
-}
-
-.hover\:bg-teal-600:hover {
-  background-color: #0d9488;
-}
-
-.hover\:bg-blue-600:hover {
-  background-color: #2563eb;
-}
 
 /* Logo styling with consistent sizing and responsive design */
 .logo-img {
@@ -319,67 +262,66 @@ All colors MUST be HSL.
 }
 
 .gradient-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+  @apply bg-gradient-to-br from-primary to-accent;
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  @apply bg-gradient-to-br from-gray-50 to-gray-200;
 }
 
 .dark .gradient-hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  @apply bg-gradient-to-br from-slate-800 to-slate-700;
 }
 
 /* Navigation styling for better text visibility */
 .nav-icon {
-  flex-shrink: 0;
+  @apply shrink-0;
 }
 
 /* Ensure navigation text is visible and properly spaced */
 nav a span {
-  white-space: nowrap;
-  font-weight: 500;
+  @apply whitespace-nowrap font-medium;
 }
 
-/* Force navigation text visibility - Updated */
-nav a span {
-  color: #000000 !important;
-  font-weight: 500 !important;
-  text-shadow: none !important;
-  background: transparent !important;
+/* Default state for navigation links */
+nav a {
+  @apply text-foreground;
 }
 
-nav a:hover span {
-  color: #2563eb !important; /* blue-600 */
+nav a:hover {
+  @apply text-primary;
 }
 
-nav a.active span,
-nav a[aria-current="page"] span {
-  color: #2563eb !important; /* blue-600 */
-  font-weight: 600 !important;
+nav a.active,
+nav a[aria-current="page"] {
+  @apply text-primary font-semibold;
 }
 
 /* 3D Objects link specific styling */
-nav a[href="/3d"]:hover span {
-  color: white !important;
+nav a[href="/3d"] {
+  @apply text-foreground;
 }
 
-nav a[href="/3d"].active span,
-nav a[href="/3d"][aria-current="page"] span {
-  color: white !important;
+nav a[href="/3d"]:hover {
+  @apply text-accent;
 }
 
-/* Ensure navigation icons are black by default */
+nav a[href="/3d"].active,
+nav a[href="/3d"][aria-current="page"] {
+  @apply text-accent font-semibold;
+}
+
+/* Ensure navigation icons are correctly colored */
 nav a svg {
-  color: #000000 !important;
+  @apply text-foreground;
 }
 
 nav a:hover svg {
-  color: #2563eb !important;
+  @apply text-primary;
 }
 
 nav a[href="/3d"]:hover svg {
-  color: white !important;
+  @apply text-accent;
 }
 
 /* Desktop navigation spacing */
