@@ -35,7 +35,7 @@ const Research = () => {
         {/* Hero Section */}
         <section className="py-20 px-6 bg-gradient-hero">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               Research & Methodology
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

@@ -10,7 +10,7 @@ import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import ThreeDPage from "./pages/ThreeDPage";
-import Navigation from "@/components/Navigation";
+import Test from "./pages/Test";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +20,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
@@ -28,6 +27,7 @@ const App = () => (
           <Route path="/research" element={<Research />} />
           <Route path="/about" element={<About />} />
           <Route path="/3d" element={<ThreeDPage />} />
+          <Route path="/test" element={<Test />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

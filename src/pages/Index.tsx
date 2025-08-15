@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
+import { HeroDemo } from "@/components/HeroDemo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -31,25 +32,8 @@ const Index = () => {
           <AdHeader />
         </div>
 
-        {/* Hero Section */}
-        <section className="relative py-20 px-6 bg-gradient-hero overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center relative">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Capture the Essence of the Eighth
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A digital art exhibition that brings the spirit of the 8 to life through immersive experiences with archive and legacy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white shadow-lg" onClick={handleExploreGallery}>
-                Explore the Gallery <ArrowRight className="ml-2" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white" onClick={handleBookVisit}>
-                Book Your Visit <ArrowRight className="ml-2" />
-              </Button>
-            </div>
-          </div>
-        </section>
+        {/* Animated Hero Section */}
+        <HeroDemo onBookVisit={handleBookVisit} />
 
         {/* About Section */}
         <section className="py-20 px-6">
@@ -68,7 +52,7 @@ const Index = () => {
                 <h3 className="text-xl font-semibold mb-4 text-foreground">What to Expect</h3>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
                   <li>Engaging digital art installations</li>
-                  <li>Immersive VR experiences</li>
+                  <li>Interactive 3D visualization experiences</li>
                   <li>Thought-provoking stories from the L8 community</li>
                   <li>A space for open dialogue and reflection</li>
                 </ul>
@@ -81,7 +65,7 @@ const Index = () => {
         <section className="py-20 px-6 bg-card/30">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-12 text-foreground">Key Features</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card className="bg-card/50 border-border hover:shadow-elegant transition-all duration-500">
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center space-y-4">
@@ -96,25 +80,11 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/50 border-border hover:shadow-accent transition-all duration-500">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center space-y-4">
-                    <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center">
-                      <Camera className="h-8 w-8 text-primary-foreground" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground">Virtual Reality</h3>
-                    <p className="text-muted-foreground">
-                      Step into the world of the 8 with our immersive VR experiences.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
               <Card className="bg-card/50 border-border hover:shadow-primary transition-all duration-500">
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center space-y-4">
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-                      <BarChart4 className="h-8 w-8 text-primary-foreground" />
+                      <Camera className="h-8 w-8 text-primary-foreground" />
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">3D Visualization</h3>
                     <p className="text-muted-foreground">
@@ -152,7 +122,7 @@ const Index = () => {
         {/* Testimonials Section */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold mb-12 text-foreground">What People Are Saying</h2>
+            <h2 className="text-3xl font-semibold mb-12 text-foreground">This project has been funded by Culture Liverpool</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="bg-card/50 border-border">
                 <CardContent className="p-8">

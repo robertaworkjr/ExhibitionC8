@@ -430,3 +430,181 @@ nav a[href="/3d"]:hover svg {
 .audio-progress-90 { width: 90%; }
 .audio-progress-95 { width: 95%; }
 .audio-progress-100 { width: 100%; }
+
+/* Gallery Enhancement Styles */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gallery-card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile Dialog Improvements */
+@media (max-width: 640px) {
+  .dialog-content-mobile {
+    margin: 0.5rem;
+    padding: 1rem;
+    max-height: 95vh;
+    border-radius: 1rem;
+  }
+  
+  .mobile-audio-button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+/* Gradient Dividers */
+.gallery-divider {
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--border)) 20%, hsl(var(--border)) 80%, transparent 100%);
+  height: 1px;
+}
+
+.gallery-divider-primary {
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--primary)) 20%, hsl(var(--primary)) 80%, transparent 100%);
+  height: 1px;
+  opacity: 0.6;
+}
+
+/* Enhanced Progress Bar Styles */
+.audio-progress-enhanced {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)) 80%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+
+/* Enhanced Card Shadows and Borders */
+.gallery-card-enhanced {
+  border: 1px solid hsl(var(--border));
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--card))/90% 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.prose {
+  max-width: none;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Animated Hero Component Styles */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.delay-1200 {
+  animation-delay: 1.2s;
+}
+
+/* Navigation Text Visibility Fix */
+nav a {
+  color: hsl(var(--foreground)) !important;
+}
+
+nav a:hover {
+  color: #2563eb !important; /* blue-600 */
+}
+
+nav a.text-blue-600 {
+  color: #2563eb !important;
+}
+
+nav span {
+  color: inherit !important;
+}
+
+/* Ensure 3D Objects link visibility */
+nav .nav-icon {
+  color: inherit !important;
+}

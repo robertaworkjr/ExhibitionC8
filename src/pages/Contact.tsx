@@ -74,7 +74,7 @@ Nature of your time in L8: ${signupForm.l8Experience}`;
         {/* Header */}
         <section className="py-20 px-6 bg-gradient-hero">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               Contact Us
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -162,40 +162,7 @@ Nature of your time in L8: ${signupForm.l8Experience}`;
         {/* Contact Information */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <Card className="bg-card/50 border-border">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-semibold mb-6 text-foreground">Send us a message</h2>
-                  <form className="space-y-6">
-                    <div>
-                      <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Your name" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="your.email@example.com" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input id="subject" placeholder="What's this about?" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea 
-                        id="message" 
-                        placeholder="Tell us more..." 
-                        rows={5}
-                        className="mt-1"
-                      />
-                    </div>
-                    <Button size="lg" className="w-full bg-gradient-primary hover:shadow-glow">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-
+            <div className="grid md:grid-cols-1 gap-12">
               {/* Contact Details */}
               <div className="space-y-8">
                 <div>
@@ -207,7 +174,7 @@ Nature of your time in L8: ${signupForm.l8Experience}`;
                   </p>
                 </div>
 
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   <Card className="bg-card/30 border-border hover:shadow-elegant transition-all duration-500">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">

@@ -14,8 +14,8 @@ const Navigation = () => {
   const navItems = [
     { path: "/", label: <Home className="h-5 w-5 nav-icon" />, text: "Home" },
     { path: "/gallery", label: <Headphones className="h-5 w-5 nav-icon" />, text: "Gallery" },
-    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research" },
-    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact" },
+    { path: "/research", label: <Building2 className="h-5 w-5 nav-icon" />, text: "Research & Methodology" },
+    { path: "/contact", label: <Mail className="h-5 w-5 nav-icon" />, text: "Contact Us" },
     { path: "/about", label: <Info className="h-5 w-5 nav-icon" />, text: "About" },
   ];
 
@@ -30,34 +30,34 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors whitespace-nowrap ${
                   isActive(item.path) 
                     ? "text-blue-600 font-medium bg-blue-50" 
-                    : "text-black hover:text-blue-600 hover:bg-gray-100"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
                 }`}
                 title={item.text}
               >
-                <span className="text-black">{item.label}</span>
-                <span className="text-sm font-medium text-black">{item.text}</span>
+                <span className="text-current">{item.label}</span>
+                <span className="text-sm font-medium text-current">{item.text}</span>
               </Link>
             ))}
             <NavLink
               to="/3d"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                `flex items-center gap-2 px-3 py-2 rounded-md transition whitespace-nowrap ${
                   isActive 
                     ? "bg-blue-500 text-white font-bold" 
-                    : "text-black hover:bg-teal-500 hover:text-white"
+                    : "text-gray-700 hover:bg-teal-500 hover:text-white"
                 }`
               }
             >
-              <GiCube className="nav-icon text-black" />
-              <span className="text-sm font-medium text-black">3D Objects</span>
+              <GiCube className="nav-icon text-current" />
+              <span className="text-sm font-medium text-current">3D Objects</span>
             </NavLink>
           </div>
 
@@ -84,13 +84,13 @@ const Navigation = () => {
                   className={`flex items-center gap-3 px-4 py-3 transition-colors ${
                     isActive(item.path) 
                       ? "text-blue-600 font-medium bg-blue-50" 
-                      : "text-black hover:text-blue-600 hover:bg-gray-50"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   }`}
                   title={item.text}
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="text-black">{item.label}</span>
-                  <span className="font-medium text-black">{item.text}</span>
+                  <span className="text-current">{item.label}</span>
+                  <span className="font-medium text-current">{item.text}</span>
                 </Link>
               ))}
               <NavLink
@@ -99,13 +99,13 @@ const Navigation = () => {
                   `flex items-center gap-3 px-4 py-3 rounded-md transition ${
                     isActive 
                       ? "bg-blue-500 text-white font-bold" 
-                      : "text-black hover:bg-teal-500 hover:text-white"
+                      : "text-foreground hover:bg-teal-500 hover:text-white"
                   }`
                 }
                 onClick={() => setIsOpen(false)}
               >
-                <GiCube className="nav-icon text-black" />
-                <span className="font-medium text-black">3D Objects</span>
+                <GiCube className="nav-icon text-current" />
+                <span className="font-medium text-current">3D Objects</span>
               </NavLink>
             </div>
           </div>

@@ -13,90 +13,90 @@ const galleryData = [
 	{
 		id: 1,
 		title: "Charles Wooten",
-		imageUrl: "/images/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
+		imageUrl: "/lovable-uploads/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
 		description:
-			"A striking urban silhouette of Charles, captured in the city he loved, blending his facial likeness with shadows in vivid 3D photographic form. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+			"3D Portrait – A Life Remembered\n\nA striking 3D model of Charles Wooten stands as a lasting archive — a powerful reminder of a life cut short in the very city where he lived and worked. Through the blending of technology and narrative, the artist captures his likeness in vivid 3D photographic form, using light and shadow to evoke both his presence and his absence.\n\nCharles Wooten, 24, a Bermudan ship's fireman, escaped a house in the city and fled towards the docks — pursued by both police and an angry mob. His death remains a tragic symbol of racial injustice, and this portrait preserves his memory as part of Liverpool's living history.\n\nProcess & Materials — From Image to 3D\nImage Capture & Reference: High-resolution photographs were taken from multiple angles, ensuring the subject's facial structure, proportions, and key shadow details were faithfully recorded.\n\nDigital Sculpting in Blender: Using Blender, the portrait was digitally sculpted to sub-millimetre accuracy, with surface textures and shadow planes refined to preserve the depth of Charles' likeness.\n\nModel Preparation for Printing: The 3D file was exported as .STL and prepared in PrusaSlicer for the Prusa XL printer.\n• Layer height: 0.15 mm for high-definition detail\n• Infill: 15% gyroid pattern for structural stability\n• Print speed: 45 mm/s to ensure precision\n\n3D Printing in PLA: The portrait was produced using PLA (Polylactic Acid) — a biodegradable polymer derived from renewable resources. The process involved heating the filament to ~200°C, extruding it through a fine nozzle, and building the form layer by layer.\n\nPost-Processing: Supports were removed, surfaces sanded, and finishing applied to achieve the final visual tone of the portrait.",
 		audioUrl: "/audio/CharlesWooten.mp3",
 	},
 	{
 		id: 2,
 		title: "Bea Freeman",
-		imageUrl: "/images/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
+		imageUrl: "/lovable-uploads/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
 		description:
-			"A pioneer in media and television, Bea is portrayed in the heart of her city, her likeness preserved through striking and lifelike 3D photography. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+			"Pioneer of Media and Representation\n\nA finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.\n\nProcess & Materials — From Image to 3D\n\nImage Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours.\n\nDigital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.\n\nModel Preparation: Sliced for the Prusa XL printer at 0.15 mm layer height, 15% gyroid infill, and a 45 mm/s print speed.\n\n3D Printing: Produced in PLA, a biodegradable thermoplastic, printed at ~200°C and built layer by layer.\n\nPost-Processing: Surface smoothed and fine brush-painted to enhance tonal definition and texture depth.",
 		audioUrl: "",
 	},
 	{
 		id: 3,
 		title: "Joanne Anderson",
-		imageUrl: "/images/c4a65cb4-1f9f-46a9-953b-98e8a08b8e24.png",
+		imageUrl: "/lovable-uploads/c4a65cb4-1f9f-46a9-953b-98e8a08b8e24.png",
 		description:
-			"A contemplative portrait of Joanne, capturing subtle human expression and artistry in timeless monochromatic and 3D photographic style. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+			"Political Leadership and Representation\n\nThis 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Careful lighting used to create a soft tonal range, matching the poised expression of the subject.\n\nDigital Sculpting: Modelled in Blender, focusing on subtle surface detail and symmetry.\n\nModel Preparation: Exported and sliced with 0.16 mm layers and moderate infill for balance between weight and detail.\n\n3D Printing: Printed in PLA on the Prusa XL, using a slow extrusion for precise edge fidelity.\n\nPost-Processing: Buffed to a smooth matte finish to preserve the soft, monochrome-inspired aesthetic.",
 		audioUrl: "/audio/JoanneAnderson.mp3",
 	},
 	{
 		id: 4,
 		title: "Leroy Cooper",
-		imageUrl: "/images/01ac894b-7177-43b1-b129-57e5d815170d.png",
+		imageUrl: "/lovable-uploads/01ac894b-7177-43b1-b129-57e5d815170d.png",
 		description:
-			"A classical sculpture-style bust of Leroy, reflecting traditional craftsmanship and fine detail, celebrating his influence in 3D artistic form. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+			"Visual Storyteller and Cultural Witness\n\nA sculpted 3D bust of Leroy Cooper draws attention to the details — the contours of the face, the gaze fixed beyond the frame — revealing both the artist and the witness. The work uses light to frame his features as if caught between memory and moment.\n\nLeroy Cooper is celebrated as a photographer, artist, and activist, whose work chronicled decades of life in Liverpool 8. His images have become part of the city's cultural memory, documenting the lived experience of its people.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: High-contrast lighting to highlight facial planes and enhance the sense of depth in the digital sculpt.\n\nDigital Sculpting: Created in Blender with emphasis on texture mapping for a life-like skin surface.\n\nModel Preparation: Sliced with a fine 0.12 mm layer height for enhanced portrait sharpness.\n\n3D Printing: Fabricated in PLA with ~200°C extrusion, using a slow print speed to ensure crisp shadow edges.\n\nPost-Processing: Surface lightly patinated to add visual depth, echoing the tonal contrast of his photographic work.",
 		audioUrl: "/audio/LeroyCopper.mp3",
 	},
 	{
 		id: 5,
 		title: "Margaret Simey",
-		imageUrl: "/images/307d02bf-74fb-40e4-a422-fc8ee8fe12c2.png",
+		imageUrl: "/lovable-uploads/307d02bf-74fb-40e4-a422-fc8ee8fe12c2.png",
 		description:
-			"A distinguished figure in social reform, captured as a sculptural work that blends diverse artistic styles with a mastery of three-dimensional form. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+			"Community Activist and Social Reformer\n\nA vivid 3D portrait of Margaret Simey captures her poise and determination, rendered with the sculptural clarity of digital craft. The interplay of highlights and shadow evokes her lifelong commitment to justice and reform.\n\nMargaret Simey (1906–2004) was a pioneering figure in Liverpool's social justice movement. Her advocacy for housing rights, community empowerment, and political change helped transform the lives of thousands in the city.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Natural key lighting chosen to reflect her determined character.\n\nDigital Sculpting: Detailed in Blender with sharp edge definition around the jawline and brow.\n\nModel Preparation: Sliced at 0.15 mm layers, 20% infill for structural strength.\n\n3D Printing: Printed in PLA, utilising a steady feed rate to maintain form accuracy.\n\nPost-Processing: Varnished for light gloss, creating a visual link to the polished tone of the subject's public presence.",
 		audioUrl: "/audio/MargretSimey.mp3",
 	},
 	{
 		id: 6,
 		title: "Jimi Jagne",
 		imageUrl: "/placeholder.svg",
-		description: "A creative force in Liverpool's culture, Jimi is shown as a dynamic 3D portrait, symbolising his lasting impact in music, activism, and the arts. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Cultural Innovator and Activist\n\nThis 3D work presents Jimi Jagne with a sense of movement and energy, the model's depth suggesting both the man and the momentum of his ideas. It merges the clean geometry of digital form with the warmth of lived history.\n\nJimi Jagne has been a driving force in Liverpool's cultural scene, known for his work in music, community activism, and the arts. His projects have created space for voices often excluded from mainstream narratives.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Dynamic lighting and angled poses used to suggest motion in the final sculpture.\n\nDigital Sculpting: Blender mesh modelling with exaggerated folds and texture layers to convey energy.\n\nModel Preparation: 0.18 mm layers, 12% infill to reduce weight while maintaining form.\n\n3D Printing: Printed in PLA on the Prusa XL, tuned for speed and moderate precision.\n\nPost-Processing: Painted highlights to exaggerate depth, enhancing the sense of movement.",
 		audioUrl: "/audio/jimmiJagne.mp3",
 	},
 	{
 		id: 7,
 		title: "Jacob Baptista",
 		imageUrl: "/placeholder.svg",
-		description: "A promising footballer and mentor at Belv Boxing Gym L8, Jacob is honoured in a 3D portrait that reflects his dedication and community spirit. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Community Builder and Athletic Mentor\n\nA dynamic 3D portrait of Jacob Baptista captures the spirit of dedication and mentorship that defines his work within Liverpool's L8 community. The sculpted form reflects both strength and compassion, embodying his dual role as athlete and guide.\n\nJacob Baptista is a promising footballer and respected mentor at Belv Boxing Gym L8, where he has inspired countless young people through sport and personal development. His commitment to community building has made him a vital figure in local youth engagement.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Action-oriented lighting to capture the energy and movement associated with athletic pursuits.\n\nDigital Sculpting: Modelled in Blender with emphasis on muscular definition and confident posture.\n\nModel Preparation: 0.15 mm layer resolution with reinforced infill patterns for durability.\n\n3D Printing: Produced in PLA using optimized settings for fine detail and structural integrity.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the subject's dynamic presence.",
 		audioUrl: "",
 	},
 	{
 		id: 8,
 		title: "John Archer",
 		imageUrl: "/placeholder.svg",
-		description: "A respected community leader, John's likeness is immortalised in 3D form, symbolising his commitment to representation and social justice. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Pioneer of Political Representation\n\nThis thoughtful 3D portrait of John Archer presents him with the dignity and gravitas befitting a historic figure who broke significant barriers in British politics. The sculptural work captures both his personal character and his symbolic importance.\n\nJohn Archer (1863-1932) was a pioneering politician who became one of the first Black mayors in London and a significant figure in early 20th-century British politics. His commitment to representation and social justice paved the way for future generations of Black political leaders.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Classical portrait lighting to reflect the formal dignity of his political role.\n\nDigital Sculpting: Crafted in Blender with attention to period-appropriate facial hair and clothing details.\n\nModel Preparation: 0.14 mm layers with enhanced infill for archival longevity.\n\n3D Printing: Printed in PLA with careful temperature control to preserve fine historical details.\n\nPost-Processing: Finished with a subtle patina to suggest the gravitas of historical portraiture.",
 		audioUrl: "",
 	},
 	{
 		id: 9,
 		title: "Jerome Priest",
 		imageUrl: "/placeholder.svg",
-		description: "A portrait of Jerome capturing resilience and pride, rendered in detailed 3D artistry to honour his life and role within the community. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Voice of Resilience and Community Pride\n\nA powerful 3D portrait of Jerome Priest captures the strength and determination that have defined his journey. The sculptural work emphasizes the depth of character forged through personal challenges and community commitment.\n\nJerome Priest has become a symbol of resilience within Liverpool's L8 community, transforming personal struggles into a platform for helping others. His story of redemption and community service has inspired many to overcome their own challenges.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Dramatic lighting chosen to emphasize character lines and the wisdom gained through experience.\n\nDigital Sculpting: Detailed in Blender with particular attention to facial expression and emotional depth.\n\nModel Preparation: 0.16 mm layers with reinforced support structures for complex geometries.\n\n3D Printing: Fabricated in PLA using precise temperature control for optimal surface finish.\n\nPost-Processing: Hand-finished to enhance the contemplative quality of the subject's expression.",
 		audioUrl: "",
 	},
 	{
 		id: 10,
 		title: "Kate Garder",
 		imageUrl: "/placeholder.svg",
-		description: "A dedicated GP and advocate for women's health, Kate's 3D portrait reflects her service and care for the local community. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Healthcare Advocate and Women's Rights Champion\n\nThis compassionate 3D portrait of Kate Garder reflects the caring nature and professional dedication that have marked her medical career. The sculptural work captures both her clinical expertise and her advocacy for community health.\n\nDr. Kate Garder has served as a dedicated GP and tireless advocate for women's health within Liverpool's diverse communities. Her work has focused on providing accessible healthcare and championing health equity for underserved populations.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Soft, professional lighting to convey the approachable yet authoritative nature of medical practice.\n\nDigital Sculpting: Modelled in Blender with attention to compassionate facial features and professional bearing.\n\nModel Preparation: 0.15 mm layers with standard infill optimized for smooth surface finish.\n\n3D Printing: Printed in PLA with consistent temperature control for professional-grade detail.\n\nPost-Processing: Polished to a clean, clinical finish reflecting the precision of medical practice.",
 		audioUrl: "",
 	},
 	{
 		id: 11,
-		title: "Kim Johnson",
+		title: "Eleanor Rathbone",
 		imageUrl: "/placeholder.svg",
-		description: "A local L8 politician and champion for the people, Kim's 3D portrayal celebrates her decades of dedication and political leadership. Each person was chosen because they have had an influence on me personally and on the community I live in.",
+		description: "Social Reformer and Women's Rights Pioneer\n\nA commanding 3D portrait of Eleanor Rathbone captures the unwavering determination and intellectual strength that made her one of Britain's most influential social reformers. The sculptural work reflects both her political vision and her compassionate advocacy for the marginalized.\n\nEleanor Rathbone (1872-1946) was a pioneering feminist, social researcher, and independent MP who championed women's rights and family welfare. Her work on family allowances revolutionized social policy, and her advocacy for women's suffrage and international humanitarian causes left an indelible mark on British society.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Strong, directional lighting chosen to emphasize her resolute character and intellectual bearing.\n\nDigital Sculpting: Meticulously crafted in Blender with attention to period-appropriate dress and the determined expression that characterized her public appearances.\n\nModel Preparation: 0.14 mm layers with reinforced infill patterns for archival preservation.\n\n3D Printing: Printed in PLA using precise temperature control to capture the fine details of early 20th-century portraiture.\n\nPost-Processing: Finished with subtle aging techniques to reflect the historical significance and gravitas of this pioneering figure.",
 		audioUrl: "",
 	},
 	{
 		id: 12,
-		title: "Person 12",
+		title: "Alan Williams",
 		imageUrl: "/placeholder.svg",
-		description: "",
+		description: "The Man Who Gave Away The Beatles\n\nA contemplative 3D portrait of Alan Williams captures the entrepreneurial spirit and Liverpool charm of the man who played a pivotal role in The Beatles' early career. The sculptural work reflects both his business acumen and the weight of decisions that would shape music history.\n\nAlan Williams (1930-2016) was a Liverpool entrepreneur and club owner who became The Beatles' first manager, organizing their legendary trip to Hamburg in 1960. Though he famously 'gave away' The Beatles before their meteoric rise, his role in their formative years was crucial to their development as performers and his place in Liverpool's musical heritage is undeniable.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Atmospheric lighting chosen to evoke the smoky club atmosphere of 1960s Liverpool music venues.\n\nDigital Sculpting: Created in Blender with emphasis on the confident yet reflective expression of a man who witnessed music history in the making.\n\nModel Preparation: 0.15 mm layers with careful support structuring for complex facial geometry.\n\n3D Printing: Fabricated in PLA using optimized settings to capture the character lines and expression of this music industry pioneer.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the storytelling quality of his weathered, experienced features.",
 		audioUrl: "",
 	},
 ];
@@ -161,12 +161,6 @@ const Gallery = () => {
 		}
 	};
 
-/*************  ✨ Windsurf Command ⭐  *************/
-	/**
-	 * Creates a temporary link to download the given image.
-	 * @param {object} image - Image object with title and imageUrl properties.
-	 */
-/*******  c11e9ce1-5a04-4ba3-951a-e4064d9161f5  *******/
 	const handleDownload = (image: any) => {
 		const link = document.createElement("a");
 		link.href = image.imageUrl;
@@ -210,37 +204,62 @@ const Gallery = () => {
 
 				{/* Gallery Display */}
 				<section className="py-20 px-6">
-					<div className="max-w-4xl mx-auto">
-						{/* Gallery Grid - More Frames, Smaller Size */}
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+					<div className="max-w-7xl mx-auto">
+						{/* Section Divider */}
+						<div className="mb-12">
+							<div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8"></div>
+							<h2 className="text-3xl font-bold text-center text-foreground mb-4">Portrait Collection</h2>
+							<p className="text-center text-muted-foreground max-w-2xl mx-auto">
+								Each 3D portrait combines artistic vision with technical mastery, preserving the essence and legacy of Liverpool's influential figures.
+							</p>
+							<div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mt-8"></div>
+						</div>
+
+						{/* Gallery Grid - Larger Cards */}
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 							{galleryData.map((image) => (
 								<Card
 									key={image.id}
-									className="bg-card/50 border-border hover:shadow-elegant transition-all duration-300 cursor-pointer"
+									className="bg-card/80 border-border hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer overflow-hidden"
 									onClick={() => handleCardClick(image.id)}
 								>
-									<CardContent className="p-3">
-										<div className="flex flex-col gap-2 items-center">
-											<div className="w-32 h-24 overflow-hidden rounded-md flex items-center justify-center bg-muted">
+									<CardContent className="p-6">
+										<div className="flex flex-col gap-4 items-center">
+											{/* Larger Image Container */}
+											<div className="w-full h-48 sm:h-56 overflow-hidden rounded-lg flex items-center justify-center bg-muted shadow-inner">
 												<img
 													src={image.imageUrl}
 													alt={image.title}
-													className="object-cover w-full h-full"
+													className="object-cover w-full h-full hover:scale-110 transition-transform duration-700"
 												/>
 											</div>
-											<h3 className="text-lg font-semibold text-foreground text-center mt-2">
-												{image.title}
-											</h3>
-											{image.description && (
-												<p className="text-xs text-muted-foreground text-center">
-													{image.description}
-												</p>
-											)}
+											
+											{/* Content Section with Divider */}
+											<div className="w-full">
+												<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4"></div>
+												
+												<h3 className="text-xl font-bold text-foreground text-center mb-3">
+													{image.title}
+												</h3>
+												
+												{image.description && (
+													<div className="mb-4">
+														<p className="text-sm text-muted-foreground text-center line-clamp-3 leading-relaxed">
+															{image.description.split('\n\n')[0]}
+														</p>
+														<div className="text-center mt-2">
+															<span className="text-xs text-primary font-medium">Click to read more...</span>
+														</div>
+													</div>
+												)}
+												
+												<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4"></div>
+											</div>
 
 											{/* Audio Player - Only show if audioUrl exists */}
 											{image.audioUrl && (
-												<div className="bg-muted/30 rounded-lg p-2 w-full">
-													<div className="flex items-center gap-2">
+												<div className="bg-gradient-to-r from-muted/20 via-muted/40 to-muted/20 rounded-lg p-4 w-full border border-border/50">
+													<div className="flex items-center gap-3 mb-3">
 														<Button
 															variant="ghost"
 															size="icon"
@@ -253,15 +272,15 @@ const Gallery = () => {
 																	handleAudioToggle(image.id, audioElement);
 																}
 															}}
-															className="h-6 w-6"
+															className="h-8 w-8 rounded-full bg-primary/10 hover:bg-primary/20"
 														>
 															{playingAudio === image.id ? (
-																<Pause className="h-4 w-4" />
+																<Pause className="h-4 w-4 text-primary" />
 															) : (
-																<Play className="h-4 w-4" />
+																<Play className="h-4 w-4 text-primary" />
 															)}
 														</Button>
-														<span className="text-xs font-medium">Audio</span>
+														<span className="text-sm font-medium text-foreground">Audio Story</span>
 													</div>
 													<audio
 														data-id={image.id}
@@ -280,7 +299,7 @@ const Gallery = () => {
 														onPause={() => setPlayingAudio(null)}
 													/>
 													<div
-														className="w-full bg-muted rounded-full h-1 cursor-pointer"
+														className="w-full bg-muted rounded-full h-2 cursor-pointer shadow-inner"
 														onClick={(e) => {
 															e.stopPropagation();
 															const audioElement = document.querySelector(
@@ -296,7 +315,7 @@ const Gallery = () => {
 														}}
 													>
 														<div
-															className={`bg-primary h-1 rounded-full transition-all duration-300 ${getProgressClass(progress[image.id] || 0)}`}
+															className={`bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-300 ${getProgressClass(progress[image.id] || 0)}`}
 														></div>
 													</div>
 												</div>
@@ -315,116 +334,146 @@ const Gallery = () => {
 				</div>
 			</div>
 
-			{/* Individual Popups for Each Gallery Item */}
+			{/* Individual Popups for Each Gallery Item - Mobile Optimized */}
 			{galleryData.map((image) => (
 				<Dialog
 					key={`dialog-${image.id}`}
 					open={openPopups[image.id] || false}
 					onOpenChange={() => handleClosePopup(image.id)}
 				>
-					<DialogContent className="sm:max-w-[600px] bg-background border-border">
-						<DialogHeader>
-							<DialogTitle className="text-foreground text-xl">
+					<DialogContent className="sm:max-w-[95vw] md:max-w-[800px] max-h-[95vh] w-[95vw] mx-auto overflow-y-auto bg-background border-border rounded-xl shadow-2xl">
+						<DialogHeader className="pb-4 border-b border-border/50">
+							<DialogTitle className="text-foreground text-xl md:text-2xl font-bold text-center">
 								{image.title}
 							</DialogTitle>
-							{image.description && (
-								<DialogDescription className="text-muted-foreground text-base">
-									{image.description}
-								</DialogDescription>
-							)}
+							<div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mt-2"></div>
 						</DialogHeader>
 						
-						{/* Image Display */}
-						<div className="mb-6 overflow-hidden rounded-lg">
+						{/* Image Display with Enhanced Mobile Layout */}
+						<div className="mb-6 overflow-hidden rounded-xl shadow-lg">
 							<img
 								src={image.imageUrl}
 								alt={image.title}
-								className="object-cover w-full h-80 rounded-lg"
+								className="object-cover w-full h-64 md:h-96 rounded-xl"
 							/>
 						</div>
 
-						{/* Enhanced Audio Player - Only show if audioUrl exists */}
+						{/* Content Sections with Dividers */}
+						{image.description && (
+							<div className="mb-6">
+								<div className="mb-4">
+									<h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+										<div className="w-1 h-6 bg-primary rounded-full"></div>
+										Portrait Description
+									</h4>
+									<div className="h-px bg-gradient-to-r from-primary/20 via-border to-primary/20 mb-4"></div>
+								</div>
+								
+								<div className="prose prose-sm max-w-none">
+									<div className="text-muted-foreground text-sm md:text-base leading-relaxed whitespace-pre-line bg-muted/20 rounded-lg p-4 md:p-6 border border-border/30">
+										{image.description}
+									</div>
+								</div>
+								
+								<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mt-6"></div>
+							</div>
+						)}
+
+						{/* Enhanced Audio Player - Mobile Optimized */}
 						{image.audioUrl && (
-							<div className="bg-muted/30 rounded-lg p-4 mb-4">
-								<h4 className="text-sm font-semibold mb-3 text-foreground">Audio Story</h4>
-								<div className="flex items-center gap-3">
-									<Button
-										variant="ghost"
-										size="icon"
-										onClick={(e) => {
-											e.stopPropagation();
-											const audioElement = document.querySelector(
-												`audio[data-id='popup-${image.id}']`
-											) as HTMLAudioElement;
-											if (audioElement) {
-												handleAudioToggle(image.id, audioElement);
-											}
-										}}
-										className="h-10 w-10"
-									>
-										{playingAudio === image.id ? (
-											<Pause className="h-5 w-5" />
-										) : (
-											<Play className="h-5 w-5" />
-										)}
-									</Button>
-									<div className="flex-1">
-										<span className="text-sm font-medium text-foreground">Listen to {image.title}'s story</span>
-										<div
-											className="w-full bg-muted rounded-full h-2 cursor-pointer mt-2"
+							<div className="mb-6">
+								<div className="mb-4">
+									<h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+										<div className="w-1 h-6 bg-primary rounded-full"></div>
+										Audio Story
+									</h4>
+									<div className="h-px bg-gradient-to-r from-primary/20 via-border to-primary/20 mb-4"></div>
+								</div>
+								
+								<div className="bg-gradient-to-br from-muted/30 to-muted/50 rounded-xl p-4 md:p-6 border border-border/50 shadow-inner">
+									<div className="flex items-center gap-4 mb-4">
+										<Button
+											variant="ghost"
+											size="icon"
 											onClick={(e) => {
+												e.stopPropagation();
 												const audioElement = document.querySelector(
 													`audio[data-id='popup-${image.id}']`
 												) as HTMLAudioElement;
 												if (audioElement) {
-													const rect = e.currentTarget.getBoundingClientRect();
-													const percent = (e.clientX - rect.left) / rect.width;
-													audioElement.currentTime = percent * audioElement.duration;
+													handleAudioToggle(image.id, audioElement);
 												}
 											}}
+											className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-primary/10 hover:bg-primary/20 border-2 border-primary/20"
 										>
+											{playingAudio === image.id ? (
+												<Pause className="h-6 w-6 md:h-7 md:w-7 text-primary" />
+											) : (
+												<Play className="h-6 w-6 md:h-7 md:w-7 text-primary" />
+											)}
+										</Button>
+										<div className="flex-1">
+											<span className="text-sm md:text-base font-medium text-foreground block mb-2">
+												Listen to {image.title}'s story
+											</span>
 											<div
-												className={`bg-primary h-2 rounded-full transition-all duration-300 ${getProgressClass(progress[image.id] || 0)}`}
-											></div>
+												className="w-full bg-muted rounded-full h-3 cursor-pointer shadow-inner border border-border/50"
+												onClick={(e) => {
+													const audioElement = document.querySelector(
+														`audio[data-id='popup-${image.id}']`
+													) as HTMLAudioElement;
+													if (audioElement) {
+														const rect = e.currentTarget.getBoundingClientRect();
+														const percent = (e.clientX - rect.left) / rect.width;
+														audioElement.currentTime = percent * audioElement.duration;
+													}
+												}}
+											>
+												<div
+													className={`bg-gradient-to-r from-primary to-primary/80 h-3 rounded-full transition-all duration-300 ${getProgressClass(progress[image.id] || 0)}`}
+												></div>
+											</div>
 										</div>
 									</div>
+									<audio
+										data-id={`popup-${image.id}`}
+										src={image.audioUrl}
+										onTimeUpdate={(e) => {
+											const audio = e.target as HTMLAudioElement;
+											const newProgress = (audio.currentTime / audio.duration) * 100;
+											setProgress((prev) => ({
+												...prev,
+												[image.id]: newProgress || 0,
+											}));
+										}}
+										onEnded={() => setPlayingAudio(null)}
+										onPlay={() => setPlayingAudio(image.id)}
+										onPause={() => setPlayingAudio(null)}
+									/>
 								</div>
-								<audio
-									data-id={`popup-${image.id}`}
-									src={image.audioUrl}
-									onTimeUpdate={(e) => {
-										const audio = e.target as HTMLAudioElement;
-										const newProgress = (audio.currentTime / audio.duration) * 100;
-										setProgress((prev) => ({
-											...prev,
-											[image.id]: newProgress || 0,
-										}));
-									}}
-									onEnded={() => setPlayingAudio(null)}
-									onPlay={() => setPlayingAudio(image.id)}
-									onPause={() => setPlayingAudio(null)}
-								/>
+								
+								<div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mt-6"></div>
 							</div>
 						)}
 
-						{/* Action Buttons */}
-						<div className="flex justify-between items-center">
-							<div className="flex space-x-2">
+						{/* Action Buttons - Mobile Enhanced */}
+						<div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-border/50">
+							<div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
 								<Button 
 									variant="outline" 
 									size="sm" 
 									onClick={() => handleDownload(image)}
-									className="flex items-center gap-2"
+									className="flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 text-sm"
 								>
 									<Download className="h-4 w-4" />
-									Download
+									Download Image
 								</Button>
 								{image.description && (
 									<Button 
 										variant="outline" 
 										size="sm" 
 										onClick={() => handleCopyDescription(image.description)}
-										className="flex items-center gap-2"
+										className="flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 text-sm"
 									>
 										<Copy className="h-4 w-4" />
 										Copy Description
@@ -435,6 +484,7 @@ const Gallery = () => {
 								variant="ghost" 
 								size="icon" 
 								onClick={() => handleClosePopup(image.id)}
+								className="h-10 w-10 rounded-full bg-muted/50 hover:bg-muted"
 							>
 								<X className="h-5 w-5" />
 							</Button>
