@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { Download, Eye, RotateCcw, Box } from "lucide-react";
+import { Download, Eye, RotateCcw, Box, Info } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Badge } from "@/components/ui/badge";
@@ -8,20 +19,12 @@ import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
 import "@/assets/ThreeDPage.css";
 
-declare global {
-  namespace JSX {
-	interface IntrinsicElements {
-	  'model-viewer': any;
-	}
-  }
-}
-
 const usdzObjects = [
 	{
 		id: 1,
 		name: "Charles Wooten",
 		subtitle: "Digital Portrait - 2025",
-		file: "/src/3DObjects/CWooten.stl.usdz",
+		file: "/3DObjects/CWooten.stl.usdz",
 		img: "/lovable-uploads/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
 		material: "PLA Filament",
 		technique: "FDM 3D Printing",
@@ -89,6 +92,28 @@ const ThreeDPage = () => {
 						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
 							Explore our cutting-edge 3D modeling and printing processes that bring Liverpool's historical figures to life through innovative digital fabrication techniques.
 						</p>
+						<div className="mt-8">
+							<AlertDialog>
+								<AlertDialogTrigger asChild>
+									<Button variant="outline">
+										<Info className="h-4 w-4 mr-2" />
+										Learn More
+									</Button>
+								</AlertDialogTrigger>
+								<AlertDialogContent>
+									<AlertDialogHeader>
+										<AlertDialogTitle>Our Heritage, Our Future</AlertDialogTitle>
+										<AlertDialogDescription>
+											We are using technology to preserve and celebrate the rich history of our community. Follow our journey and see how we're making heritage accessible to everyone.
+										</AlertDialogDescription>
+									</AlertDialogHeader>
+									<AlertDialogFooter>
+										<AlertDialogCancel>Close</AlertDialogCancel>
+										<AlertDialogAction>Continue</AlertDialogAction>
+									</AlertDialogFooter>
+								</AlertDialogContent>
+							</AlertDialog>
+						</div>
 					</div>
 				</section>
 
@@ -139,26 +164,16 @@ const ThreeDPage = () => {
 								</CardHeader>
 								<CardContent className="p-8">
 									<div className="bg-gradient-to-br from-muted/20 to-muted/40 rounded-xl p-6 mb-6">
-										{selectedObject.name === "Charles Wooten" ? (
-											<model-viewer
-												src={selectedObject.file}
-												alt={selectedObject.name}
-												className="model-viewer-large"
-												ar
-												ar-modes="webxr scene-viewer quick-look"
-												camera-controls
-												auto-rotate
-												loading="lazy"
-											></model-viewer>
-										) : (
-											<div className="model-viewer-large flex items-center justify-center bg-white rounded-lg">
-												<img
-													src={selectedObject.img}
-													alt={selectedObject.name}
-													className="max-w-full max-h-full object-contain"
-												/>
-											</div>
-										)}
+										<model-viewer
+											src={selectedObject.file}
+											alt={selectedObject.name}
+											className="model-viewer-large"
+											ar
+											ar-modes="webxr scene-viewer quick-look"
+											camera-controls
+											auto-rotate
+											loading="lazy"
+										></model-viewer>
 									</div>
 									
 									{/* Technical Specs */}
@@ -197,7 +212,12 @@ const ThreeDPage = () => {
 											variant="outline" 
 											className="flex-1"
 											onClick={() => {
-												const viewer = document.querySelector('model-viewer') as any;
+												interface ModelViewerElement extends HTMLElement {
+													cameraControls?: {
+														reset: () => void;
+													};
+												}
+												const viewer = document.querySelector('model-viewer') as ModelViewerElement;
 												if (viewer && viewer.cameraControls) {
 													viewer.cameraControls.reset();
 												}
