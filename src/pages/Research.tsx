@@ -289,7 +289,7 @@ const Research = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-semibold mb-6 text-foreground">Exhibition Context & Impact</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                "Capture the Essence of the Eighth" represents a groundbreaking fusion of heritage preservation, 
+                "Capture the Essence of the Eight" represents a groundbreaking fusion of heritage preservation, 
                 digital innovation, and community engagement, setting new standards for cultural documentation.
               </p>
             </div>

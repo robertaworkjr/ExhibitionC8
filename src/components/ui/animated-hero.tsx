@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ className = "", onBookVisit }) => {
             <span className="inline-block animate-fade-in-up delay-400">of</span>{" "}
             <span className="inline-block animate-fade-in-up delay-500">the</span>{" "}
             <span className="inline-block animate-fade-in-up delay-600 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-              Eighth
+              Eight
             </span>
           </h1>
         </div>

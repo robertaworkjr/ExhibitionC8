@@ -195,7 +195,7 @@ All colors MUST be HSL.
 
 /* Single combined logo styling */
 .logo-img-single {
-  height: 4rem;
+  height: 5rem;
   max-width: 100%;
   object-fit: contain;
   transition: all 0.3s ease;
@@ -214,7 +214,7 @@ All colors MUST be HSL.
   }
   
   .logo-img-single {
-    height: 3rem;
+    height: 4rem;
     max-width: 95%;
   }
 }
@@ -226,7 +226,7 @@ All colors MUST be HSL.
   }
   
   .logo-img-single {
-    height: 2.5rem;
+    height: 3rem;
     max-width: 90%;
   }
 }

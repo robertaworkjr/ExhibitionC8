@@ -41,7 +41,7 @@ const Index = () => {
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold text-foreground">About the Exhibition</h2>
               <p className="text-muted-foreground">
-                "Capture the 8" is a unique digital art exhibition dedicated to exploring the historical and cultural impact of Liverpool 8 (L8). Through a blend of digital artistry and immersive technology, we aim to celebrate the vibrant community, its rich heritage, and its enduring legacy.
+                "Capture the Essence of the Eight" is a unique digital art exhibition dedicated to exploring the historical and cultural impact of Liverpool 8 (L8). Through a blend of digital artistry and immersive technology, we aim to celebrate the vibrant community, its rich heritage, and its enduring legacy.
               </p>
               <p className="text-muted-foreground">
                 Our exhibition creates a space for reflection, dialogue, and understanding of L8's unique story, featuring a diverse range of digital artworks, from interactive installations to virtual reality experiences.
@@ -151,7 +151,7 @@ const Index = () => {
         <section className="py-20 px-6 bg-gradient-hero">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6 text-foreground">
-              Experience "Capturethe8" Today
+              Experience "Capture the Essence of the Eight" Today
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               Book your visit now and immerse yourself in a digital art exhibition that brings history to life.
@@ -183,7 +183,7 @@ const Index = () => {
             </div>
           </DialogHeader>
           <DialogDescription className="text-muted-foreground text-center">
-            "Capture the Essence of the Eighth" Digital Art Exhibition
+            "Capture the Essence of the Eight" Digital Art Exhibition
           </DialogDescription>
           <div className="py-6">
             <div className="text-center space-y-4">
