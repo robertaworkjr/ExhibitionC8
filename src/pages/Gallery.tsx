@@ -29,7 +29,7 @@ const galleryData = [
 	{
 		id: 3,
 		title: "Joanne Anderson",
-		imageUrl: "/lovable-uploads/c4a65cb4-1f9f-46a9-953b-98e8a08b8e24.png",
+		imageUrl: "/lovable-uploads/joanneIcon.png",
 		description:
 			"Political Leadership and Representation\n\nThis 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Careful lighting used to create a soft tonal range, matching the poised expression of the subject.\n\nDigital Sculpting: Modelled in Blender, focusing on subtle surface detail and symmetry.\n\nModel Preparation: Exported and sliced with 0.16 mm layers and moderate infill for balance between weight and detail.\n\n3D Printing: Printed in PLA on the Prusa XL, using a slow extrusion for precise edge fidelity.\n\nPost-Processing: Buffed to a smooth matte finish to preserve the soft, monochrome-inspired aesthetic.",
 		audioUrl: "/audio/JoanneAnderson.mp3",
@@ -37,7 +37,7 @@ const galleryData = [
 	{
 		id: 4,
 		title: "Leroy Cooper",
-		imageUrl: "/lovable-uploads/01ac894b-7177-43b1-b129-57e5d815170d.png",
+		imageUrl: "/lovable-uploads/leroyIcon.png",
 		description:
 			"Visual Storyteller and Cultural Witness\n\nA sculpted 3D bust of Leroy Cooper draws attention to the details — the contours of the face, the gaze fixed beyond the frame — revealing both the artist and the witness. The work uses light to frame his features as if caught between memory and moment.\n\nLeroy Cooper is celebrated as a photographer, artist, and activist, whose work chronicled decades of life in Liverpool 8. His images have become part of the city's cultural memory, documenting the lived experience of its people.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: High-contrast lighting to highlight facial planes and enhance the sense of depth in the digital sculpt.\n\nDigital Sculpting: Created in Blender with emphasis on texture mapping for a life-like skin surface.\n\nModel Preparation: Sliced with a fine 0.12 mm layer height for enhanced portrait sharpness.\n\n3D Printing: Fabricated in PLA with ~200°C extrusion, using a slow print speed to ensure crisp shadow edges.\n\nPost-Processing: Surface lightly patinated to add visual depth, echoing the tonal contrast of his photographic work.",
 		audioUrl: "/audio/LeroyCopper.mp3",
@@ -45,7 +45,7 @@ const galleryData = [
 	{
 		id: 5,
 		title: "Margaret Simey",
-		imageUrl: "/lovable-uploads/307d02bf-74fb-40e4-a422-fc8ee8fe12c2.png",
+		imageUrl: "/lovable-uploads/margretIcon.png",
 		description:
 			"Community Activist and Social Reformer\n\nA vivid 3D portrait of Margaret Simey captures her poise and determination, rendered with the sculptural clarity of digital craft. The interplay of highlights and shadow evokes her lifelong commitment to justice and reform.\n\nMargaret Simey (1906–2004) was a pioneering figure in Liverpool's social justice movement. Her advocacy for housing rights, community empowerment, and political change helped transform the lives of thousands in the city.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Natural key lighting chosen to reflect her determined character.\n\nDigital Sculpting: Detailed in Blender with sharp edge definition around the jawline and brow.\n\nModel Preparation: Sliced at 0.15 mm layers, 20% infill for structural strength.\n\n3D Printing: Printed in PLA, utilising a steady feed rate to maintain form accuracy.\n\nPost-Processing: Varnished for light gloss, creating a visual link to the polished tone of the subject's public presence.",
 		audioUrl: "/audio/MargretSimey.mp3",
@@ -60,14 +60,14 @@ const galleryData = [
 	{
 		id: 7,
 		title: "Jacob Baptista",
-		imageUrl: "/placeholder.svg",
+		imageUrl: "/lovable-uploads/jacobIcon.png",
 		description: "Community Builder and Athletic Mentor\n\nA dynamic 3D portrait of Jacob Baptista captures the spirit of dedication and mentorship that defines his work within Liverpool's L8 community. The sculpted form reflects both strength and compassion, embodying his dual role as athlete and guide.\n\nJacob Baptista is a promising footballer and respected mentor at Belv Boxing Gym L8, where he has inspired countless young people through sport and personal development. His commitment to community building has made him a vital figure in local youth engagement.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Action-oriented lighting to capture the energy and movement associated with athletic pursuits.\n\nDigital Sculpting: Modelled in Blender with emphasis on muscular definition and confident posture.\n\nModel Preparation: 0.15 mm layer resolution with reinforced infill patterns for durability.\n\n3D Printing: Produced in PLA using optimized settings for fine detail and structural integrity.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the subject's dynamic presence.",
 		audioUrl: "",
 	},
 	{
 		id: 8,
 		title: "John Archer",
-		imageUrl: "/placeholder.svg",
+		imageUrl: "/lovable-uploads/johnIcon.png",
 		description: "Pioneer of Political Representation\n\nThis thoughtful 3D portrait of John Archer presents him with the dignity and gravitas befitting a historic figure who broke significant barriers in British politics. The sculptural work captures both his personal character and his symbolic importance.\n\nJohn Archer (1863-1932) was a pioneering politician who became one of the first Black mayors in London and a significant figure in early 20th-century British politics. His commitment to representation and social justice paved the way for future generations of Black political leaders.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Classical portrait lighting to reflect the formal dignity of his political role.\n\nDigital Sculpting: Crafted in Blender with attention to period-appropriate facial hair and clothing details.\n\nModel Preparation: 0.14 mm layers with enhanced infill for archival longevity.\n\n3D Printing: Printed in PLA with careful temperature control to preserve fine historical details.\n\nPost-Processing: Finished with a subtle patina to suggest the gravitas of historical portraiture.",
 		audioUrl: "",
 	},
@@ -81,7 +81,7 @@ const galleryData = [
 	{
 		id: 10,
 		title: "Kate Garder",
-		imageUrl: "/placeholder.svg",
+		imageUrl: "/lovable-uploads/katiyaIcon.png",
 		description: "Healthcare Advocate and Women's Rights Champion\n\nThis compassionate 3D portrait of Kate Garder reflects the caring nature and professional dedication that have marked her medical career. The sculptural work captures both her clinical expertise and her advocacy for community health.\n\nDr. Kate Garder has served as a dedicated GP and tireless advocate for women's health within Liverpool's diverse communities. Her work has focused on providing accessible healthcare and championing health equity for underserved populations.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Soft, professional lighting to convey the approachable yet authoritative nature of medical practice.\n\nDigital Sculpting: Modelled in Blender with attention to compassionate facial features and professional bearing.\n\nModel Preparation: 0.15 mm layers with standard infill optimized for smooth surface finish.\n\n3D Printing: Printed in PLA with consistent temperature control for professional-grade detail.\n\nPost-Processing: Polished to a clean, clinical finish reflecting the precision of medical practice.",
 		audioUrl: "",
 	},

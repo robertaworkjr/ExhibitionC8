@@ -2,8 +2,12 @@ import React from "react";
 import Navigation from "@/components/Navigation";
 import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
+import { getLogosForBackground } from "@/config/logos";
 
-const About = () => (
+const About = () => {
+  const logos = getLogosForBackground(true); // Get logos for light background
+
+  return (
   <div className="min-h-screen bg-background">
     <Navigation />
     <div className="pt-16">
@@ -52,50 +56,15 @@ const About = () => (
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Culture Liverpool */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-primary rounded-full"></div>
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Culture Liverpool</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Primary funding partner supporting Liverpool's cultural initiatives and community arts programs.
-                  </p>
-                </div>
-              </div>
-
-              {/* Arts Council England */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-accent rounded-full"></div>
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Arts Council England</h4>
-                  <p className="text-sm text-muted-foreground">
-                    National development agency for creativity and culture in England, championing and investing in artistic experiences.
-                  </p>
-                </div>
-              </div>
-
-              {/* UK Government */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-primary rounded-full"></div>
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">UK Government</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Supporting community heritage projects and digital innovation through government cultural funding initiatives.
-                  </p>
-                </div>
-              </div>
-
               {/* Liverpool City Council */}
               <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-accent rounded-full"></div>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
+                    <img 
+                      src={logos.find(logo => logo.id === 'lcc')?.src || "/placeholder.svg"}
+                      alt="Liverpool City Council"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Liverpool City Council</h4>
                   <p className="text-sm text-muted-foreground">
@@ -104,24 +73,83 @@ const About = () => (
                 </div>
               </div>
 
-              {/* LFO */}
+              {/* UK Government */}
               <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-primary rounded-full"></div>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
+                    <img 
+                      src={logos.find(logo => logo.id === 'uk-gov')?.src || "/placeholder.svg"}
+                      alt="Funded by the UK Government"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Liverpool Film Office</h4>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">UK Government</h4>
                   <p className="text-sm text-muted-foreground">
-                    Supporting creative media projects and cultural documentation initiatives in Liverpool through film and digital arts funding.
+                    Supporting community heritage projects and digital innovation through government cultural funding initiatives.
                   </p>
                 </div>
               </div>
 
-              {/* Community Support */}
+              {/* UK Shared Prosperity Fund */}
               <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-accent rounded-full"></div>
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
+                    <img 
+                      src={logos.find(logo => logo.id === 'ukspf')?.src || "/placeholder.svg"}
+                      alt="UK Shared Prosperity Fund"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">UK Shared Prosperity Fund</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Investing in local priorities and supporting community-led initiatives across the UK.
+                  </p>
+                </div>
+              </div>
+
+              {/* Culture Liverpool */}
+              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                <div className="mb-4">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
+                    <img 
+                      src={logos.find(logo => logo.id === 'culture')?.src || "/placeholder.svg"}
+                      alt="Culture Liverpool"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">Culture Liverpool</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Primary funding partner supporting Liverpool's cultural initiatives and community arts programs.
+                  </p>
+                </div>
+              </div>
+
+              {/* Grant Funded */}
+              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                <div className="mb-4">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
+                    <img 
+                      src={logos.find(logo => logo.id === 'grant')?.src || "/placeholder.svg"}
+                      alt="Grant Funded"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">Grant Funded</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Supporting innovative cultural projects through strategic grant funding and community investment.
+                  </p>
+                </div>
+              </div>
+
+              {/* Community Partners */}
+              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                <div className="mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-border/20">
+                    <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
                   </div>
                   <h4 className="text-xl font-semibold text-foreground mb-2">Community Partners</h4>
                   <p className="text-sm text-muted-foreground">
@@ -212,6 +240,7 @@ const About = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default About;

@@ -188,9 +188,9 @@ const Index = () => {
           <div className="py-6">
             <div className="text-center space-y-4">
               <div className="bg-gradient-primary/10 rounded-lg p-6 border border-primary/20">
-                <h3 className="text-2xl font-bold text-foreground mb-2">October 2025</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Exhibition Launch</h3>
                 <p className="text-lg text-muted-foreground mb-4">
-                  <strong>October 1st - October 31st, 2025</strong>
+                  <strong>2nd of October 6-8</strong>
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Experience the complete digital art exhibition featuring Charles Wooten, Jimi Jagne, Joanne Anderson, Leroy Cooper, and Margret Simey.
