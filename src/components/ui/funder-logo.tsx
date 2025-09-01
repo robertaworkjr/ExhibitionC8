@@ -6,6 +6,7 @@ interface FunderLogoProps {
   aspectRatio?: 'square' | 'landscape' | 'portrait';
   className?: string;
   fallbackSrc?: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const FunderLogo: React.FC<FunderLogoProps> = ({ 
@@ -13,7 +14,8 @@ export const FunderLogo: React.FC<FunderLogoProps> = ({
   alt, 
   aspectRatio = 'landscape',
   className = '',
-  fallbackSrc = '/placeholder.svg'
+  fallbackSrc = '/placeholder.svg',
+  size = 'large'
 }) => {
   const [imageSrc, setImageSrc] = React.useState(src);
 
@@ -22,16 +24,41 @@ export const FunderLogo: React.FC<FunderLogoProps> = ({
   };
 
   const getContainerClasses = () => {
-    const baseClasses = 'bg-white rounded-xl flex items-center justify-center mx-auto mb-4 p-3 shadow-sm border border-border/20 overflow-hidden';
+    const baseClasses = 'bg-white rounded-xl flex items-center justify-center mx-auto mb-4 p-4 border border-border/20 overflow-hidden transition-all duration-300';
+    const enhancedClasses = size === 'large' ? 'logo-container-large shadow-md' : 'shadow-sm';
     
-    switch (aspectRatio) {
-      case 'square':
-        return `w-20 h-20 ${baseClasses}`;
-      case 'portrait':
-        return `w-16 h-24 ${baseClasses}`;
-      case 'landscape':
-      default:
-        return `w-24 h-20 ${baseClasses}`;
+    // Aspect ratio adjustments for larger sizes
+    if (size === 'large') {
+      switch (aspectRatio) {
+        case 'square':
+          return `w-28 h-28 ${baseClasses} ${enhancedClasses}`;
+        case 'portrait':
+          return `w-24 h-32 ${baseClasses} ${enhancedClasses}`;
+        case 'landscape':
+        default:
+          return `w-36 h-28 ${baseClasses} ${enhancedClasses}`;
+      }
+    } else if (size === 'medium') {
+      switch (aspectRatio) {
+        case 'square':
+          return `w-24 h-24 ${baseClasses} shadow-sm`;
+        case 'portrait':
+          return `w-20 h-28 ${baseClasses} shadow-sm`;
+        case 'landscape':
+        default:
+          return `w-32 h-24 ${baseClasses} shadow-sm`;
+      }
+    } else {
+      // small size (original)
+      switch (aspectRatio) {
+        case 'square':
+          return `w-20 h-20 ${baseClasses} shadow-sm`;
+        case 'portrait':
+          return `w-16 h-24 ${baseClasses} shadow-sm`;
+        case 'landscape':
+        default:
+          return `w-24 h-20 ${baseClasses} shadow-sm`;
+      }
     }
   };
 
@@ -40,7 +67,7 @@ export const FunderLogo: React.FC<FunderLogoProps> = ({
       <img 
         src={imageSrc}
         alt={alt}
-        className={`max-w-full max-h-full object-contain transition-opacity duration-200 funder-logo-img ${className}`}
+        className={`max-w-full max-h-full object-contain transition-all duration-300 ${size === 'large' ? 'funder-logo-large' : 'funder-logo-img'} ${className}`}
         loading="lazy"
         onError={handleImageError}
       />

@@ -18,9 +18,9 @@ const AdFooter = () => {
         </div>
         
         {/* Individual logos for better accessibility and SEO */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
           {logos.map((logo) => (
-            <div key={logo.id} className="flex items-center justify-center h-12 w-20">
+            <div key={logo.id} className="flex items-center justify-center h-16 w-28">
               <img
                 src={logo.src}
                 alt={logo.alt}

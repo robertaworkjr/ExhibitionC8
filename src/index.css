@@ -617,3 +617,24 @@ nav .nav-icon {
 .funder-logo-img:hover {
   filter: contrast(1.15) brightness(1);
 }
+
+/* Enhanced funder logo styling for larger sizes */
+.funder-logo-large {
+  filter: contrast(1.15) brightness(0.98);
+  transition: all 0.3s ease;
+}
+
+.funder-logo-large:hover {
+  filter: contrast(1.2) brightness(1.02);
+  transform: scale(1.02);
+}
+
+/* Improved logo containers for better visual hierarchy */
+.logo-container-large {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.logo-container-large:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}

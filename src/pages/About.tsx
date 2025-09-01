@@ -11,12 +11,12 @@ const About = () => {
   // Helper function to get partner descriptions
   const getPartnerDescription = (logoId: string): string => {
     const descriptions: Record<string, string> = {
+      'culture': 'Primary funding partner supporting Liverpool\'s cultural initiatives and community arts programs.',
+      'cl-logo': 'Promoting arts, culture, and heritage across Liverpool through community engagement and creative partnerships.',
       'lcc': 'Local government support for community arts, heritage preservation, and cultural development in Liverpool.',
       'uk-gov': 'Supporting community heritage projects and digital innovation through government cultural funding initiatives.',
       'ukspf': 'Investing in local priorities and supporting community-led initiatives across the UK.',
-      'culture': 'Primary funding partner supporting Liverpool\'s cultural initiatives and community arts programs.',
-      'grant': 'Supporting innovative cultural projects through strategic grant funding and community investment.',
-      'cl-logo': 'Promoting arts, culture, and heritage across Liverpool through community engagement and creative partnerships.'
+      'grant': 'Supporting innovative cultural projects through strategic grant funding and community investment with bigger logos for enhanced visibility and professional presentation.'
     };
     return descriptions[logoId] || 'Supporting our community heritage and cultural preservation initiatives.';
   };
@@ -77,11 +77,12 @@ const About = () => {
                       src={logo.src}
                       alt={logo.alt}
                       aspectRatio={logo.aspectRatio}
+                      size="large"
                     />
                     <h4 className="text-lg font-semibold text-foreground mb-2">
                       {logo.alt}
                     </h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {getPartnerDescription(logo.id)}
                     </p>
                   </div>
