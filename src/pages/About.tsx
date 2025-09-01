@@ -3,9 +3,23 @@ import Navigation from "@/components/Navigation";
 import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
 import { getLogosForBackground } from "@/config/logos";
+import FunderLogo from "@/components/ui/funder-logo";
 
 const About = () => {
   const logos = getLogosForBackground(true); // Get logos for light background
+
+  // Helper function to get partner descriptions
+  const getPartnerDescription = (logoId: string): string => {
+    const descriptions: Record<string, string> = {
+      'lcc': 'Local government support for community arts, heritage preservation, and cultural development in Liverpool.',
+      'uk-gov': 'Supporting community heritage projects and digital innovation through government cultural funding initiatives.',
+      'ukspf': 'Investing in local priorities and supporting community-led initiatives across the UK.',
+      'culture': 'Primary funding partner supporting Liverpool\'s cultural initiatives and community arts programs.',
+      'grant': 'Supporting innovative cultural projects through strategic grant funding and community investment.',
+      'cl-logo': 'Promoting arts, culture, and heritage across Liverpool through community engagement and creative partnerships.'
+    };
+    return descriptions[logoId] || 'Supporting our community heritage and cultural preservation initiatives.';
+  };
 
   return (
   <div className="min-h-screen bg-background">
@@ -56,107 +70,23 @@ const About = () => {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Liverpool City Council */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
-                    <img 
-                      src={logos.find(logo => logo.id === 'lcc')?.src || "/placeholder.svg"}
-                      alt="Liverpool City Council"
-                      className="w-full h-full object-contain"
+              {logos.slice(0, 6).map((logo) => (
+                <div key={logo.id} className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                  <div className="mb-4">
+                    <FunderLogo
+                      src={logo.src}
+                      alt={logo.alt}
+                      aspectRatio={logo.aspectRatio}
                     />
+                    <h4 className="text-lg font-semibold text-foreground mb-2">
+                      {logo.alt}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {getPartnerDescription(logo.id)}
+                    </p>
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Liverpool City Council</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Local government support for community arts, heritage preservation, and cultural development in Liverpool.
-                  </p>
                 </div>
-              </div>
-
-              {/* UK Government */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
-                    <img 
-                      src={logos.find(logo => logo.id === 'uk-gov')?.src || "/placeholder.svg"}
-                      alt="Funded by the UK Government"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">UK Government</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Supporting community heritage projects and digital innovation through government cultural funding initiatives.
-                  </p>
-                </div>
-              </div>
-
-              {/* UK Shared Prosperity Fund */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
-                    <img 
-                      src={logos.find(logo => logo.id === 'ukspf')?.src || "/placeholder.svg"}
-                      alt="UK Shared Prosperity Fund"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">UK Shared Prosperity Fund</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Investing in local priorities and supporting community-led initiatives across the UK.
-                  </p>
-                </div>
-              </div>
-
-              {/* Culture Liverpool */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
-                    <img 
-                      src={logos.find(logo => logo.id === 'culture')?.src || "/placeholder.svg"}
-                      alt="Culture Liverpool"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Culture Liverpool</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Primary funding partner supporting Liverpool's cultural initiatives and community arts programs.
-                  </p>
-                </div>
-              </div>
-
-              {/* Grant Funded */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 shadow-sm border border-border/20">
-                    <img 
-                      src={logos.find(logo => logo.id === 'grant')?.src || "/placeholder.svg"}
-                      alt="Grant Funded"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Grant Funded</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Supporting innovative cultural projects through strategic grant funding and community investment.
-                  </p>
-                </div>
-              </div>
-
-              {/* Community Partners */}
-              <div className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-border/20">
-                    <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">Community Partners</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Local organizations and community groups supporting heritage preservation and cultural storytelling.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

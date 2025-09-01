@@ -608,3 +608,12 @@ nav span {
 nav .nav-icon {
   color: inherit !important;
 }
+
+/* Funder logo styling */
+.funder-logo-img {
+  filter: contrast(1.1) brightness(0.95);
+}
+
+.funder-logo-img:hover {
+  filter: contrast(1.15) brightness(1);
+}

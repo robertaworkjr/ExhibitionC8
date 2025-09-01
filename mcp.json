@@ -1,0 +1,109 @@
+{
+  "name": "capture-the-eighth-exhibition",
+  "version": "1.0.0",
+  "description": "MCP configuration for the Capture the Essence of the Eighth exhibition website",
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main"],
+      "env": {}
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git", "--repository", "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main"],
+      "env": {}
+    }
+  },
+  "tools": [
+    {
+      "name": "file_operations",
+      "description": "File system operations for the exhibition project",
+      "allowedPaths": [
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/src/**",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/public/**",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/*.json",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/*.ts",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/*.js",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/*.md"
+      ]
+    },
+    {
+      "name": "gallery_management",
+      "description": "Tools for managing gallery portraits and images",
+      "allowedPaths": [
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/public/lovable-uploads/**",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/src/pages/Gallery.tsx"
+      ]
+    },
+    {
+      "name": "logo_management",
+      "description": "Tools for managing funding partner logos",
+      "allowedPaths": [
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/public/*.png",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/public/*.jpg",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/src/config/logos.ts",
+        "/Users/kalilinux/Downloads/capture-the-hall-exhibit-main/src/logos/**"
+      ]
+    }
+  ],
+  "context": {
+    "project": {
+      "name": "Capture the Essence of the Eighth",
+      "type": "React Exhibition Website",
+      "framework": "React + TypeScript + Vite",
+      "styling": "Tailwind CSS + Shadcn/ui",
+      "deployment": "Netlify",
+      "domain": "https://capturethe8.space"
+    },
+    "features": [
+      "Interactive Gallery with portrait biographies",
+      "3D Model Viewer for Charles Wooten exhibition piece",
+      "Animated Hero section with particles",
+      "Mobile-optimized popup dialogs",
+      "Funding partner logos integration",
+      "Research & Methodology documentation",
+      "Contact form and booking system"
+    ],
+    "key_components": [
+      "src/pages/Gallery.tsx - Main gallery with portrait cards",
+      "src/pages/About.tsx - About page with funding partners",
+      "src/pages/ThreeDPage.tsx - 3D model viewer",
+      "src/components/ui/animated-hero.tsx - Animated hero component",
+      "src/config/logos.ts - Logo configuration management"
+    ],
+    "assets": {
+      "gallery_images": "public/lovable-uploads/",
+      "logos": "public/",
+      "audio": "public/audio/",
+      "3d_models": "src/3DObjects/"
+    }
+  },
+  "commands": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "preview": "npm run preview",
+    "deploy": "git add . && git commit -m 'Update deployment' && git push origin main"
+  },
+  "guidelines": {
+    "coding_style": [
+      "Use TypeScript for type safety",
+      "Follow React functional component patterns",
+      "Use Tailwind CSS for styling",
+      "Implement responsive design (mobile-first)",
+      "Use semantic HTML elements",
+      "Ensure accessibility compliance"
+    ],
+    "asset_management": [
+      "Gallery images go in public/lovable-uploads/",
+      "Logos use public/ directory with config/logos.ts mapping",
+      "Audio files in public/audio/",
+      "Use proper alt text for all images"
+    ],
+    "deployment": [
+      "All changes pushed to GitHub automatically deploy via Netlify",
+      "Test locally before pushing to main branch",
+      "Use semantic commit messages",
+      "Optimize images for web performance"
+    ]
+  }
+}
