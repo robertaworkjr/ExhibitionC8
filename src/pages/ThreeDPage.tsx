@@ -5,15 +5,8 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
+import "@google/model-viewer";
 import "@/assets/ThreeDPage.css";
-
-declare global {
-  namespace JSX {
-	interface IntrinsicElements {
-	  'model-viewer': any;
-	}
-  }
-}
 
 // Charles Wooten 3D model data
 const charlesWootenModel = {
