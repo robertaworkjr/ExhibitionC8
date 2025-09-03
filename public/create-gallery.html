@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Gallery GLB</title>
+</head>
+<body>
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.160.0/examples/js/exporters/GLTFExporter.js"></script>
+
+    <script>
+        // Create a simple gallery scene
+        const scene = new THREE.Scene();
+        
+        // Create gallery walls
+        const wallMaterial = new THREE.MeshStandardMaterial({ color: 0xf0f0f0 });
+        
+        // Back wall
+        const backWall = new THREE.Mesh(
+            new THREE.PlaneGeometry(10, 6),
+            wallMaterial
+        );
+        backWall.position.set(0, 3, -5);
+        scene.add(backWall);
+        
+        // Side walls
+        const leftWall = new THREE.Mesh(
+            new THREE.PlaneGeometry(10, 6),
+            wallMaterial
+        );
+        leftWall.rotation.y = Math.PI / 2;
+        leftWall.position.set(-5, 3, 0);
+        scene.add(leftWall);
+        
+        const rightWall = new THREE.Mesh(
+            new THREE.PlaneGeometry(10, 6),
+            wallMaterial
+        );
+        rightWall.rotation.y = -Math.PI / 2;
+        rightWall.position.set(5, 3, 0);
+        scene.add(rightWall);
+        
+        // Floor
+        const floor = new THREE.Mesh(
+            new THREE.PlaneGeometry(10, 10),
+            new THREE.MeshStandardMaterial({ color: 0x808080 })
+        );
+        floor.rotation.x = -Math.PI / 2;
+        scene.add(floor);
+        
+        // Add some pedestals
+        const pedestalMaterial = new THREE.MeshStandardMaterial({ color: 0xd0d0d0 });
+        
+        for (let i = 0; i < 3; i++) {
+            const pedestal = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.5, 0.6, 1, 16),
+                pedestalMaterial
+            );
+            pedestal.position.set((i - 1) * 2, 0.5, -2);
+            scene.add(pedestal);
+        }
+        
+        // Export as GLB
+        const exporter = new THREE.GLTFExporter();
+        exporter.parse(
+            scene,
+            function (result) {
+                const output = JSON.stringify(result, null, 2);
+                console.log('GLB created, downloading...');
+                
+                // Create download link
+                const link = document.createElement('a');
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                
+                const blob = new Blob([result], { type: 'application/octet-stream' });
+                const url = URL.createObjectURL(blob);
+                link.href = url;
+                link.download = 'GallerySpace.glb';
+                link.click();
+                
+                document.body.innerHTML = '<h1>Gallery GLB file created and downloaded!</h1>';
+            },
+            { binary: true }
+        );
+    </script>
+</body>
+</html>

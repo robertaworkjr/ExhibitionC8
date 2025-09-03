@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>3D Gallery Viewer - Capture the Essence of the Eight</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html, body { height: 100%; margin: 0; background:#0b0b0f; color:#e5e7eb; font-family: ui-sans-serif, system-ui, sans-serif; }
+    #app { position: fixed; inset: 0; }
+    .ui {
+      position: fixed; top: 12px; left: 12px; display: flex; gap: 8px; align-items:center;
+      padding: 10px 12px; border-radius: 12px; background: rgba(20,20,28,0.7); 
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    }
+    .ui label { font-size: 14px; opacity: 0.85; }
+    .ui input[type="file"] { color:#e5e7eb; }
+    .hint {
+      position: fixed; bottom: 12px; left: 12px; font-size: 12px; opacity: 0.7;
+      background: rgba(20,20,28,0.55); padding: 8px 10px; border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div class="ui">
+    <label for="file">Load .glb:</label>
+    <input id="file" type="file" accept=".glb,.gltf" />
+    <button id="loadSample" title="Loads the Gallery Space model">Try Load Gallery Space</button>
+  </div>
+
+  <div class="hint">
+    Mouse: orbit / wheel = zoom • Drag with right mouse = pan<br/>
+    Keys: <b>W</b> = dolly in • <b>S</b> = dolly out • <b>R</b> = frame model<br/>
+    <b>Test scene loaded</b> - Use "Try Load Gallery Space" button to load GLB model
+  </div>
+
+  <!-- Three.js + helpers -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <script>
+    // ----------- basic scene -----------
+    const app = document.getElementById('app');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0b0b0f);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.01, 2000);
+    camera.position.set(2.5, 1.6, 3.2);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    app.appendChild(renderer.domElement);
+
+    // Controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.target.set(0, 1, 0);
+    controls.minDistance = 0.2;
+    controls.maxDistance = 50;
+    controls.update();
+
+    // Lights
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x2a2a2a, 0.7);
+    scene.add(hemi);
+
+    const dir = new THREE.DirectionalLight(0xffffff, 1.0);
+    dir.position.set(5, 6, 4);
+    dir.castShadow = true;
+    dir.shadow.mapSize.set(2048, 2048);
+    scene.add(dir);
+
+    // Ground (shadow receiver)
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(200, 200),
+      new THREE.MeshStandardMaterial({ color: 0x141420, metalness: 0.0, roughness: 0.9 })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = 0;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    // A subtle grid
+    const grid = new THREE.GridHelper(200, 200, 0x2a2f3a, 0x1a1f2a);
+    grid.position.y = 0.001; // avoid z-fighting with ground
+    scene.add(grid);
+
+    // Add a test cube to verify Three.js is working
+    const testCube = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 1, 1),
+      new THREE.MeshStandardMaterial({ color: 0xff6b6b })
+    );
+    testCube.position.set(0, 0.5, 0);
+    testCube.castShadow = true;
+    scene.add(testCube);
+    console.log("Test cube added to scene");
+
+    // Add a few more test objects to create a simple gallery space
+    const sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(0.5, 32, 32),
+      new THREE.MeshStandardMaterial({ color: 0x6b9fff })
+    );
+    sphere.position.set(-2, 0.5, 0);
+    sphere.castShadow = true;
+    scene.add(sphere);
+
+    const cylinder = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.5, 0.5, 1, 32),
+      new THREE.MeshStandardMaterial({ color: 0x6bff6b })
+    );
+    cylinder.position.set(2, 0.5, 0);
+    cylinder.castShadow = true;
+    scene.add(cylinder);
+
+    console.log("Test objects added to create a simple gallery space");
+
+    // Placeholder path – replace with your exported .glb
+    const PLACEHOLDER_PATH = "3DObjects/GallerySpace.glb";
+
+    const loader = new THREE.GLTFLoader();
+    let currentRoot = null;
+    let lastBBox = null;
+
+    function disposeCurrentModel() {
+      if (!currentRoot) return;
+      currentRoot.traverse(obj => {
+        if (obj.isMesh) {
+          obj.geometry?.dispose?.();
+          if (obj.material) {
+            if (Array.isArray(obj.material)) obj.material.forEach(m => m.dispose?.());
+            else obj.material.dispose?.();
+          }
+        }
+      });
+      scene.remove(currentRoot);
+      currentRoot = null;
+    }
+
+    function frameObject(bbox) {
+      // center, size
+      const size = new THREE.Vector3();
+      bbox.getSize(size);
+      const center = new THREE.Vector3();
+      bbox.getCenter(center);
+
+      // Position the controls target
+      controls.target.copy(center);
+
+      // Dolly camera back based on object size & FOV
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const fitHeightDistance = maxDim / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
+      const fitWidthDistance  = fitHeightDistance / camera.aspect;
+      const distance = 1.2 * Math.max(fitHeightDistance, fitWidthDistance);
+
+      // Choose a nice elevated angle
+      const dir = new THREE.Vector3(0.7, 0.5, 0.7).normalize();
+      camera.position.copy(center).addScaledVector(dir, distance);
+
+      camera.near = Math.max(0.01, distance / 100); // prevent clipping for tiny models
+      camera.far  = Math.max(500, distance * 50);
+      camera.updateProjectionMatrix();
+      controls.update();
+    }
+
+    function loadGLBFromPath(path) {
+      return new Promise((resolve, reject) => {
+        loader.load(path, (gltf) => resolve(gltf), undefined, reject);
+      });
+    }
+
+    async function loadModel(urlOrBlobUrl) {
+      console.log("Attempting to load model from:", urlOrBlobUrl);
+      try {
+        const gltf = await loadGLBFromPath(urlOrBlobUrl);
+        console.log("Model loaded successfully:", gltf);
+        disposeCurrentModel();
+
+        currentRoot = gltf.scene || gltf.scenes?.[0];
+        console.log("Model root:", currentRoot);
+        currentRoot.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }});
+        scene.add(currentRoot);
+
+        // Compute bounds
+        const bbox = new THREE.Box3().setFromObject(currentRoot);
+        console.log("Model bounding box:", bbox);
+        lastBBox = bbox;
+        frameObject(bbox);
+        
+        console.log("Model loaded and framed successfully");
+      } catch (err) {
+        console.error("GLB load error:", err);
+        alert("Failed to load model. See console for details.");
+      }
+    }
+
+    // File input loading
+    const fileInput = document.getElementById('file');
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      loadModel(url).then(() => {
+        // Revoke later to allow textures to stream first
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      });
+    });
+
+    // Load placeholder button
+    document.getElementById('loadSample').addEventListener('click', () => {
+      loadModel(PLACEHOLDER_PATH);
+    });
+
+    // Keyboard dolly (W/S) + reframe (R)
+    window.addEventListener('keydown', (e) => {
+      if (e.repeat) return;
+      const key = e.key.toLowerCase();
+      if (key === 'w' || key === 's') {
+        // Dolly by scaling camera-target vector
+        const factor = (key === 'w') ? 0.9 : 1.1; // smooth
+        const v = new THREE.Vector3().subVectors(camera.position, controls.target).multiplyScalar(factor);
+        camera.position.copy(controls.target).add(v);
+        controls.update();
+      } else if (key === 'r' && lastBBox) {
+        frameObject(lastBBox);
+      }
+    });
+
+    // Resize handling
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Animate
+    function animate() {
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Optional: auto-load placeholder on start (toggle to true if desired)
+    const AUTOLOAD_PLACEHOLDER = false; // Temporarily disabled for debugging
+    console.log("Auto-load enabled:", AUTOLOAD_PLACEHOLDER, "Path:", PLACEHOLDER_PATH);
+    if (AUTOLOAD_PLACEHOLDER) {
+      console.log("Starting auto-load of model...");
+      loadModel(PLACEHOLDER_PATH);
+    }
+  </script>
+</body>
+</html>

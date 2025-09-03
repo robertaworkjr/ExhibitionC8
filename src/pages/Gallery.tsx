@@ -13,7 +13,7 @@ const galleryData = [
 	{
 		id: 1,
 		title: "Charles Wooten",
-		imageUrl: "/lovable-uploads/c13edb28-d455-42ce-b675-302a5a6f4ca1.png",
+		imageUrl: "/lovable-uploads/charlesIcon.png",
 		description:
 			"3D Portrait – A Life Remembered\n\nA striking 3D model of Charles Wooten stands as a lasting archive — a powerful reminder of a life cut short in the very city where he lived and worked. Through the blending of technology and narrative, the artist captures his likeness in vivid 3D photographic form, using light and shadow to evoke both his presence and his absence.\n\nCharles Wooten, 24, a Bermudan ship's fireman, escaped a house in the city and fled towards the docks — pursued by both police and an angry mob. His death remains a tragic symbol of racial injustice, and this portrait preserves his memory as part of Liverpool's living history.\n\nProcess & Materials — From Image to 3D\nImage Capture & Reference: High-resolution photographs were taken from multiple angles, ensuring the subject's facial structure, proportions, and key shadow details were faithfully recorded.\n\nDigital Sculpting in Blender: Using Blender, the portrait was digitally sculpted to sub-millimetre accuracy, with surface textures and shadow planes refined to preserve the depth of Charles' likeness.\n\nModel Preparation for Printing: The 3D file was exported as .STL and prepared in PrusaSlicer for the Prusa XL printer.\n• Layer height: 0.15 mm for high-definition detail\n• Infill: 15% gyroid pattern for structural stability\n• Print speed: 45 mm/s to ensure precision\n\n3D Printing in PLA: The portrait was produced using PLA (Polylactic Acid) — a biodegradable polymer derived from renewable resources. The process involved heating the filament to ~200°C, extruding it through a fine nozzle, and building the form layer by layer.\n\nPost-Processing: Supports were removed, surfaces sanded, and finishing applied to achieve the final visual tone of the portrait.",
 		audioUrl: "/audio/CharlesWooten.mp3",
@@ -21,7 +21,7 @@ const galleryData = [
 	{
 		id: 2,
 		title: "Bea Freeman",
-		imageUrl: "/lovable-uploads/08bef744-0596-4c4d-8c18-8cdfdea0ecec.png",
+		imageUrl: "/lovable-uploads/beaIcon.png",
 		description:
 			"Pioneer of Media and Representation\n\nA finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.\n\nProcess & Materials — From Image to 3D\n\nImage Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours.\n\nDigital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.\n\nModel Preparation: Sliced for the Prusa XL printer at 0.15 mm layer height, 15% gyroid infill, and a 45 mm/s print speed.\n\n3D Printing: Produced in PLA, a biodegradable thermoplastic, printed at ~200°C and built layer by layer.\n\nPost-Processing: Surface smoothed and fine brush-painted to enhance tonal definition and texture depth.",
 		audioUrl: "",
@@ -52,52 +52,45 @@ const galleryData = [
 	},
 	{
 		id: 6,
-		title: "Jimi Jagne",
-		imageUrl: "/placeholder.svg",
-		description: "Cultural Innovator and Activist\n\nThis 3D work presents Jimi Jagne with a sense of movement and energy, the model's depth suggesting both the man and the momentum of his ideas. It merges the clean geometry of digital form with the warmth of lived history.\n\nJimi Jagne has been a driving force in Liverpool's cultural scene, known for his work in music, community activism, and the arts. His projects have created space for voices often excluded from mainstream narratives.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Dynamic lighting and angled poses used to suggest motion in the final sculpture.\n\nDigital Sculpting: Blender mesh modelling with exaggerated folds and texture layers to convey energy.\n\nModel Preparation: 0.18 mm layers, 12% infill to reduce weight while maintaining form.\n\n3D Printing: Printed in PLA on the Prusa XL, tuned for speed and moderate precision.\n\nPost-Processing: Painted highlights to exaggerate depth, enhancing the sense of movement.",
-		audioUrl: "/audio/jimmiJagne.mp3",
-	},
-	{
-		id: 7,
 		title: "Jacob Baptista",
 		imageUrl: "/lovable-uploads/jacobIcon.png",
 		description: "Community Builder and Athletic Mentor\n\nA dynamic 3D portrait of Jacob Baptista captures the spirit of dedication and mentorship that defines his work within Liverpool's L8 community. The sculpted form reflects both strength and compassion, embodying his dual role as athlete and guide.\n\nJacob Baptista is a promising footballer and respected mentor at Belv Boxing Gym L8, where he has inspired countless young people through sport and personal development. His commitment to community building has made him a vital figure in local youth engagement.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Action-oriented lighting to capture the energy and movement associated with athletic pursuits.\n\nDigital Sculpting: Modelled in Blender with emphasis on muscular definition and confident posture.\n\nModel Preparation: 0.15 mm layer resolution with reinforced infill patterns for durability.\n\n3D Printing: Produced in PLA using optimized settings for fine detail and structural integrity.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the subject's dynamic presence.",
 		audioUrl: "",
 	},
 	{
-		id: 8,
+		id: 7,
 		title: "John Archer",
 		imageUrl: "/lovable-uploads/johnIcon.png",
 		description: "Pioneer of Political Representation\n\nThis thoughtful 3D portrait of John Archer presents him with the dignity and gravitas befitting a historic figure who broke significant barriers in British politics. The sculptural work captures both his personal character and his symbolic importance.\n\nJohn Archer (1863-1932) was a pioneering politician who became one of the first Black mayors in London and a significant figure in early 20th-century British politics. His commitment to representation and social justice paved the way for future generations of Black political leaders.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Classical portrait lighting to reflect the formal dignity of his political role.\n\nDigital Sculpting: Crafted in Blender with attention to period-appropriate facial hair and clothing details.\n\nModel Preparation: 0.14 mm layers with enhanced infill for archival longevity.\n\n3D Printing: Printed in PLA with careful temperature control to preserve fine historical details.\n\nPost-Processing: Finished with a subtle patina to suggest the gravitas of historical portraiture.",
 		audioUrl: "",
 	},
 	{
-		id: 9,
-		title: "Jerome Priest",
-		imageUrl: "/placeholder.svg",
-		description: "Voice of Resilience and Community Pride\n\nA powerful 3D portrait of Jerome Priest captures the strength and determination that have defined his journey. The sculptural work emphasizes the depth of character forged through personal challenges and community commitment.\n\nJerome Priest has become a symbol of resilience within Liverpool's L8 community, transforming personal struggles into a platform for helping others. His story of redemption and community service has inspired many to overcome their own challenges.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Dramatic lighting chosen to emphasize character lines and the wisdom gained through experience.\n\nDigital Sculpting: Detailed in Blender with particular attention to facial expression and emotional depth.\n\nModel Preparation: 0.16 mm layers with reinforced support structures for complex geometries.\n\n3D Printing: Fabricated in PLA using precise temperature control for optimal surface finish.\n\nPost-Processing: Hand-finished to enhance the contemplative quality of the subject's expression.",
-		audioUrl: "",
-	},
-	{
-		id: 10,
-		title: "Kate Garder",
+		id: 8,
+		title: "Katy Gardener",
 		imageUrl: "/lovable-uploads/katiyaIcon.png",
-		description: "Healthcare Advocate and Women's Rights Champion\n\nThis compassionate 3D portrait of Kate Garder reflects the caring nature and professional dedication that have marked her medical career. The sculptural work captures both her clinical expertise and her advocacy for community health.\n\nDr. Kate Garder has served as a dedicated GP and tireless advocate for women's health within Liverpool's diverse communities. Her work has focused on providing accessible healthcare and championing health equity for underserved populations.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Soft, professional lighting to convey the approachable yet authoritative nature of medical practice.\n\nDigital Sculpting: Modelled in Blender with attention to compassionate facial features and professional bearing.\n\nModel Preparation: 0.15 mm layers with standard infill optimized for smooth surface finish.\n\n3D Printing: Printed in PLA with consistent temperature control for professional-grade detail.\n\nPost-Processing: Polished to a clean, clinical finish reflecting the precision of medical practice.",
+		description: "Healthcare Advocate and Women's Rights Champion\n\nThis compassionate 3D portrait of Katy Gardener reflects the caring nature and professional dedication that have marked her medical career. The sculptural work captures both her clinical expertise and her advocacy for community health.\n\nDr. Katy Gardener has served as a dedicated GP and tireless advocate for women's health within Liverpool's diverse communities. Her work has focused on providing accessible healthcare and championing health equity for underserved populations.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Soft, professional lighting to convey the approachable yet authoritative nature of medical practice.\n\nDigital Sculpting: Modelled in Blender with attention to compassionate facial features and professional bearing.\n\nModel Preparation: 0.15 mm layers with standard infill optimized for smooth surface finish.\n\n3D Printing: Printed in PLA with consistent temperature control for professional-grade detail.\n\nPost-Processing: Polished to a clean, clinical finish reflecting the precision of medical practice.",
 		audioUrl: "",
 	},
 	{
-		id: 11,
+		id: 9,
 		title: "Eleanor Rathbone",
-		imageUrl: "/placeholder.svg",
+		imageUrl: "/lovable-uploads/elanorIcon.png",
 		description: "Social Reformer and Women's Rights Pioneer\n\nA commanding 3D portrait of Eleanor Rathbone captures the unwavering determination and intellectual strength that made her one of Britain's most influential social reformers. The sculptural work reflects both her political vision and her compassionate advocacy for the marginalized.\n\nEleanor Rathbone (1872-1946) was a pioneering feminist, social researcher, and independent MP who championed women's rights and family welfare. Her work on family allowances revolutionized social policy, and her advocacy for women's suffrage and international humanitarian causes left an indelible mark on British society.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Strong, directional lighting chosen to emphasize her resolute character and intellectual bearing.\n\nDigital Sculpting: Meticulously crafted in Blender with attention to period-appropriate dress and the determined expression that characterized her public appearances.\n\nModel Preparation: 0.14 mm layers with reinforced infill patterns for archival preservation.\n\n3D Printing: Printed in PLA using precise temperature control to capture the fine details of early 20th-century portraiture.\n\nPost-Processing: Finished with subtle aging techniques to reflect the historical significance and gravitas of this pioneering figure.",
 		audioUrl: "",
 	},
 	{
-		id: 12,
+		id: 10,
 		title: "Alan Williams",
-		imageUrl: "/placeholder.svg",
+		imageUrl: "/lovable-uploads/alanIcon.png",
 		description: "The Man Who Gave Away The Beatles\n\nA contemplative 3D portrait of Alan Williams captures the entrepreneurial spirit and Liverpool charm of the man who played a pivotal role in The Beatles' early career. The sculptural work reflects both his business acumen and the weight of decisions that would shape music history.\n\nAlan Williams (1930-2016) was a Liverpool entrepreneur and club owner who became The Beatles' first manager, organizing their legendary trip to Hamburg in 1960. Though he famously 'gave away' The Beatles before their meteoric rise, his role in their formative years was crucial to their development as performers and his place in Liverpool's musical heritage is undeniable.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Atmospheric lighting chosen to evoke the smoky club atmosphere of 1960s Liverpool music venues.\n\nDigital Sculpting: Created in Blender with emphasis on the confident yet reflective expression of a man who witnessed music history in the making.\n\nModel Preparation: 0.15 mm layers with careful support structuring for complex facial geometry.\n\n3D Printing: Fabricated in PLA using optimized settings to capture the character lines and expression of this music industry pioneer.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the storytelling quality of his weathered, experienced features.",
 		audioUrl: "",
+	},
+	{
+		id: 11,
+		title: "Jimi Jagne",
+		imageUrl: "/lovable-uploads/jimijIcon.png",
+		description: "Cultural Innovator and Community Connector\n\nA vibrant 3D portrait of Jimi Jagne captures the creative energy and community spirit that defines his work within Liverpool's diverse cultural landscape. The sculptural form reflects both his artistic vision and his role as a bridge-builder between communities.\n\nJimi Jagne is a dynamic cultural innovator and community leader who has played a vital role in connecting Liverpool's diverse communities through art, music, and creative collaboration. His work embodies the multicultural spirit of the city and demonstrates the power of culture to unite and inspire.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Dynamic lighting to capture the creative energy and expressive nature of an artist and community connector.\n\nDigital Sculpting: Modelled in Blender with emphasis on expressive features and the confident bearing of a cultural leader.\n\nModel Preparation: 0.15 mm layers with optimized infill for detailed facial modeling.\n\n3D Printing: Produced in PLA using precision settings to capture the nuanced expressions of creativity and community engagement.\n\nPost-Processing: Finished with enhanced detailing to reflect the vibrant, contemporary nature of his cultural contributions.",
+		audioUrl: "/audio/jimmiJagne.mp3",
 	},
 ];
 

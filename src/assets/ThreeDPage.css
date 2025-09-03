@@ -1,11 +1,41 @@
-.model-viewer-9-16 {
-  width: 100px;
-  height: 180px;
-  background: white;
-  border-radius: 0.5rem;
-  display: block;
+/* Container for model viewer with iPhone aspect ratio */
+.model-viewer-container-9-16 {
+  width: 300px !important;
+  height: 533px !important;
+  border-radius: 1.5rem;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   margin: 0 auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: white;
+  position: relative;
+}
+
+.model-viewer-9-16 {
+  width: 100% !important;
+  height: 100% !important;
+  background: white;
+  border-radius: 1.5rem;
+  display: block !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Additional specificity for model-viewer element */
+model-viewer.model-viewer-9-16 {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 .model-viewer-large {
@@ -19,9 +49,21 @@
 }
 
 @media (max-width: 640px) {
+  .model-viewer-container-9-16 {
+    width: 250px !important;
+    height: 444px !important;
+  }
   .model-viewer-9-16 {
-    width: 120px;
-    height: 220px;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  model-viewer.model-viewer-9-16 {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
   }
   .carousel .font-semibold, .carousel .text-lg {
     font-size: 1.1rem;
@@ -29,16 +71,40 @@
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
+  .model-viewer-container-9-16 {
+    width: 280px !important;
+    height: 498px !important;
+  }
   .model-viewer-9-16 {
-    width: 160px;
-    height: 290px;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  model-viewer.model-viewer-9-16 {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
   }
 }
 
 @media (min-width: 1025px) {
+  .model-viewer-container-9-16 {
+    width: 350px !important;
+    height: 622px !important;
+  }
   .model-viewer-9-16 {
-    width: 180px;
-    height: 320px;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  model-viewer.model-viewer-9-16 {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
   }
 }
 
