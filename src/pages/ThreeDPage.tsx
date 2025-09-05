@@ -54,14 +54,14 @@ const ThreeDPage = () => {
 		const modelViewer = document.querySelector('model-viewer') as any;
 		if (modelViewer) {
 			try {
-				// Set very wide field of view to show much more of the model
-				modelViewer.fieldOfView = '75deg';
-				// Position camera very close and at high angle to fill frame
-				modelViewer.cameraOrbit = '0deg 85deg 0.12m';
-				// Set the target to lower center of model for better framing
-				modelViewer.cameraTarget = '0m 0.2m 0m';
-				// Increase exposure for better visibility
-				modelViewer.exposure = 1.8;
+				// Set optimal field of view for good visibility
+				modelViewer.fieldOfView = '65deg';
+				// Position camera at optimal distance and angle for centered view
+				modelViewer.cameraOrbit = '0deg 75deg 0.15m';
+				// Center the target at origin for perfect centering
+				modelViewer.cameraTarget = '0m 0m 0m';
+				// Balanced exposure for good visibility
+				modelViewer.exposure = 1.5;
 				// Force bounds to be tight
 				modelViewer.bounds = 'tight';
 				// Update the view
@@ -84,11 +84,11 @@ const ThreeDPage = () => {
 			setTimeout(() => {
 				if (modelViewer) {
 					try {
-						// Force the model to fit the viewport better with aggressive settings
-						modelViewer.setAttribute('field-of-view', '75deg');
-						modelViewer.setAttribute('camera-orbit', '0deg 85deg 0.12m');
-						modelViewer.setAttribute('camera-target', '0m 0.2m 0m');
-						modelViewer.setAttribute('exposure', '1.8');
+						// Force the model to be perfectly centered
+						modelViewer.setAttribute('field-of-view', '65deg');
+						modelViewer.setAttribute('camera-orbit', '0deg 75deg 0.15m');
+						modelViewer.setAttribute('camera-target', '0m 0m 0m');
+						modelViewer.setAttribute('exposure', '1.5');
 						modelViewer.setAttribute('bounds', 'tight');
 						
 						// Try to trigger a view update
@@ -96,16 +96,16 @@ const ThreeDPage = () => {
 							modelViewer.jumpCameraToGoal();
 						}
 						
-						// Additional fallback for view fitting with very close camera
+						// Additional fallback for view fitting with centered camera
 						if (modelViewer.getCameraOrbit && modelViewer.setCameraOrbit) {
 							const currentOrbit = modelViewer.getCameraOrbit();
-							modelViewer.setCameraOrbit(currentOrbit.theta, currentOrbit.phi, 0.12);
+							modelViewer.setCameraOrbit(currentOrbit.theta, 75, 0.15);
 						}
 						
-						// Try to force the canvas to scale up
+						// Try to force the canvas to scale up but keep centered
 						const canvas = modelViewer.querySelector('canvas');
 						if (canvas) {
-							canvas.style.transform = 'scale(1.2)';
+							canvas.style.transform = 'scale(1.1)';
 							canvas.style.transformOrigin = 'center center';
 						}
 					} catch (error) {
@@ -185,17 +185,17 @@ const ThreeDPage = () => {
 														environment-image="neutral"
 														shadow-intensity="1"
 														shadow-softness="0.5"
-														field-of-view="75deg"
-														min-camera-orbit="auto auto 0.05m"
-														max-camera-orbit="auto auto 0.4m"
-														camera-orbit="0deg 85deg 0.12m"
-														min-field-of-view="60deg"
-														max-field-of-view="90deg"
+														field-of-view="65deg"
+														min-camera-orbit="auto auto 0.08m"
+														max-camera-orbit="auto auto 0.5m"
+														camera-orbit="0deg 75deg 0.15m"
+														min-field-of-view="50deg"
+														max-field-of-view="80deg"
 														interaction-prompt="none"
 														touch-action="pan-y"
-														camera-target="0m 0.2m 0m"
+														camera-target="0m 0m 0m"
 														auto-rotate-delay="3000"
-														exposure="1.8"
+														exposure="1.5"
 														bounds="tight"
 													></model-viewer>
 												</div>
