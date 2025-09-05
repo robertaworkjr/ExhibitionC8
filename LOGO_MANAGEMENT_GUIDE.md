@@ -1,6 +1,7 @@
 # Funder Logo Management System
 
 ## Overview
+
 This document outlines the best practices and implementation details for managing funder logos in the "Capture the Essence of the Eighth" exhibition website.
 
 ## File Structure

@@ -76,7 +76,7 @@ const galleryData = [
 		title: "Eleanor Rathbone",
 		imageUrl: "/lovable-uploads/elanorIcon.png",
 		description: "Social Reformer and Women's Rights Pioneer\n\nA commanding 3D portrait of Eleanor Rathbone captures the unwavering determination and intellectual strength that made her one of Britain's most influential social reformers. The sculptural work reflects both her political vision and her compassionate advocacy for the marginalized.\n\nEleanor Rathbone (1872-1946) was a pioneering feminist, social researcher, and independent MP who championed women's rights and family welfare. Her work on family allowances revolutionized social policy, and her advocacy for women's suffrage and international humanitarian causes left an indelible mark on British society.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Strong, directional lighting chosen to emphasize her resolute character and intellectual bearing.\n\nDigital Sculpting: Meticulously crafted in Blender with attention to period-appropriate dress and the determined expression that characterized her public appearances.\n\nModel Preparation: 0.14 mm layers with reinforced infill patterns for archival preservation.\n\n3D Printing: Printed in PLA using precise temperature control to capture the fine details of early 20th-century portraiture.\n\nPost-Processing: Finished with subtle aging techniques to reflect the historical significance and gravitas of this pioneering figure.",
-		audioUrl: "",
+		audioUrl: "/audio/eleanorRathbone.mp3",
 	},
 	{
 		id: 10,
