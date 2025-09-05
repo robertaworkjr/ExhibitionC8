@@ -7,22 +7,30 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   margin: 0 auto;
   overflow: hidden;
-  background: white;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ensure no margin/padding constraints */
+  box-sizing: border-box !important;
 }
 
 .model-viewer-9-16 {
   width: 100% !important;
   height: 100% !important;
-  background: white;
+  background: transparent;
   border-radius: 1.5rem;
   display: block !important;
   margin: 0 !important;
+  padding: 0 !important;
   box-shadow: none !important;
   border: none !important;
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
 /* Additional specificity for model-viewer element */
@@ -36,6 +44,29 @@ model-viewer.model-viewer-9-16 {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  --poster-color: transparent;
+  --progress-bar-color: #1976d2;
+  --progress-bar-height: 2px;
+  /* Force the model to fill more space */
+  --model-viewer-height: 100% !important;
+  --model-viewer-width: 100% !important;
+  /* Additional properties to force full usage */
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Ensure the canvas inside model-viewer fills completely */
+model-viewer.model-viewer-9-16 canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: scale(1.2) !important;
+  transform-origin: center center !important;
 }
 
 .model-viewer-large {
@@ -111,4 +142,34 @@ model-viewer.model-viewer-9-16 {
 .nav-icon-3d {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+/* Additional rules to force model scaling */
+model-viewer.model-viewer-9-16 #default-ar-button {
+  display: none !important;
+}
+
+model-viewer.model-viewer-9-16 .interaction-prompt {
+  display: none !important;
+}
+
+/* Force canvas to fill completely and center content */
+model-viewer.model-viewer-9-16 > * {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure model fills the entire viewport without letterboxing */
+model-viewer.model-viewer-9-16::part(default-progress-mask) {
+  display: none;
+}
+
+/* Force model to use full space with aggressive scaling */
+.model-viewer-container-9-16 model-viewer {
+  transform: scale(1.5) translateY(-8%) !important;
+  transform-origin: center center;
+  /* Force viewport usage */
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
 }

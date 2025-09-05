@@ -50,6 +50,89 @@ const ThreeDPage = () => {
 		}
 	};
 
+	const optimizeModelView = () => {
+		const modelViewer = document.querySelector('model-viewer') as any;
+		if (modelViewer) {
+			try {
+				// Set very wide field of view to show much more of the model
+				modelViewer.fieldOfView = '75deg';
+				// Position camera very close and at high angle to fill frame
+				modelViewer.cameraOrbit = '0deg 85deg 0.12m';
+				// Set the target to lower center of model for better framing
+				modelViewer.cameraTarget = '0m 0.2m 0m';
+				// Increase exposure for better visibility
+				modelViewer.exposure = 1.8;
+				// Force bounds to be tight
+				modelViewer.bounds = 'tight';
+				// Update the view
+				modelViewer.jumpCameraToGoal();
+			} catch (error) {
+				console.log('Model viewer optimization not available:', error);
+			}
+		}
+	};
+
+	// Add effect to optimize view when component mounts
+	React.useEffect(() => {
+		const modelViewer = document.querySelector('model-viewer') as any;
+		
+		const handleModelLoad = () => {
+			// Initial optimization
+			optimizeModelView();
+			
+			// Additional optimization after a short delay to ensure model is fully loaded
+			setTimeout(() => {
+				if (modelViewer) {
+					try {
+						// Force the model to fit the viewport better with aggressive settings
+						modelViewer.setAttribute('field-of-view', '75deg');
+						modelViewer.setAttribute('camera-orbit', '0deg 85deg 0.12m');
+						modelViewer.setAttribute('camera-target', '0m 0.2m 0m');
+						modelViewer.setAttribute('exposure', '1.8');
+						modelViewer.setAttribute('bounds', 'tight');
+						
+						// Try to trigger a view update
+						if (modelViewer.jumpCameraToGoal) {
+							modelViewer.jumpCameraToGoal();
+						}
+						
+						// Additional fallback for view fitting with very close camera
+						if (modelViewer.getCameraOrbit && modelViewer.setCameraOrbit) {
+							const currentOrbit = modelViewer.getCameraOrbit();
+							modelViewer.setCameraOrbit(currentOrbit.theta, currentOrbit.phi, 0.12);
+						}
+						
+						// Try to force the canvas to scale up
+						const canvas = modelViewer.querySelector('canvas');
+						if (canvas) {
+							canvas.style.transform = 'scale(1.2)';
+							canvas.style.transformOrigin = 'center center';
+						}
+					} catch (error) {
+						console.log('Advanced model viewer optimization not available:', error);
+					}
+				}
+			}, 1000);
+		};
+
+		if (modelViewer) {
+			// Listen for the model load event
+			modelViewer.addEventListener('load', handleModelLoad);
+			modelViewer.addEventListener('model-visibility', handleModelLoad);
+			
+			// Also set a fallback timer in case the events don't fire
+			const timer = setTimeout(() => {
+				handleModelLoad();
+			}, 2000);
+			
+			return () => {
+				modelViewer.removeEventListener('load', handleModelLoad);
+				modelViewer.removeEventListener('model-visibility', handleModelLoad);
+				clearTimeout(timer);
+			};
+		}
+	}, []);
+
 	return (
 		<div className="min-h-screen bg-background">
 			<Navigation />
@@ -102,6 +185,18 @@ const ThreeDPage = () => {
 														environment-image="neutral"
 														shadow-intensity="1"
 														shadow-softness="0.5"
+														field-of-view="75deg"
+														min-camera-orbit="auto auto 0.05m"
+														max-camera-orbit="auto auto 0.4m"
+														camera-orbit="0deg 85deg 0.12m"
+														min-field-of-view="60deg"
+														max-field-of-view="90deg"
+														interaction-prompt="none"
+														touch-action="pan-y"
+														camera-target="0m 0.2m 0m"
+														auto-rotate-delay="3000"
+														exposure="1.8"
+														bounds="tight"
 													></model-viewer>
 												</div>
 												<div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground text-xs px-2 py-1 rounded">
