@@ -29,6 +29,9 @@ const charlesWootenModel = {
 };
 
 const ThreeDPage = () => {
+	const [modelLoading, setModelLoading] = React.useState(true);
+	const [modelError, setModelError] = React.useState(false);
+
 	const handleDownload = () => {
 		const link = document.createElement('a');
 		link.href = charlesWootenModel.file;
@@ -77,6 +80,9 @@ const ThreeDPage = () => {
 		const modelViewer = document.querySelector('model-viewer') as any;
 		
 		const handleModelLoad = () => {
+			console.log('Model loaded successfully');
+			setModelLoading(false);
+			setModelError(false);
 			// Initial optimization
 			optimizeModelView();
 			
@@ -115,21 +121,33 @@ const ThreeDPage = () => {
 			}, 1000);
 		};
 
+		const handleModelError = (event: any) => {
+			console.error('Model failed to load:', event);
+			console.error('Model src:', charlesWootenModel.file);
+			setModelLoading(false);
+			setModelError(true);
+		};
+
 		if (modelViewer) {
 			// Listen for the model load event
 			modelViewer.addEventListener('load', handleModelLoad);
 			modelViewer.addEventListener('model-visibility', handleModelLoad);
+			modelViewer.addEventListener('error', handleModelError);
 			
 			// Also set a fallback timer in case the events don't fire
 			const timer = setTimeout(() => {
+				console.log('Timer triggered, attempting to load model...');
 				handleModelLoad();
 			}, 2000);
 			
 			return () => {
 				modelViewer.removeEventListener('load', handleModelLoad);
 				modelViewer.removeEventListener('model-visibility', handleModelLoad);
+				modelViewer.removeEventListener('error', handleModelError);
 				clearTimeout(timer);
 			};
+		} else {
+			console.error('Model viewer element not found');
 		}
 	}, []);
 
@@ -198,6 +216,24 @@ const ThreeDPage = () => {
 														exposure="1.5"
 														bounds="tight"
 													></model-viewer>
+													
+													{modelLoading && (
+														<div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-xl">
+															<div className="text-center">
+																<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+																<p className="text-sm text-muted-foreground">Loading 3D Model...</p>
+															</div>
+														</div>
+													)}
+													
+													{modelError && (
+														<div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-xl">
+															<div className="text-center">
+																<p className="text-sm text-red-600 mb-2">Failed to load 3D model</p>
+																<p className="text-xs text-muted-foreground">Please try refreshing the page</p>
+															</div>
+														</div>
+													)}
 												</div>
 												<div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground text-xs px-2 py-1 rounded">
 													Interactive 3D Model
