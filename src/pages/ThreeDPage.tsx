@@ -77,78 +77,91 @@ const ThreeDPage = () => {
 
 	// Add effect to optimize view when component mounts
 	React.useEffect(() => {
-		const modelViewer = document.querySelector('model-viewer') as any;
+		// Wait for model-viewer to be defined
+		const checkModelViewer = () => {
+			if (typeof customElements.get('model-viewer') !== 'undefined') {
+				initializeModelViewer();
+			} else {
+				setTimeout(checkModelViewer, 100);
+			}
+		};
 		
-		const handleModelLoad = () => {
-			console.log('Model loaded successfully');
-			setModelLoading(false);
-			setModelError(false);
-			// Initial optimization
-			optimizeModelView();
+		const initializeModelViewer = () => {
+			const modelViewer = document.querySelector('model-viewer') as any;
 			
-			// Additional optimization after a short delay to ensure model is fully loaded
-			setTimeout(() => {
-				if (modelViewer) {
-					try {
-						// Force the model to be perfectly centered
-						modelViewer.setAttribute('field-of-view', '65deg');
-						modelViewer.setAttribute('camera-orbit', '0deg 75deg 0.15m');
-						modelViewer.setAttribute('camera-target', '0m 0m 0m');
-						modelViewer.setAttribute('exposure', '1.5');
-						modelViewer.setAttribute('bounds', 'tight');
-						
-						// Try to trigger a view update
-						if (modelViewer.jumpCameraToGoal) {
-							modelViewer.jumpCameraToGoal();
+			const handleModelLoad = () => {
+				console.log('Model loaded successfully');
+				setModelLoading(false);
+				setModelError(false);
+				// Initial optimization
+				optimizeModelView();
+				
+				// Additional optimization after a short delay to ensure model is fully loaded
+				setTimeout(() => {
+					if (modelViewer) {
+						try {
+							// Force the model to be perfectly centered
+							modelViewer.setAttribute('field-of-view', '65deg');
+							modelViewer.setAttribute('camera-orbit', '0deg 75deg 0.15m');
+							modelViewer.setAttribute('camera-target', '0m 0m 0m');
+							modelViewer.setAttribute('exposure', '1.5');
+							modelViewer.setAttribute('bounds', 'tight');
+							
+							// Try to trigger a view update
+							if (modelViewer.jumpCameraToGoal) {
+								modelViewer.jumpCameraToGoal();
+							}
+							
+							// Additional fallback for view fitting with centered camera
+							if (modelViewer.getCameraOrbit && modelViewer.setCameraOrbit) {
+								const currentOrbit = modelViewer.getCameraOrbit();
+								modelViewer.setCameraOrbit(currentOrbit.theta, 75, 0.15);
+							}
+							
+							// Try to force the canvas to scale up but keep centered
+							const canvas = modelViewer.querySelector('canvas');
+							if (canvas) {
+								canvas.style.transform = 'scale(1.1)';
+								canvas.style.transformOrigin = 'center center';
+							}
+						} catch (error) {
+							console.log('Advanced model viewer optimization not available:', error);
 						}
-						
-						// Additional fallback for view fitting with centered camera
-						if (modelViewer.getCameraOrbit && modelViewer.setCameraOrbit) {
-							const currentOrbit = modelViewer.getCameraOrbit();
-							modelViewer.setCameraOrbit(currentOrbit.theta, 75, 0.15);
-						}
-						
-						// Try to force the canvas to scale up but keep centered
-						const canvas = modelViewer.querySelector('canvas');
-						if (canvas) {
-							canvas.style.transform = 'scale(1.1)';
-							canvas.style.transformOrigin = 'center center';
-						}
-					} catch (error) {
-						console.log('Advanced model viewer optimization not available:', error);
 					}
-				}
-			}, 1000);
-		};
-
-		const handleModelError = (event: any) => {
-			console.error('Model failed to load:', event);
-			console.error('Model src:', charlesWootenModel.file);
-			setModelLoading(false);
-			setModelError(true);
-		};
-
-		if (modelViewer) {
-			// Listen for the model load event
-			modelViewer.addEventListener('load', handleModelLoad);
-			modelViewer.addEventListener('model-visibility', handleModelLoad);
-			modelViewer.addEventListener('error', handleModelError);
-			
-			// Also set a fallback timer in case the events don't fire
-			const timer = setTimeout(() => {
-				console.log('Timer triggered, attempting to load model...');
-				handleModelLoad();
-			}, 2000);
-			
-			return () => {
-				modelViewer.removeEventListener('load', handleModelLoad);
-				modelViewer.removeEventListener('model-visibility', handleModelLoad);
-				modelViewer.removeEventListener('error', handleModelError);
-				clearTimeout(timer);
+				}, 1000);
 			};
-		} else {
-			console.error('Model viewer element not found');
-		}
+
+			const handleModelError = (event: any) => {
+				console.error('Model failed to load:', event);
+				console.error('Model src:', charlesWootenModel.file);
+				setModelLoading(false);
+				setModelError(true);
+			};
+
+			if (modelViewer) {
+				// Listen for the model load event
+				modelViewer.addEventListener('load', handleModelLoad);
+				modelViewer.addEventListener('model-visibility', handleModelLoad);
+				modelViewer.addEventListener('error', handleModelError);
+				
+				// Also set a fallback timer in case the events don't fire
+				const timer = setTimeout(() => {
+					console.log('Timer triggered, attempting to load model...');
+					handleModelLoad();
+				}, 5000); // Increased timeout for large file
+				
+				return () => {
+					modelViewer.removeEventListener('load', handleModelLoad);
+					modelViewer.removeEventListener('model-visibility', handleModelLoad);
+					modelViewer.removeEventListener('error', handleModelError);
+					clearTimeout(timer);
+				};
+			} else {
+				console.error('Model viewer element not found');
+			}
+		};
+		
+		checkModelViewer();
 	}, []);
 
 	return (
