@@ -29,15 +29,17 @@ const modelGallery = [
                 process: "Created using high-resolution photogrammetry data, digitally sculpted in Blender with sub-millimetre precision, and printed using biodegradable PLA material at 0.15mm layer height for exceptional detail.",
                 tags: ["Memorial", "Historical", "3D Printed", "PLA"]
         },
+        // Note: These models need .glb files for web viewing. .usdz files only work for iOS AR
+        // Using fallback to existing Charles Wooten model for demonstration
         {
                 id: "joanne-anderson",
                 name: "Joanne Anderson",
                 subtitle: "Political Leadership and Representation - 2025",
-                file: "/3DObjects/JoanneAnderson.usdz",
+                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
                 material: "PLA Filament",
                 technique: "3D Printing on Prusa XL",
                 dimensions: "Custom portrait scale",
-                description: "This 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.",
+                description: "This 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.\n\n[Note: This is using a placeholder 3D model. Replace with JoanneAnderson.glb when available]",
                 process: "Image Capture: Careful lighting used to create a soft tonal range, matching the poised expression of the subject. Digital Sculpting: Modelled in Blender, focusing on subtle surface detail and symmetry. Model Preparation: Exported and sliced with 0.16 mm layers and moderate infill for balance between weight and detail. 3D Printing: Printed in PLA on the Prusa XL, using a slow extrusion for precise edge fidelity. Post-Processing: Buffed to a smooth matte finish to preserve the soft, monochrome-inspired aesthetic.",
                 tags: ["Political", "Leadership", "Historical", "3D Printed", "PLA"]
         },
@@ -45,11 +47,11 @@ const modelGallery = [
                 id: "bea-freeman",
                 name: "Bea Freeman", 
                 subtitle: "Cultural Pioneer and Media Voice - 2025",
-                file: "/3DObjects/BeaFreeman.usdz",
+                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
                 material: "PLA Filament", 
                 technique: "Digital Sculpting & 3D Printing",
                 dimensions: "Portrait scale",
-                description: "A finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.",
+                description: "A finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.\n\n[Note: This is using a placeholder 3D model. Replace with BeaFreeman.glb when available]",
                 process: "Image Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours. Digital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.",
                 tags: ["Media", "Cultural", "Television", "3D Printed", "Pioneer"]
         },
@@ -57,11 +59,11 @@ const modelGallery = [
                 id: "katy-gardener", 
                 name: "Katy Gardener",
                 subtitle: "Community Figure - 2025",
-                file: "/3DObjects/KatyGardener.usdz",
+                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
                 material: "PLA Filament",
                 technique: "3D Printing",
                 dimensions: "Portrait scale", 
-                description: "3D portrait of Katy Gardener, representing her contribution to Liverpool's community. [Add your specific description and details about Katy Gardener here]",
+                description: "3D portrait of Katy Gardener, representing her contribution to Liverpool's community. [Add your specific description and details about Katy Gardener here]\n\n[Note: This is using a placeholder 3D model. Replace with KatyGardener.glb when available]",
                 process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
                 tags: ["Community", "3D Printed", "Portrait"]
         },
@@ -69,11 +71,11 @@ const modelGallery = [
                 id: "john-archer",
                 name: "John Archer", 
                 subtitle: "Historical Figure - 2025",
-                file: "/3DObjects/JohnArcher.usdz",
+                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
                 material: "PLA Filament",
                 technique: "3D Printing", 
                 dimensions: "Portrait scale",
-                description: "3D portrait of John Archer, capturing his significance in Liverpool's history. [Add your specific description and details about John Archer here]",
+                description: "3D portrait of John Archer, capturing his significance in Liverpool's history. [Add your specific description and details about John Archer here]\n\n[Note: This is using a placeholder 3D model. Replace with JohnArcher.glb when available]",
                 process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
                 tags: ["Historical", "3D Printed", "Portrait"]
         },
@@ -125,14 +127,14 @@ const ThreeDPage = () => {
                 const modelViewer = document.querySelector('model-viewer') as any;
                 if (modelViewer) {
                         try {
-                                // Set optimal field of view for good visibility
-                                modelViewer.fieldOfView = '65deg';
+                                // Set optimal field of view for better sizing
+                                modelViewer.fieldOfView = '45deg';
                                 // Position camera at optimal distance and angle for centered view
-                                modelViewer.cameraOrbit = '0deg 75deg 0.15m';
-                                // Center the target at origin for perfect centering
-                                modelViewer.cameraTarget = '0m 0m 0m';
-                                // Balanced exposure for good visibility
-                                modelViewer.exposure = 0.7;
+                                modelViewer.cameraOrbit = '0deg 75deg 1.2m';
+                                // Center the target slightly above origin for better centering
+                                modelViewer.cameraTarget = '0m 0.1m 0m';
+                                // Enhanced exposure for better visibility
+                                modelViewer.exposure = 1.2;
                                 // Force bounds to be tight
                                 modelViewer.bounds = 'tight';
                                 // Update the view
@@ -334,17 +336,17 @@ const ThreeDPage = () => {
                                                                                                                 environment-image="neutral"
                                                                                                                 shadow-intensity="0.7"
                                                                                                                 shadow-softness="0.8"
-                                                                                                                field-of-view="65deg"
-                                                                                                                min-camera-orbit="auto auto 0.08m"
-                                                                                                                max-camera-orbit="auto auto 0.5m"
-                                                                                                                camera-orbit="0deg 75deg 0.15m"
-                                                                                                                min-field-of-view="50deg"
-                                                                                                                max-field-of-view="80deg"
+                                                                                                                field-of-view="45deg"
+                                                                                                                min-camera-orbit="auto auto 0.5m"
+                                                                                                                max-camera-orbit="auto auto 2.5m"
+                                                                                                                camera-orbit="0deg 75deg 1.2m"
+                                                                                                                min-field-of-view="30deg"
+                                                                                                                max-field-of-view="60deg"
                                                                                                                 interaction-prompt="none"
                                                                                                                 touch-action="pan-y"
-                                                                                                                camera-target="0m 0m 0m"
+                                                                                                                camera-target="0m 0.1m 0m"
                                                                                                                 auto-rotate-delay="3000"
-                                                                                                                exposure="0.7"
+                                                                                                                exposure="1.2"
                                                                                                                 bounds="tight"
                                                                                                         ></model-viewer>
                                                                                                         
