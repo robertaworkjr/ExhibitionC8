@@ -29,7 +29,55 @@ const modelGallery = [
                 process: "Created using high-resolution photogrammetry data, digitally sculpted in Blender with sub-millimetre precision, and printed using biodegradable PLA material at 0.15mm layer height for exceptional detail.",
                 tags: ["Memorial", "Historical", "3D Printed", "PLA"]
         },
-        // Add your additional models here following the same structure
+        {
+                id: "joanne-anderson",
+                name: "Joanne Anderson",
+                subtitle: "Political Leadership and Representation - 2025",
+                file: "/3DObjects/JoanneAnderson.usdz",
+                material: "PLA Filament",
+                technique: "3D Printing on Prusa XL",
+                dimensions: "Custom portrait scale",
+                description: "This 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.",
+                process: "Image Capture: Careful lighting used to create a soft tonal range, matching the poised expression of the subject. Digital Sculpting: Modelled in Blender, focusing on subtle surface detail and symmetry. Model Preparation: Exported and sliced with 0.16 mm layers and moderate infill for balance between weight and detail. 3D Printing: Printed in PLA on the Prusa XL, using a slow extrusion for precise edge fidelity. Post-Processing: Buffed to a smooth matte finish to preserve the soft, monochrome-inspired aesthetic.",
+                tags: ["Political", "Leadership", "Historical", "3D Printed", "PLA"]
+        },
+        {
+                id: "bea-freeman",
+                name: "Bea Freeman", 
+                subtitle: "Cultural Pioneer and Media Voice - 2025",
+                file: "/3DObjects/BeaFreeman.usdz",
+                material: "PLA Filament", 
+                technique: "Digital Sculpting & 3D Printing",
+                dimensions: "Portrait scale",
+                description: "A finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.",
+                process: "Image Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours. Digital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.",
+                tags: ["Media", "Cultural", "Television", "3D Printed", "Pioneer"]
+        },
+        {
+                id: "katy-gardener", 
+                name: "Katy Gardener",
+                subtitle: "Community Figure - 2025",
+                file: "/3DObjects/KatyGardener.usdz",
+                material: "PLA Filament",
+                technique: "3D Printing",
+                dimensions: "Portrait scale", 
+                description: "3D portrait of Katy Gardener, representing her contribution to Liverpool's community. [Add your specific description and details about Katy Gardener here]",
+                process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
+                tags: ["Community", "3D Printed", "Portrait"]
+        },
+        {
+                id: "john-archer",
+                name: "John Archer", 
+                subtitle: "Historical Figure - 2025",
+                file: "/3DObjects/JohnArcher.usdz",
+                material: "PLA Filament",
+                technique: "3D Printing", 
+                dimensions: "Portrait scale",
+                description: "3D portrait of John Archer, capturing his significance in Liverpool's history. [Add your specific description and details about John Archer here]",
+                process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
+                tags: ["Historical", "3D Printed", "Portrait"]
+        },
+        // Test model - can be removed if not needed
         {
                 id: "test-cube",
                 name: "Test Cube",
