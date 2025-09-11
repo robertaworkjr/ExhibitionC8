@@ -64,7 +64,7 @@ const ThreeDPage = () => {
                                 // Center the target at origin for perfect centering
                                 modelViewer.cameraTarget = '0m 0m 0m';
                                 // Balanced exposure for good visibility
-                                modelViewer.exposure = 1.5;
+                                modelViewer.exposure = 0.7;
                                 // Force bounds to be tight
                                 modelViewer.bounds = 'tight';
                                 // Update the view
@@ -213,7 +213,7 @@ const ThreeDPage = () => {
                                                                                                                 camera-controls
                                                                                                                 auto-rotate
                                                                                                                 loading="lazy"
-                                                                                                                environment-image="neutral"
+                                                                                                                environment-image="city"
                                                                                                                 shadow-intensity="0.7"
                                                                                                                 shadow-softness="0.8"
                                                                                                                 field-of-view="65deg"
