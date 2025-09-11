@@ -245,15 +245,62 @@ const ThreeDPage = () => {
                                         <AdHeader />
                                 </div>
 
-                                {/* Hero Section */}
-                                <section className="py-16 px-6 bg-gradient-hero">
-                                        <div className="max-w-4xl mx-auto text-center">
-                                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                                                        3D Digital Memorial
-                                                </h1>
-                                                <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                                        Experience our cutting-edge 3D memorial portrait that brings Liverpool's historical figures to life through innovative digital fabrication techniques.
-                                                </p>
+                                {/* Modern Animated Hero Section */}
+                                <section className="relative py-20 px-6 bg-gradient-mesh overflow-hidden">
+                                        {/* Background Pattern */}
+                                        <div className="absolute inset-0 bg-gradient-hero animate-gradient opacity-60"></div>
+                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.15)_1px,transparent_0)] bg-[length:24px_24px]"></div>
+                                        
+                                        {/* Content Container */}
+                                        <div className="relative max-w-5xl mx-auto text-center">
+                                                {/* Main Title */}
+                                                <div className="animate-fade-in-up">
+                                                        <h1 className="text-5xl md:text-7xl font-bold mb-8 text-foreground leading-tight">
+                                                                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                                                                        3D Digital Memorial
+                                                                </span>
+                                                        </h1>
+                                                </div>
+                                                
+                                                {/* Subtitle */}
+                                                <div className="animate-fade-in-up delay-200">
+                                                        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
+                                                                Experience our cutting-edge 3D memorial portraits that bring Liverpool's historical figures to life through innovative digital fabrication techniques.
+                                                        </p>
+                                                </div>
+                                                
+                                                {/* Feature Pills */}
+                                                <div className="animate-fade-in-up delay-400 flex flex-wrap justify-center gap-4 mb-12">
+                                                        <div className="glass-effect px-4 py-2 rounded-full border border-primary/20">
+                                                                <span className="text-sm font-medium text-primary">✨ Interactive 3D Models</span>
+                                                        </div>
+                                                        <div className="glass-effect px-4 py-2 rounded-full border border-accent/20">
+                                                                <span className="text-sm font-medium text-accent">🎧 Audio Narratives</span>
+                                                        </div>
+                                                        <div className="glass-effect px-4 py-2 rounded-full border border-primary/20">
+                                                                <span className="text-sm font-medium text-primary">📱 AR Experience</span>
+                                                        </div>
+                                                </div>
+                                                
+                                                {/* Scroll Indicator */}
+                                                <div className="animate-fade-in-up delay-600">
+                                                        <div className="inline-flex items-center gap-2 text-muted-foreground">
+                                                                <span className="text-sm">Scroll to explore</span>
+                                                                <div className="animate-bounce">
+                                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                                                        </svg>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        
+                                        {/* Floating Accent Elements */}
+                                        <div className="absolute top-20 left-10 animate-float opacity-20">
+                                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent animate-glow"></div>
+                                        </div>
+                                        <div className="absolute bottom-20 right-10 animate-float delay-1000 opacity-20">
+                                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary animate-glow"></div>
                                         </div>
                                 </section>
 
