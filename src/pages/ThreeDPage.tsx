@@ -245,6 +245,18 @@ const ThreeDPage = () => {
                                         <AdHeader />
                                 </div>
 
+                                {/* Hero Section */}
+                                <section className="py-16 px-6 bg-gradient-hero">
+                                        <div className="max-w-4xl mx-auto text-center">
+                                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+                                                        3D Digital Memorial
+                                                </h1>
+                                                <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                                                        Experience our cutting-edge 3D memorial portrait that brings Liverpool's historical figures to life through innovative digital fabrication techniques.
+                                                </p>
+                                        </div>
+                                </section>
+
                                 {/* Model Gallery Selection */}
                                 <section className="px-6 py-6 bg-muted/30">
                                         <div className="container max-w-6xl mx-auto">
@@ -291,18 +303,6 @@ const ThreeDPage = () => {
                                                                 </Card>
                                                         ))}
                                                 </div>
-                                        </div>
-                                </section>
-
-                                {/* Hero Section */}
-                                <section className="py-16 px-6 bg-gradient-hero">
-                                        <div className="max-w-4xl mx-auto text-center">
-                                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                                                        3D Digital Memorial
-                                                </h1>
-                                                <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                                        Experience our cutting-edge 3D memorial portrait that brings Liverpool's historical figures to life through innovative digital fabrication techniques.
-                                                </p>
                                         </div>
                                 </section>
 
