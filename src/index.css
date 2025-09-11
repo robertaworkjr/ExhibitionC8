@@ -417,46 +417,6 @@ nav a span {
   font-weight: 500;
 }
 
-/* Force navigation text visibility - Updated */
-nav a span {
-  color: #000000 !important;
-  font-weight: 500 !important;
-  text-shadow: none !important;
-  background: transparent !important;
-}
-
-nav a:hover span {
-  color: #2563eb !important; /* blue-600 */
-}
-
-nav a.active span,
-nav a[aria-current="page"] span {
-  color: #2563eb !important; /* blue-600 */
-  font-weight: 600 !important;
-}
-
-/* 3D Objects link specific styling */
-nav a[href="/3d"]:hover span {
-  color: white !important;
-}
-
-nav a[href="/3d"].active span,
-nav a[href="/3d"][aria-current="page"] span {
-  color: white !important;
-}
-
-/* Ensure navigation icons are black by default */
-nav a svg {
-  color: #000000 !important;
-}
-
-nav a:hover svg {
-  color: #2563eb !important;
-}
-
-nav a[href="/3d"]:hover svg {
-  color: white !important;
-}
 
 /* Desktop navigation spacing */
 @media (min-width: 768px) {
@@ -731,27 +691,6 @@ nav a[href="/3d"]:hover svg {
   animation-delay: 1.2s;
 }
 
-/* Navigation Text Visibility Fix */
-nav a {
-  color: hsl(var(--foreground)) !important;
-}
-
-nav a:hover {
-  color: #2563eb !important; /* blue-600 */
-}
-
-nav a.text-blue-600 {
-  color: #2563eb !important;
-}
-
-nav span {
-  color: inherit !important;
-}
-
-/* Ensure 3D Objects link visibility */
-nav .nav-icon {
-  color: inherit !important;
-}
 
 /* Funder logo styling */
 .funder-logo-img {

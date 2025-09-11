@@ -11,6 +11,12 @@ export default defineConfig(({ mode }) => ({
       clientPort: 443,
     },
     allowedHosts: true,
+    // Prevent caching issues in development
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    },
   },
   plugins: [
     react(),
