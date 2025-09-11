@@ -213,7 +213,7 @@ const ThreeDPage = () => {
                                                                                                                 camera-controls
                                                                                                                 auto-rotate
                                                                                                                 loading="lazy"
-                                                                                                                environment-image="neutral"
+                                                                                                                environment-image="forest"
                                                                                                                 shadow-intensity="0.7"
                                                                                                                 shadow-softness="0.8"
                                                                                                                 field-of-view="65deg"
