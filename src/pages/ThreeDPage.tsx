@@ -179,28 +179,80 @@ const ThreeDPage = () => {
 
         // Add effect to optimize view when component mounts
         React.useEffect(() => {
+                let cleanup: (() => void) | undefined;
+                let loadingTimeout: NodeJS.Timeout | undefined;
+                let isComponentMounted = true;
+                
                 // Wait for model-viewer to be defined
                 const checkModelViewer = () => {
                         if (typeof customElements.get('model-viewer') !== 'undefined') {
                                 initializeModelViewer();
                         } else {
-                                setTimeout(checkModelViewer, 100);
+                                if (isComponentMounted) {
+                                        setTimeout(checkModelViewer, 100);
+                                }
                         }
                 };
                 
                 const initializeModelViewer = () => {
                         const modelViewer = document.querySelector('model-viewer') as any;
                         
+                        if (!modelViewer) {
+                                console.error('Model viewer element not found');
+                                if (isComponentMounted) {
+                                        setModelError(true);
+                                        setModelLoading(false);
+                                }
+                                return;
+                        }
+                        
                         const handleModelLoad = () => {
-                                console.log('Model loaded successfully');
-                                setModelLoading(false);
-                                setModelError(false);
-                                // Initial optimization
-                                optimizeModelView();
+                                if (!isComponentMounted) return;
+                                
+                                // Clear loading timeout since model loaded successfully
+                                if (loadingTimeout) {
+                                        clearTimeout(loadingTimeout);
+                                        loadingTimeout = undefined;
+                                }
+                                
+                                // Verify the model actually loaded by checking model-viewer properties
+                                try {
+                                        const hasModel = modelViewer.model;
+                                        const isLoaded = modelViewer.loaded;
+                                        const hasSource = modelViewer.src && modelViewer.src === currentModel.file;
+                                        
+                                        if (hasModel && isLoaded && hasSource) {
+                                                console.log('Model loaded and verified successfully:', {
+                                                        src: modelViewer.src,
+                                                        hasModel: !!hasModel,
+                                                        loaded: isLoaded
+                                                });
+                                                setModelLoading(false);
+                                                setModelError(false);
+                                                
+                                                // Initial optimization
+                                                optimizeModelView();
+                                        } else {
+                                                console.warn('Model load event fired but verification failed:', {
+                                                        hasModel: !!hasModel,
+                                                        isLoaded,
+                                                        hasSource,
+                                                        expectedSrc: currentModel.file,
+                                                        actualSrc: modelViewer.src
+                                                });
+                                                // Don't set error immediately, give it another chance
+                                                return;
+                                        }
+                                } catch (error) {
+                                        console.error('Error verifying model load:', error);
+                                        setModelLoading(false);
+                                        setModelError(true);
+                                        return;
+                                }
                                 
                                 // Additional optimization after a short delay to ensure model is fully loaded
                                 setTimeout(() => {
-                                        if (modelViewer) {
+                                        if (modelViewer && isComponentMounted) {
                                                 try {
                                                         // Force the model to be perfectly centered
                                                         modelViewer.setAttribute('field-of-view', '65deg');
@@ -234,36 +286,145 @@ const ThreeDPage = () => {
                         };
 
                         const handleModelError = (event: any) => {
+                                if (!isComponentMounted) return;
+                                
+                                // Clear loading timeout since we got a definitive error
+                                if (loadingTimeout) {
+                                        clearTimeout(loadingTimeout);
+                                        loadingTimeout = undefined;
+                                }
+                                
                                 console.error('Model failed to load:', event);
                                 console.error('Model src:', currentModel.file);
+                                console.error('Event details:', event.target, event.type);
                                 setModelLoading(false);
                                 setModelError(true);
                         };
+                        
+                        const handleLoadingTimeout = () => {
+                                if (!isComponentMounted) return;
+                                
+                                console.warn('Model loading timeout after 15 seconds, performing comprehensive status check...');
+                                
+                                // Perform comprehensive model status check
+                                if (modelViewer) {
+                                        try {
+                                                // Check multiple indicators of successful loading
+                                                const model = modelViewer.model;
+                                                const loaded = modelViewer.loaded;
+                                                const hasValidSrc = modelViewer.src === currentModel.file;
+                                                const hasCanvas = modelViewer.querySelector('canvas');
+                                                const loadingAttribute = modelViewer.getAttribute('loading');
+                                                
+                                                console.log('Timeout status check:', {
+                                                        hasModel: !!model,
+                                                        loaded,
+                                                        hasValidSrc,
+                                                        hasCanvas: !!hasCanvas,
+                                                        loadingAttribute,
+                                                        currentSrc: modelViewer.src,
+                                                        expectedSrc: currentModel.file
+                                                });
+                                                
+                                                // If model appears to be loaded, call success handler
+                                                if (model && loaded && hasValidSrc) {
+                                                        console.log('Model detected as loaded during timeout check, marking as successful');
+                                                        handleModelLoad();
+                                                } else if (!hasValidSrc) {
+                                                        console.error('Model source mismatch detected:', {
+                                                                expected: currentModel.file,
+                                                                actual: modelViewer.src
+                                                        });
+                                                        setModelLoading(false);
+                                                        setModelError(true);
+                                                } else {
+                                                        console.error('Model failed to load within timeout period:', {
+                                                                hasModel: !!model,
+                                                                loaded,
+                                                                file: currentModel.file
+                                                        });
+                                                        setModelLoading(false);
+                                                        setModelError(true);
+                                                }
+                                        } catch (error) {
+                                                console.error('Error during timeout status check:', error);
+                                                setModelLoading(false);
+                                                setModelError(true);
+                                        }
+                                } else {
+                                        console.error('Model viewer element missing during timeout check');
+                                        setModelLoading(false);
+                                        setModelError(true);
+                                }
+                        };
 
-                        if (modelViewer) {
-                                // Listen for the model load event
-                                modelViewer.addEventListener('load', handleModelLoad);
-                                modelViewer.addEventListener('model-visibility', handleModelLoad);
-                                modelViewer.addEventListener('error', handleModelError);
+                        // Listen for comprehensive model load and error events
+                        modelViewer.addEventListener('load', handleModelLoad);
+                        modelViewer.addEventListener('model-visibility', handleModelLoad);
+                        modelViewer.addEventListener('progress', (event: any) => {
+                                if (isComponentMounted && event.detail?.totalProgress !== undefined) {
+                                        const progress = Math.round(event.detail.totalProgress * 100);
+                                        console.log(`Model loading progress: ${progress}%`);
+                                }
+                        });
+                        modelViewer.addEventListener('error', handleModelError);
+                        
+                        // Also listen for specific model-viewer error events
+                        modelViewer.addEventListener('model-error', handleModelError);
+                        
+                        // Additional comprehensive error detection
+                        const checkModelHealth = () => {
+                                if (!isComponentMounted || !modelViewer) return;
                                 
-                                // Also set a fallback timer in case the events don't fire
-                                const timer = setTimeout(() => {
-                                        console.log('Timer triggered, attempting to load model...');
-                                        handleModelLoad();
-                                }, 5000); // Increased timeout for large file
+                                try {
+                                        // Check if there's an error state we missed
+                                        const hasError = modelViewer.getAttribute('data-error');
+                                        const srcAttribute = modelViewer.getAttribute('src');
+                                        
+                                        if (hasError || (srcAttribute && srcAttribute !== currentModel.file)) {
+                                                console.warn('Model health check detected issues:', {
+                                                        hasError,
+                                                        srcMismatch: srcAttribute !== currentModel.file
+                                                });
+                                                if (isComponentMounted) {
+                                                        handleModelError({ type: 'health-check', target: modelViewer });
+                                                }
+                                        }
+                                } catch (error) {
+                                        console.error('Error during model health check:', error);
+                                }
+                        };
+                        
+                        // Run health check after a brief delay
+                        setTimeout(checkModelHealth, 2000);
+                        
+                        // Set a reasonable loading timeout that actually checks if the model loaded
+                        loadingTimeout = setTimeout(handleLoadingTimeout, 15000);
+                        
+                        cleanup = () => {
+                                if (loadingTimeout) {
+                                        clearTimeout(loadingTimeout);
+                                        loadingTimeout = undefined;
+                                }
                                 
-                                return () => {
+                                if (modelViewer) {
                                         modelViewer.removeEventListener('load', handleModelLoad);
                                         modelViewer.removeEventListener('model-visibility', handleModelLoad);
+                                        modelViewer.removeEventListener('progress', () => {});
                                         modelViewer.removeEventListener('error', handleModelError);
-                                        clearTimeout(timer);
-                                };
-                        } else {
-                                console.error('Model viewer element not found');
-                        }
+                                        modelViewer.removeEventListener('model-error', handleModelError);
+                                }
+                        };
                 };
                 
                 checkModelViewer();
+                
+                return () => {
+                        isComponentMounted = false;
+                        if (cleanup) {
+                                cleanup();
+                        }
+                };
         }, [selectedModelId, currentModel.file]);
 
         return (
@@ -489,73 +650,138 @@ const ThreeDPage = () => {
                                         </div>
                                 </section>
 
-                                {/* Main 3D Model Display */}
-                                <section className="py-16 px-6">
+                                {/* Enhanced 3D Model Display */}
+                                <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
                                         <div className="max-w-7xl mx-auto">
-                                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                                                         
-                                                        {/* 3D Model Viewer */}
-                                                        <div className="order-2 lg:order-1">
-                                                                <Card className="bg-card/80 border-border shadow-xl">
-                                                                        <CardHeader className="text-center pb-4">
-                                                                                <CardTitle className="text-2xl text-foreground">
-                                                                                        Interactive 3D Model
-                                                                                </CardTitle>
-                                                                        </CardHeader>
-                                                                        <CardContent className="p-8">
-                                                                                <div className="bg-gradient-to-br from-muted/20 to-muted/40 rounded-xl p-6 mb-6">
-                                                                                        <div className="relative">
-                                                                                                <div className="model-viewer-container-9-16">
-                                                                                                        <model-viewer
-                                                                                                                key={selectedModelId}
-                                                                                                                src={currentModel.file}
-                                                                                                                alt={currentModel.name}
-                                                                                                                className="model-viewer-9-16"
-                                                                                                                ar
-                                                                                                                ar-modes="webxr scene-viewer quick-look"
-                                                                                                                camera-controls
-                                                                                                                auto-rotate
-                                                                                                                loading="lazy"
-                                                                                                                environment-image="neutral"
-                                                                                                                shadow-intensity="0.7"
-                                                                                                                shadow-softness="0.8"
-                                                                                                                field-of-view="45deg"
-                                                                                                                min-camera-orbit="auto auto 0.5m"
-                                                                                                                max-camera-orbit="auto auto 2.5m"
-                                                                                                                camera-orbit="0deg 75deg 1.2m"
-                                                                                                                min-field-of-view="30deg"
-                                                                                                                max-field-of-view="60deg"
-                                                                                                                interaction-prompt="none"
-                                                                                                                touch-action="pan-y"
-                                                                                                                camera-target="0m 0.1m 0m"
-                                                                                                                auto-rotate-delay="3000"
-                                                                                                                exposure="1.2"
-                                                                                                                bounds="tight"
-                                                                                                        ></model-viewer>
-                                                                                                        
-                                                                                                        {modelLoading && (
-                                                                                                                <div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-xl">
-                                                                                                                        <div className="text-center">
-                                                                                                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
-                                                                                                                                <p className="text-sm text-muted-foreground">Loading 3D Model...</p>
+                                                        {/* Enhanced 3D Model Viewer */}
+                                                        <div className="order-2 lg:order-1 animate-fade-in-up delay-200">
+                                                                <Card className="glass-effect border border-primary/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500">
+                                                                        <CardContent className="p-0">
+                                                                        {/* Model Header */}
+                                                                        <div className="text-center mb-8">
+                                                                                <div className="inline-flex items-center gap-2 mb-4">
+                                                                                        <div className={`w-3 h-3 rounded-full ${
+                                                                                                modelLoading ? 'bg-yellow-400 animate-pulse' : 
+                                                                                                modelError ? 'bg-red-400' : 
+                                                                                                'bg-green-400'
+                                                                                        }`}></div>
+                                                                                        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                                                                                                {modelLoading ? 'Loading...' : modelError ? 'Error' : 'Interactive 3D'}
+                                                                                        </Badge>
+                                                                                </div>
+                                                                                <h3 className="text-3xl font-bold text-foreground mb-2">
+                                                                                        {currentModel.name}
+                                                                                </h3>
+                                                                                <p className="text-lg text-muted-foreground">
+                                                                                        Interactive Digital Portrait
+                                                                                </p>
+                                                                        </div>
+
+                                                                        {/* Enhanced Model Viewer Container */}
+                                                                        <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 rounded-2xl p-8 mb-8">
+                                                                                <div className="relative">
+                                                                                        <div className="model-viewer-container-9-16 relative overflow-hidden rounded-xl">
+                                                                                                <model-viewer
+                                                                                                        key={selectedModelId}
+                                                                                                        src={currentModel.file}
+                                                                                                        alt={`Interactive 3D portrait of ${currentModel.name}`}
+                                                                                                        className="model-viewer-9-16 w-full h-full"
+                                                                                                        ar
+                                                                                                        ar-modes="webxr scene-viewer quick-look"
+                                                                                                        camera-controls
+                                                                                                        auto-rotate
+                                                                                                        loading="eager"
+                                                                                                        environment-image="neutral"
+                                                                                                        shadow-intensity="1"
+                                                                                                        shadow-softness="0.8"
+                                                                                                        field-of-view="45deg"
+                                                                                                        min-camera-orbit="auto auto 0.5m"
+                                                                                                        max-camera-orbit="auto auto 2.5m"
+                                                                                                        camera-orbit="0deg 75deg 1.2m"
+                                                                                                        min-field-of-view="30deg"
+                                                                                                        max-field-of-view="60deg"
+                                                                                                        interaction-prompt="auto"
+                                                                                                        interaction-prompt-threshold="2500"
+                                                                                                        touch-action="pan-y"
+                                                                                                        camera-target="0m 0.1m 0m"
+                                                                                                        auto-rotate-delay="4000"
+                                                                                                        exposure="1.3"
+                                                                                                        bounds="tight"
+                                                                                                        tone-mapping="neutral"
+                                                                                                ></model-viewer>
+                                                                                                
+                                                                                                {/* Enhanced Loading State */}
+                                                                                                {modelLoading && (
+                                                                                                        <div className="absolute inset-0 flex items-center justify-center bg-background/95 backdrop-blur-lg rounded-xl z-30">
+                                                                                                                <div className="text-center space-y-6">
+                                                                                                                        <div className="relative">
+                                                                                                                                <div className="w-20 h-20 mx-auto">
+                                                                                                                                        <div className="animate-spin rounded-full h-20 w-20 border-4 border-primary/20"></div>
+                                                                                                                                        <div className="absolute inset-0 animate-spin rounded-full h-20 w-20 border-4 border-transparent border-t-primary [animation-duration:1s]"></div>
+                                                                                                                                        <div className="absolute inset-2 animate-spin rounded-full h-16 w-16 border-4 border-transparent border-r-accent [animation-duration:2s]"></div>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                        <div className="space-y-3">
+                                                                                                                                <h4 className="text-xl font-semibold text-foreground">Loading Portrait</h4>
+                                                                                                                                <p className="text-sm text-muted-foreground">Preparing your interactive 3D experience...</p>
+                                                                                                                                <div className="w-48 h-2 bg-muted/30 rounded-full mx-auto overflow-hidden">
+                                                                                                                                        <div className="h-full bg-gradient-to-r from-primary via-accent to-primary rounded-full animate-shimmer"></div>
+                                                                                                                                </div>
                                                                                                                         </div>
                                                                                                                 </div>
-                                                                                                        )}
-                                                                                                        
-                                                                                                        {modelError && (
-                                                                                                                <div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-xl">
-                                                                                                                        <div className="text-center">
-                                                                                                                                <p className="text-sm text-red-600 mb-2">Failed to load 3D model</p>
-                                                                                                                                <p className="text-xs text-muted-foreground">Please try refreshing the page</p>
+                                                                                                        </div>
+                                                                                                )}
+                                                                                                
+                                                                                                {/* Enhanced Error State */}
+                                                                                                {modelError && (
+                                                                                                        <div className="absolute inset-0 flex items-center justify-center bg-destructive/5 backdrop-blur-lg rounded-xl z-30">
+                                                                                                                <div className="text-center space-y-6 p-8">
+                                                                                                                        <div className="w-24 h-24 rounded-full bg-destructive/10 flex items-center justify-center mx-auto">
+                                                                                                                                <div className="w-12 h-12 rounded-full bg-destructive/20 flex items-center justify-center animate-pulse">
+                                                                                                                                        <span className="text-destructive text-2xl">⚠</span>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                        <div className="space-y-4">
+                                                                                                                                <h4 className="text-lg font-semibold text-destructive">3D Model Unavailable</h4>
+                                                                                                                                <div className="space-y-2">
+                                                                                                                                        <p className="text-sm text-muted-foreground">This model requires .glb format for web viewing</p>
+                                                                                                                                        <p className="text-xs text-muted-foreground opacity-75">Using temporary fallback model</p>
+                                                                                                                                </div>
+                                                                                                                                <Button 
+                                                                                                                                        variant="outline" 
+                                                                                                                                        size="sm"
+                                                                                                                                        onClick={() => {
+                                                                                                                                                setModelError(false);
+                                                                                                                                                setModelLoading(true);
+                                                                                                                                        }}
+                                                                                                                                        className="border-primary/30 hover:bg-primary/10 hover:text-primary"
+                                                                                                                                >
+                                                                                                                                        Try Again
+                                                                                                                                </Button>
                                                                                                                         </div>
                                                                                                                 </div>
+                                                                                                        </div>
+                                                                                                )}
+                                                                                                
+                                                                                                {/* Interaction Hints */}
+                                                                                                <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
+                                                                                                        <div className="glass-effect px-3 py-2 rounded-lg border border-primary/20 text-xs text-muted-foreground">
+                                                                                                                <div className="flex items-center gap-2">
+                                                                                                                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                                                                                                        <span>Drag • Zoom • Rotate</span>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                        {!modelLoading && !modelError && (
+                                                                                                                <div className="glass-effect px-2 py-1 rounded-lg border border-accent/20 text-xs text-accent">
+                                                                                                                        <span>AR Ready</span>
+                                                                                                                </div>
                                                                                                         )}
-                                                                                                </div>
-                                                                                                <div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground text-xs px-2 py-1 rounded">
-                                                                                                        Interactive 3D Model
                                                                                                 </div>
                                                                                         </div>
                                                                                 </div>
+                                                                        </div>
                                                                                 
                                                                                 {/* Technical Specs */}
                                                                                 <div className="grid grid-cols-2 gap-4 mb-6">
