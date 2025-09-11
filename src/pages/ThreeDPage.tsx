@@ -1,10 +1,12 @@
 import React from "react";
-import { Download, RotateCcw } from "lucide-react";
+import { Download, RotateCcw, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import AdHeader from "@/components/AdHeader";
 import AdFooter from "@/components/AdFooter";
+import useEmblaCarousel from 'embla-carousel-react'
 import "@/assets/ThreeDPage.css";
 
 declare global {
@@ -98,6 +100,36 @@ const ThreeDPage = () => {
         const [selectedModelId, setSelectedModelId] = React.useState(modelGallery[0].id);
         const [modelLoading, setModelLoading] = React.useState(true);
         const [modelError, setModelError] = React.useState(false);
+        
+        // Embla Carousel state
+        const [emblaRef, emblaApi] = useEmblaCarousel({ 
+                loop: true, 
+                align: 'start',
+                slidesToScroll: 1
+        });
+        const [prevBtnEnabled, setPrevBtnEnabled] = React.useState(false);
+        const [nextBtnEnabled, setNextBtnEnabled] = React.useState(false);
+        const [selectedIndex, setSelectedIndex] = React.useState(0);
+        const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+
+        const scrollPrev = React.useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+        const scrollNext = React.useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+        const scrollTo = React.useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+
+        const onSelect = React.useCallback(() => {
+                if (!emblaApi) return;
+                setSelectedIndex(emblaApi.selectedScrollSnap());
+                setPrevBtnEnabled(emblaApi.canScrollPrev());
+                setNextBtnEnabled(emblaApi.canScrollNext());
+        }, [emblaApi]);
+
+        React.useEffect(() => {
+                if (!emblaApi) return;
+                onSelect();
+                setScrollSnaps(emblaApi.scrollSnapList());
+                emblaApi.on('select', onSelect);
+                emblaApi.on('reInit', onSelect);
+        }, [emblaApi, onSelect]);
         
         // Get currently selected model
         const currentModel = modelGallery.find(model => model.id === selectedModelId) || modelGallery[0];
@@ -304,51 +336,155 @@ const ThreeDPage = () => {
                                         </div>
                                 </section>
 
-                                {/* Model Gallery Selection */}
-                                <section className="px-6 py-6 bg-muted/30">
-                                        <div className="container max-w-6xl mx-auto">
-                                                <div className="mb-6">
-                                                        <h2 className="text-2xl font-bold text-foreground mb-2">3D Model Gallery</h2>
-                                                        <p className="text-muted-foreground">Select a model to view in 3D</p>
+                                {/* Modern Gallery Carousel */}
+                                <section className="py-16 px-6 bg-gradient-to-b from-muted/30 to-background">
+                                        <div className="max-w-7xl mx-auto">
+                                                {/* Gallery Header */}
+                                                <div className="text-center mb-12 animate-fade-in-up">
+                                                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+                                                                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                                                        Historical Figures
+                                                                </span>
+                                                        </h2>
+                                                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                                                                Discover Liverpool's pioneering voices through interactive 3D portraits
+                                                        </p>
+                                                        <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full"></div>
                                                 </div>
                                                 
-                                                {/* Model Selection Grid */}
-                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                                        {modelGallery.map((model) => (
-                                                                <Card 
-                                                                        key={model.id} 
-                                                                        className={`cursor-pointer transition-all hover:shadow-lg ${
-                                                                                selectedModelId === model.id 
-                                                                                        ? 'ring-2 ring-primary bg-primary/5' 
-                                                                                        : 'hover:bg-muted/50'
-                                                                        }`}
-                                                                        onClick={() => {
-                                                                                setSelectedModelId(model.id);
-                                                                                setModelLoading(true);
-                                                                                setModelError(false);
-                                                                        }}
-                                                                >
-                                                                        <CardHeader className="pb-3">
-                                                                                <CardTitle className="text-lg">{model.name}</CardTitle>
-                                                                                <p className="text-sm text-muted-foreground">{model.subtitle}</p>
-                                                                        </CardHeader>
-                                                                        <CardContent className="pt-0">
-                                                                                <div className="flex flex-wrap gap-1 mb-3">
-                                                                                        {model.tags.slice(0, 3).map((tag, index) => (
-                                                                                                <span key={index} className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-secondary/50 text-secondary-foreground">
-                                                                                                        {tag}
-                                                                                                </span>
-                                                                                        ))}
+                                                {/* Carousel Container */}
+                                                <div className="relative animate-fade-in-up delay-200">
+                                                        <div className="overflow-hidden" ref={emblaRef}>
+                                                                <div className="flex gap-6 pb-4">
+                                                                        {modelGallery.map((model) => (
+                                                                                <div 
+                                                                                        key={model.id}
+                                                                                        className="flex-none w-80 md:w-96"
+                                                                                >
+                                                                                        <Card 
+                                                                                                className={`h-full cursor-pointer group transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 ${
+                                                                                                        selectedModelId === model.id 
+                                                                                                                ? 'ring-2 ring-primary bg-gradient-to-br from-primary/10 to-accent/5 shadow-xl animate-glow' 
+                                                                                                                : 'bg-card/80 backdrop-blur-sm hover:bg-card'
+                                                                                                }`}
+                                                                                                onClick={() => {
+                                                                                                        setSelectedModelId(model.id);
+                                                                                                        setModelLoading(true);
+                                                                                                        setModelError(false);
+                                                                                                }}
+                                                                                        >
+                                                                                                {/* Card Visual Header */}
+                                                                                                <div className="h-48 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 rounded-t-lg relative overflow-hidden">
+                                                                                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:20px_20px] opacity-30"></div>
+                                                                                                        <div className="absolute bottom-4 left-4">
+                                                                                                                <div className="flex gap-2">
+                                                                                                                        <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
+                                                                                                                                3D Model
+                                                                                                                        </Badge>
+                                                                                                                        {selectedModelId === model.id && (
+                                                                                                                                <Badge variant="default" className="bg-primary/90 text-primary-foreground animate-pulse">
+                                                                                                                                        Selected
+                                                                                                                                </Badge>
+                                                                                                                        )}
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                        <div className="absolute top-4 right-4">
+                                                                                                                <div className="w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                                                                                                                        <Download className="w-5 h-5 text-primary" />
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                                
+                                                                                                {/* Card Content */}
+                                                                                                <CardHeader className="pb-3">
+                                                                                                        <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                                                                                                                {model.name}
+                                                                                                        </CardTitle>
+                                                                                                        <p className="text-sm text-muted-foreground font-medium">
+                                                                                                                {model.subtitle}
+                                                                                                        </p>
+                                                                                                </CardHeader>
+                                                                                                
+                                                                                                <CardContent className="pt-0 space-y-4">
+                                                                                                        {/* Tags */}
+                                                                                                        <div className="flex flex-wrap gap-2">
+                                                                                                                {model.tags.slice(0, 3).map((tag, index) => (
+                                                                                                                        <Badge 
+                                                                                                                                key={index} 
+                                                                                                                                variant="outline"
+                                                                                                                                className="text-xs px-2 py-1 border-primary/20 text-primary bg-primary/5 hover:bg-primary/10 transition-colors"
+                                                                                                                        >
+                                                                                                                                {tag}
+                                                                                                                        </Badge>
+                                                                                                                ))}
+                                                                                                        </div>
+                                                                                                        
+                                                                                                        {/* Technical Details */}
+                                                                                                        <div className="space-y-2 text-sm text-muted-foreground">
+                                                                                                                <div className="flex justify-between">
+                                                                                                                        <span className="font-medium">Material:</span>
+                                                                                                                        <span>{model.material}</span>
+                                                                                                                </div>
+                                                                                                                <div className="flex justify-between">
+                                                                                                                        <span className="font-medium">Technique:</span>
+                                                                                                                        <span className="text-right">{model.technique}</span>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                        
+                                                                                                        {/* Action Button */}
+                                                                                                        <Button 
+                                                                                                                variant={selectedModelId === model.id ? "default" : "outline"}
+                                                                                                                className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                                                                                                                onClick={(e) => {
+                                                                                                                        e.stopPropagation();
+                                                                                                                        setSelectedModelId(model.id);
+                                                                                                                        setModelLoading(true);
+                                                                                                                        setModelError(false);
+                                                                                                                }}
+                                                                                                        >
+                                                                                                                {selectedModelId === model.id ? "Currently Viewing" : "View in 3D"}
+                                                                                                        </Button>
+                                                                                                </CardContent>
+                                                                                        </Card>
                                                                                 </div>
-                                                                                <div className="text-xs text-muted-foreground">
-                                                                                        <div className="flex justify-between">
-                                                                                                <span>{model.material}</span>
-                                                                                                <span>{model.technique}</span>
-                                                                                        </div>
-                                                                                </div>
-                                                                        </CardContent>
-                                                                </Card>
-                                                        ))}
+                                                                        ))}
+                                                                </div>
+                                                        </div>
+                                                        
+                                                        {/* Carousel Navigation */}
+                                                        <Button
+                                                                variant="outline"
+                                                                size="icon"
+                                                                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border-primary/20 hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-xl transition-all duration-300 hover:scale-110"
+                                                                onClick={scrollPrev}
+                                                                disabled={!prevBtnEnabled}
+                                                        >
+                                                                <ChevronLeft className="w-5 h-5" />
+                                                        </Button>
+                                                        <Button
+                                                                variant="outline"
+                                                                size="icon"
+                                                                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border-primary/20 hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-xl transition-all duration-300 hover:scale-110"
+                                                                onClick={scrollNext}
+                                                                disabled={!nextBtnEnabled}
+                                                        >
+                                                                <ChevronRight className="w-5 h-5" />
+                                                        </Button>
+                                                        
+                                                        {/* Carousel Indicators */}
+                                                        <div className="flex justify-center mt-8 gap-2">
+                                                                {scrollSnaps.map((_, index) => (
+                                                                        <button
+                                                                                key={index}
+                                                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                                                        index === selectedIndex 
+                                                                                                ? 'bg-primary scale-110' 
+                                                                                                : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
+                                                                                }`}
+                                                                                onClick={() => scrollTo(index)}
+                                                                        />
+                                                                ))}
+                                                        </div>
                                                 </div>
                                         </div>
                                 </section>
