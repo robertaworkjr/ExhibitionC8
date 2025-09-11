@@ -129,12 +129,16 @@ const Navigation = () => {
               }
               style={{ animationDelay: '500ms' }}
             >
-              <GiCube className="transition-transform group-hover:scale-110 group-hover:rotate-12" />
-              <span className="text-sm font-semibold">3D Objects</span>
-              {location.pathname === '/3d' && (
-                <Badge variant="secondary" className="ml-2 bg-primary-foreground/20 text-primary-foreground text-xs animate-pulse">
-                  Active
-                </Badge>
+              {({ isActive }) => (
+                <>
+                  <GiCube className="transition-transform group-hover:scale-110 group-hover:rotate-12" />
+                  <span className="text-sm font-semibold">3D Objects</span>
+                  {isActive && (
+                    <Badge variant="secondary" className="ml-2 bg-primary-foreground/20 text-primary-foreground text-xs animate-pulse">
+                      Active
+                    </Badge>
+                  )}
+                </>
               )}
             </NavLink>
           </div>

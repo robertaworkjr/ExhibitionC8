@@ -607,6 +607,39 @@ nav a span {
   }
 }
 
+/* Performance-optimized animations for 60fps on mobile */
+@keyframes float-optimized {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% { 
+    transform: translate3d(0, -8px, 0) scale(1.1);
+  }
+  66% { 
+    transform: translate3d(0, 4px, 0) scale(0.95);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0);
+  }
+  50% { 
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -653,6 +686,54 @@ nav a span {
 .animate-scale-in {
   animation: scale-in 0.5s ease-out forwards;
   opacity: 0;
+}
+
+/* Mobile-optimized animation classes */
+.animate-float-optimized {
+  animation: float-optimized 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Performance optimization utilities */
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Proper reduced motion implementation */
+@media (prefers-reduced-motion: reduce) {
+  .reduce-motion *,
+  .reduce-motion *::before,
+  .reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable specific animation classes */
+  .animate-float-optimized,
+  .animate-pulse-slow,
+  .animate-float-gentle,
+  .animate-fade-in-up,
+  .animate-slide-up,
+  .animate-glow,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-gradient {
+    animation: none !important;
+  }
 }
 
 .delay-100 {
