@@ -15,27 +15,47 @@ declare global {
   }
 }
 
-// Charles Wooten 3D model data
-const charlesWootenModel = {
-        name: "Charles Wooten",
-        subtitle: "Digital Portrait Memorial - 2025",
-        file: "/3DObjects/CharlesWooten.glb",
-        material: "PLA Filament",
-        technique: "FDM 3D Printing",
-        dimensions: "15cm x 20cm x 8cm",
-        description: "Charles Wooten was a 24-year-old Bermudan ship's fireman who became a victim of racial violence in Liverpool in 1919. This 3D portrait serves as a powerful memorial, preserving his likeness through advanced digital sculpting and 3D printing technology.\n\nThis piece represents the intersection of memorial art and cutting-edge technology, ensuring that Charles Wooten's story and image are preserved for future generations as part of Liverpool's living history.",
-        process: "Created using high-resolution photogrammetry data, digitally sculpted in Blender with sub-millimetre precision, and printed using biodegradable PLA material at 0.15mm layer height for exceptional detail.",
-        tags: ["Memorial", "Historical", "3D Printed", "PLA"]
-};
+// 3D Model Gallery Data
+const modelGallery = [
+        {
+                id: "charles-wooten",
+                name: "Charles Wooten",
+                subtitle: "Digital Portrait Memorial - 2025",
+                file: "/3DObjects/CharlesWooten.glb",
+                material: "PLA Filament",
+                technique: "FDM 3D Printing",
+                dimensions: "15cm x 20cm x 8cm",
+                description: "Charles Wooten was a 24-year-old Bermudan ship's fireman who became a victim of racial violence in Liverpool in 1919. This 3D portrait serves as a powerful memorial, preserving his likeness through advanced digital sculpting and 3D printing technology.\n\nThis piece represents the intersection of memorial art and cutting-edge technology, ensuring that Charles Wooten's story and image are preserved for future generations as part of Liverpool's living history.",
+                process: "Created using high-resolution photogrammetry data, digitally sculpted in Blender with sub-millimetre precision, and printed using biodegradable PLA material at 0.15mm layer height for exceptional detail.",
+                tags: ["Memorial", "Historical", "3D Printed", "PLA"]
+        },
+        // Add your additional models here following the same structure
+        {
+                id: "test-cube",
+                name: "Test Cube",
+                subtitle: "Technical Test Model - 2025",
+                file: "/3DObjects/test-cube.glb",
+                material: "Digital",
+                technique: "3D Modeling",
+                dimensions: "10cm x 10cm x 10cm",
+                description: "A simple test cube model for demonstration purposes. This model can be used to verify the 3D viewer functionality and gallery system.",
+                process: "Created as a basic geometric shape for testing 3D viewer compatibility and performance.",
+                tags: ["Test", "Geometric", "3D Model", "Digital"]
+        }
+];
 
 const ThreeDPage = () => {
+        const [selectedModelId, setSelectedModelId] = React.useState(modelGallery[0].id);
         const [modelLoading, setModelLoading] = React.useState(true);
         const [modelError, setModelError] = React.useState(false);
+        
+        // Get currently selected model
+        const currentModel = modelGallery.find(model => model.id === selectedModelId) || modelGallery[0];
 
         const handleDownload = () => {
                 const link = document.createElement('a');
-                link.href = charlesWootenModel.file;
-                link.download = `${charlesWootenModel.name}.glb`;
+                link.href = currentModel.file;
+                link.download = `${currentModel.name}.glb`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
@@ -133,7 +153,7 @@ const ThreeDPage = () => {
 
                         const handleModelError = (event: any) => {
                                 console.error('Model failed to load:', event);
-                                console.error('Model src:', charlesWootenModel.file);
+                                console.error('Model src:', currentModel.file);
                                 setModelLoading(false);
                                 setModelError(true);
                         };
@@ -162,7 +182,7 @@ const ThreeDPage = () => {
                 };
                 
                 checkModelViewer();
-        }, []);
+        }, [selectedModelId, currentModel.file]);
 
         return (
                 <div className="min-h-screen bg-background">
@@ -174,6 +194,55 @@ const ThreeDPage = () => {
                                 <div className="px-6 py-4">
                                         <AdHeader />
                                 </div>
+
+                                {/* Model Gallery Selection */}
+                                <section className="px-6 py-6 bg-muted/30">
+                                        <div className="container max-w-6xl mx-auto">
+                                                <div className="mb-6">
+                                                        <h2 className="text-2xl font-bold text-foreground mb-2">3D Model Gallery</h2>
+                                                        <p className="text-muted-foreground">Select a model to view in 3D</p>
+                                                </div>
+                                                
+                                                {/* Model Selection Grid */}
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                        {modelGallery.map((model) => (
+                                                                <Card 
+                                                                        key={model.id} 
+                                                                        className={`cursor-pointer transition-all hover:shadow-lg ${
+                                                                                selectedModelId === model.id 
+                                                                                        ? 'ring-2 ring-primary bg-primary/5' 
+                                                                                        : 'hover:bg-muted/50'
+                                                                        }`}
+                                                                        onClick={() => {
+                                                                                setSelectedModelId(model.id);
+                                                                                setModelLoading(true);
+                                                                                setModelError(false);
+                                                                        }}
+                                                                >
+                                                                        <CardHeader className="pb-3">
+                                                                                <CardTitle className="text-lg">{model.name}</CardTitle>
+                                                                                <p className="text-sm text-muted-foreground">{model.subtitle}</p>
+                                                                        </CardHeader>
+                                                                        <CardContent className="pt-0">
+                                                                                <div className="flex flex-wrap gap-1 mb-3">
+                                                                                        {model.tags.slice(0, 3).map((tag, index) => (
+                                                                                                <span key={index} className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold bg-secondary/50 text-secondary-foreground">
+                                                                                                        {tag}
+                                                                                                </span>
+                                                                                        ))}
+                                                                                </div>
+                                                                                <div className="text-xs text-muted-foreground">
+                                                                                        <div className="flex justify-between">
+                                                                                                <span>{model.material}</span>
+                                                                                                <span>{model.technique}</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </CardContent>
+                                                                </Card>
+                                                        ))}
+                                                </div>
+                                        </div>
+                                </section>
 
                                 {/* Hero Section */}
                                 <section className="py-16 px-6 bg-gradient-hero">
@@ -205,8 +274,9 @@ const ThreeDPage = () => {
                                                                                         <div className="relative">
                                                                                                 <div className="model-viewer-container-9-16">
                                                                                                         <model-viewer
-                                                                                                                src={charlesWootenModel.file}
-                                                                                                                alt={charlesWootenModel.name}
+                                                                                                                key={selectedModelId}
+                                                                                                                src={currentModel.file}
+                                                                                                                alt={currentModel.name}
                                                                                                                 className="model-viewer-9-16"
                                                                                                                 ar
                                                                                                                 ar-modes="webxr scene-viewer quick-look"
@@ -258,15 +328,15 @@ const ThreeDPage = () => {
                                                                                 <div className="grid grid-cols-2 gap-4 mb-6">
                                                                                         <div>
                                                                                                 <h4 className="font-semibold text-sm text-muted-foreground mb-1">Material</h4>
-                                                                                                <p className="text-foreground">{charlesWootenModel.material}</p>
+                                                                                                <p className="text-foreground">{currentModel.material}</p>
                                                                                         </div>
                                                                                         <div>
                                                                                                 <h4 className="font-semibold text-sm text-muted-foreground mb-1">Technique</h4>
-                                                                                                <p className="text-foreground">{charlesWootenModel.technique}</p>
+                                                                                                <p className="text-foreground">{currentModel.technique}</p>
                                                                                         </div>
                                                                                         <div className="col-span-2">
                                                                                                 <h4 className="font-semibold text-sm text-muted-foreground mb-1">Dimensions</h4>
-                                                                                                <p className="text-foreground">{charlesWootenModel.dimensions}</p>
+                                                                                                <p className="text-foreground">{currentModel.dimensions}</p>
                                                                                         </div>
                                                                                 </div>
 
@@ -298,15 +368,15 @@ const ThreeDPage = () => {
                                                                 <div className="sticky top-24">
                                                                         <div className="mb-8">
                                                                                 <h1 className="text-4xl font-bold text-foreground mb-2">
-                                                                                        {charlesWootenModel.name}
+                                                                                        {currentModel.name}
                                                                                 </h1>
                                                                                 <p className="text-xl text-muted-foreground mb-6">
-                                                                                        {charlesWootenModel.subtitle}
+                                                                                        {currentModel.subtitle}
                                                                                 </p>
                                                                                 
                                                                                 {/* Tags */}
                                                                                 <div className="flex flex-wrap gap-2 mb-6">
-                                                                                        {charlesWootenModel.tags.map((tag, index) => (
+                                                                                        {currentModel.tags.map((tag, index) => (
                                                                                                 <span key={index} className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-secondary text-secondary-foreground">
                                                                                                         {tag}
                                                                                                 </span>
@@ -322,7 +392,7 @@ const ThreeDPage = () => {
                                                                                                 About This Memorial
                                                                                         </h3>
                                                                                         <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-                                                                                                {charlesWootenModel.description}
+                                                                                                {currentModel.description}
                                                                                         </p>
                                                                                 </CardContent>
                                                                         </Card>
@@ -335,7 +405,7 @@ const ThreeDPage = () => {
                                                                                                 Creation Process
                                                                                         </h3>
                                                                                         <p className="text-muted-foreground leading-relaxed">
-                                                                                                {charlesWootenModel.process}
+                                                                                                {currentModel.process}
                                                                                         </p>
                                                                                 </CardContent>
                                                                         </Card>
