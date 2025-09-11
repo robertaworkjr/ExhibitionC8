@@ -65,7 +65,7 @@ model-viewer.model-viewer-9-16 canvas {
   height: 100% !important;
   object-fit: contain !important;
   object-position: center !important;
-  transform: scale(1.2) !important;
+  transform: scale(1.0) !important;
   transform-origin: center center !important;
 }
 
@@ -166,7 +166,7 @@ model-viewer.model-viewer-9-16::part(default-progress-mask) {
 
 /* Force model to use full space with aggressive scaling */
 .model-viewer-container-9-16 model-viewer {
-  transform: scale(1.5) translateY(-8%) !important;
+  transform: scale(1.2) translateY(-8%) !important;
   transform-origin: center center;
   /* Force viewport usage */
   width: 100% !important;
