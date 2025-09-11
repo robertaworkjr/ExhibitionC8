@@ -37,11 +37,11 @@ const modelGallery = [
                 id: "joanne-anderson",
                 name: "Joanne Anderson",
                 subtitle: "Political Leadership and Representation - 2025",
-                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
+                file: "/3DObjects/JoanneAndersonModel_1757620150150.glb",
                 material: "PLA Filament",
                 technique: "3D Printing on Prusa XL",
                 dimensions: "Custom portrait scale",
-                description: "This 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.\n\n[Note: This is using a placeholder 3D model. Replace with JoanneAnderson.glb when available]",
+                description: "This 3D model of Joanne Anderson presents her in a contemplative stance, the form bathed in soft monochromatic tones that echo the dignity and focus she brought to her public role. The portrait blends the tactile realism of digital sculpture with an aura of calm strength.\n\nJoanne Anderson made history as Liverpool's first Black female mayor, guiding the city through complex challenges. Her leadership embodied resilience and representation, inspiring communities locally and nationally.",
                 process: "Image Capture: Careful lighting used to create a soft tonal range, matching the poised expression of the subject. Digital Sculpting: Modelled in Blender, focusing on subtle surface detail and symmetry. Model Preparation: Exported and sliced with 0.16 mm layers and moderate infill for balance between weight and detail. 3D Printing: Printed in PLA on the Prusa XL, using a slow extrusion for precise edge fidelity. Post-Processing: Buffed to a smooth matte finish to preserve the soft, monochrome-inspired aesthetic.",
                 tags: ["Political", "Leadership", "Historical", "3D Printed", "PLA"]
         },
@@ -49,11 +49,11 @@ const modelGallery = [
                 id: "bea-freeman",
                 name: "Bea Freeman", 
                 subtitle: "Cultural Pioneer and Media Voice - 2025",
-                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
+                file: "/3DObjects/BeafreemanModel_1757620168981.glb",
                 material: "PLA Filament", 
                 technique: "Digital Sculpting & 3D Printing",
                 dimensions: "Portrait scale",
-                description: "A finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.\n\n[Note: This is using a placeholder 3D model. Replace with BeaFreeman.glb when available]",
+                description: "A finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.",
                 process: "Image Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours. Digital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.",
                 tags: ["Media", "Cultural", "Television", "3D Printed", "Pioneer"]
         },
@@ -61,11 +61,11 @@ const modelGallery = [
                 id: "katy-gardener", 
                 name: "Katy Gardener",
                 subtitle: "Community Figure - 2025",
-                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
+                file: "/3DObjects/KatyGardenerModel_1757620150152.glb",
                 material: "PLA Filament",
                 technique: "3D Printing",
                 dimensions: "Portrait scale", 
-                description: "3D portrait of Katy Gardener, representing her contribution to Liverpool's community. [Add your specific description and details about Katy Gardener here]\n\n[Note: This is using a placeholder 3D model. Replace with KatyGardener.glb when available]",
+                description: "3D portrait of Katy Gardener, representing her contribution to Liverpool's community and her significant role in the local heritage and cultural preservation efforts.",
                 process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
                 tags: ["Community", "3D Printed", "Portrait"]
         },
@@ -73,13 +73,49 @@ const modelGallery = [
                 id: "john-archer",
                 name: "John Archer", 
                 subtitle: "Historical Figure - 2025",
-                file: "/3DObjects/CharlesWooten.glb", // Temporary fallback until .glb version available
+                file: "/3DObjects/JohnArcherModel_1757620150151.glb",
                 material: "PLA Filament",
                 technique: "3D Printing", 
                 dimensions: "Portrait scale",
-                description: "3D portrait of John Archer, capturing his significance in Liverpool's history. [Add your specific description and details about John Archer here]\n\n[Note: This is using a placeholder 3D model. Replace with JohnArcher.glb when available]",
+                description: "3D portrait of John Archer, capturing his significance in Liverpool's history and his contributions to the community's social and cultural development.",
                 process: "Digital sculpting and 3D printing process. [Add your specific process details here]",
                 tags: ["Historical", "3D Printed", "Portrait"]
+        },
+        {
+                id: "alan-williams",
+                name: "Alan Williams", 
+                subtitle: "Community Leader - 2025",
+                file: "/3DObjects/AlanWilliamsModel_1757620168981.glb",
+                material: "PLA Filament",
+                technique: "3D Printing", 
+                dimensions: "Portrait scale",
+                description: "3D portrait of Alan Williams, celebrating his leadership and commitment to Liverpool's community development and social progress.",
+                process: "Carefully crafted through digital sculpting techniques, capturing the essence and character of this important community figure.",
+                tags: ["Community", "Leadership", "3D Printed", "Portrait"]
+        },
+        {
+                id: "leroy-cooper",
+                name: "Leroy Cooper", 
+                subtitle: "Cultural Figure - 2025",
+                file: "/3DObjects/LeroyCooperModel_1757620150152.glb",
+                material: "PLA Filament",
+                technique: "3D Printing", 
+                dimensions: "Portrait scale",
+                description: "3D portrait of Leroy Cooper, honoring his contributions to Liverpool's cultural landscape and community engagement.",
+                process: "Created using advanced 3D modeling techniques to preserve his likeness and legacy for future generations.",
+                tags: ["Cultural", "Community", "3D Printed", "Portrait"]
+        },
+        {
+                id: "jacob-baptista",
+                name: "Jacob Baptista", 
+                subtitle: "Historical Figure - 2025",
+                file: "/3DObjects/JacobBaptistaModel_1757620168983.glb",
+                material: "PLA Filament",
+                technique: "3D Printing", 
+                dimensions: "Portrait scale",
+                description: "3D portrait of Jacob Baptista, preserving his place in Liverpool's rich historical narrative and cultural heritage.",
+                process: "Meticulously crafted digital sculpture ensuring accurate representation and historical preservation.",
+                tags: ["Historical", "Heritage", "3D Printed", "Portrait"]
         },
         // Test model - can be removed if not needed
         {
