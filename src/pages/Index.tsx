@@ -26,9 +26,9 @@ const Index = () => {
       <Navigation />
       
       {/* Add top padding to account for fixed navigation */}
-      <div className="pt-16">
+      <div className="with-appbar">
         {/* Header Ad */}
-        <div className="px-6 py-4">
+        <div className="container-page py-gutter">
           <AdHeader />
         </div>
 
@@ -36,9 +36,9 @@ const Index = () => {
         <HeroDemo onBookVisit={handleBookVisit} />
 
         {/* About Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
+        <section className="py-section">
+          <div className="container-page grid md:grid-cols-2 gap-flow-lg items-center">
+            <div className="stack">
               <h2 className="text-3xl font-semibold text-foreground">About the Exhibition</h2>
               <p className="text-muted-foreground">
                 "Capture the Essence of the Eight" is a unique digital art exhibition dedicated to exploring the historical and cultural impact of Liverpool 8 (L8). Through a blend of digital artistry and immersive technology, we aim to celebrate the vibrant community, its rich heritage, and its enduring legacy.
@@ -48,7 +48,7 @@ const Index = () => {
               </p>
             </div>
             <Card className="bg-card/50 border-border">
-              <CardContent className="p-8">
+              <CardContent className="p-card-lg">
                 <h3 className="text-xl font-semibold mb-4 text-foreground">What to Expect</h3>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2">
                   <li>Engaging digital art installations</li>
@@ -62,13 +62,13 @@ const Index = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 px-6 bg-card/30">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold mb-12 text-foreground">Key Features</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-section bg-card/30">
+          <div className="container-page text-center">
+            <h2 className="text-3xl font-semibold mb-section text-foreground">Key Features</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-flow-lg">
               <Card className="bg-card/50 border-border hover:shadow-elegant transition-all duration-500">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center space-y-4">
+                <CardContent className="p-card-lg">
+                  <div className="flex flex-col items-center stack">
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
                       <LayoutDashboard className="h-8 w-8 text-primary-foreground" />
                     </div>
@@ -81,8 +81,8 @@ const Index = () => {
               </Card>
 
               <Card className="bg-card/50 border-border hover:shadow-primary transition-all duration-500">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center space-y-4">
+                <CardContent className="p-card-lg">
+                  <div className="flex flex-col items-center stack">
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
                       <Camera className="h-8 w-8 text-primary-foreground" />
                     </div>
@@ -95,8 +95,8 @@ const Index = () => {
               </Card>
               
               <Card className="bg-card/50 border-border hover:shadow-elegant transition-all duration-500">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center space-y-4">
+                <CardContent className="p-card-lg">
+                  <div className="flex flex-col items-center stack">
                     <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center">
                       <Building2 className="h-8 w-8 text-primary-foreground" />
                     </div>
@@ -120,12 +120,12 @@ const Index = () => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold mb-12 text-foreground">This project has been funded by Culture Liverpool</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+        <section className="py-section">
+          <div className="container-page text-center">
+            <h2 className="text-3xl font-semibold mb-section text-foreground">This project has been funded by Culture Liverpool</h2>
+            <div className="grid md:grid-cols-2 gap-flow-lg">
               <Card className="bg-card/50 border-border">
-                <CardContent className="p-8">
+                <CardContent className="p-card-lg">
                   <MessageSquare className="h-6 w-6 text-muted-foreground mb-4" />
                   <p className="text-muted-foreground mb-4">
                     "A powerful and moving exhibition that sheds light on an important part of Irish history."
@@ -135,7 +135,7 @@ const Index = () => {
               </Card>
 
               <Card className="bg-card/50 border-border">
-                <CardContent className="p-8">
+                <CardContent className="p-card-lg">
                   <MessageSquare className="h-6 w-6 text-muted-foreground mb-4" />
                   <p className="text-muted-foreground mb-4">
                     "An innovative and thought-provoking way to engage with the complexities of the Eighth Amendment."
@@ -148,8 +148,8 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6 bg-gradient-hero">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="py-section-lg bg-gradient-hero">
+          <div className="container-page text-center">
             <h2 className="text-4xl font-bold mb-6 text-foreground">
               Experience "Capture the Essence of the Eight" Today
             </h2>
@@ -163,7 +163,7 @@ const Index = () => {
         </section>
 
         {/* Footer Ad */}
-        <div className="px-6 py-4">
+        <div className="container-page py-gutter">
           <AdFooter />
         </div>
       </div>

@@ -24,12 +24,12 @@ const About = () => {
   return (
   <div className="min-h-screen bg-background">
     <Navigation />
-    <div className="pt-16">
-      <div className="px-6 py-4">
+    <div className="with-appbar">
+      <div className="container-page py-gutter">
         <AdHeader />
       </div>
-      <section className="py-20 px-6 bg-gradient-hero">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-section-lg bg-gradient-hero">
+        <div className="container-page text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             About the Exhibition
           </h1>
@@ -47,8 +47,8 @@ const About = () => {
       </section>
 
       {/* Support and Funding Section */}
-      <section className="py-20 px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-section bg-background">
+        <div className="container-page">
           {/* Section Header with Divider */}
           <div className="mb-16 text-center">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8"></div>
@@ -69,9 +69,9 @@ const About = () => {
               <div className="w-1 h-8 bg-primary rounded-full"></div>
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-flow-lg">
               {logos.slice(0, 6).map((logo) => (
-                <div key={logo.id} className="bg-card/80 border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                <div key={logo.id} className="bg-card/80 border border-border rounded-xl p-card text-center hover:shadow-lg transition-all duration-300">
                   <div className="mb-4">
                     <FunderLogo
                       src={logo.src}
