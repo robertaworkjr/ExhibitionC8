@@ -206,8 +206,14 @@ const Gallery = () => {
                                                                 Each 3D portrait combines artistic vision with technical mastery, preserving the essence and legacy of Liverpool's influential figures.
                                                         </p>
                                                         
+                                                        {/* St. George's Hall Section */}
+                                                        <div className="text-center mt-16 mb-8">
+                                                                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">St Georges Hall</h3>
+                                                                <p className="text-lg text-primary font-medium">Capture the 8 Venue for the month of October 25</p>
+                                                        </div>
+                                                        
                                                         {/* St. George's Hall Image */}
-                                                        <div className="flex justify-center mt-12 mb-8">
+                                                        <div className="flex justify-center mt-8 mb-8">
                                                                 <div className="relative group">
                                                                         <img 
                                                                                 src="/stgeorges-hall.png" 
