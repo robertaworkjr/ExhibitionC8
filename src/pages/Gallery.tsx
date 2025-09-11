@@ -205,6 +205,19 @@ const Gallery = () => {
                                                         <p className="text-center text-muted-foreground max-w-2xl mx-auto">
                                                                 Each 3D portrait combines artistic vision with technical mastery, preserving the essence and legacy of Liverpool's influential figures.
                                                         </p>
+                                                        
+                                                        {/* St. George's Hall Image */}
+                                                        <div className="flex justify-center mt-12 mb-8">
+                                                                <div className="relative group">
+                                                                        <img 
+                                                                                src="/stgeorges-hall.png" 
+                                                                                alt="St. George's Hall, Liverpool - Illuminated at night with purple and teal lighting"
+                                                                                className="rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-full h-auto max-h-96 object-cover group-hover:scale-105"
+                                                                        />
+                                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                                </div>
+                                                        </div>
+                                                        
                                                         <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mt-8"></div>
                                                 </div>
 
