@@ -226,7 +226,7 @@ const ThreeDPage = () => {
                                                                                                                 touch-action="pan-y"
                                                                                                                 camera-target="0m 0m 0m"
                                                                                                                 auto-rotate-delay="3000"
-                                                                                                                exposure="1.5"
+                                                                                                                exposure="1.1"
                                                                                                                 bounds="tight"
                                                                                                         ></model-viewer>
                                                                                                         
