@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Audio Player</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Roboto, 'Segoe UI', Helvetica, Arial; padding: 24px; color:#111; }
+    .container { max-width:720px; margin:0 auto; }
+    header { display:flex; align-items:center; gap:12px; }
+    h1 { font-size:20px; margin:0; }
+    .card { margin-top:18px; padding:18px; border-radius:8px; background:#f8fafc; box-shadow:0 1px 2px rgba(0,0,0,0.04); }
+    .muted { color:#555; font-size:14px }
+    a.button { display:inline-block; margin-top:12px; padding:8px 12px; background:#0366d6; color:#fff; border-radius:6px; text-decoration:none }
+    ul { margin:8px 0 0 18px }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Audio Player</h1>
+    </header>
+
+    <div class="card">
+      <div id="desc" class="muted">This page streams audio files referenced by NFC tags. If your tag points here with a <code>?file=FILENAME.mp3</code> query it will load the audio.</div>
+
+      <div id="playerArea">
+        <div id="title" style="font-weight:600;margin-top:12px"></div>
+        <audio id="player" controls style="width:100%; margin-top:12px"></audio>
+        <div id="links" style="margin-top:12px"></div>
+      </div>
+
+      <div id="help" style="margin-top:18px" class="muted"></div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <strong>Available audio files</strong>
+      <ul id="list"></ul>
+      <div class="muted" style="margin-top:8px">Tip: NFC tags should point to short slugs like <code>/n/charles-wooten</code> which redirect to this player.</div>
+    </div>
+  </div>
+
+  <script>
+    // Allowlist of audio files deployed in /audio
+    const audioFiles = [
+      'CharlesWooten.mp3',
+      'eleanorRathbone.mp3',
+      'ElevenLabsDorothy.mp3',
+      'jimmiJagne.mp3',
+      'joanneAnderson.mp3',
+      'LeroyCopper.mp3',
+      'MargretSimey.mp3'
+    ];
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function basenameWithoutExt(name){
+      return name.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase();
+    }
+
+    // populate available list
+    const listEl = document.getElementById('list');
+    audioFiles.forEach(f => {
+      const li = document.createElement('li');
+      const slug = '/n/' + basenameWithoutExt(f);
+      li.innerHTML = `<strong>${f}</strong> — <a href="${slug}">${slug}</a> — <a href="/audio/${encodeURIComponent(f)}" target="_blank">direct</a>`;
+      listEl.appendChild(li);
+    });
+
+    const fileParam = getQueryParam('file');
+    const titleEl = document.getElementById('title');
+    const player = document.getElementById('player');
+    const links = document.getElementById('links');
+    const help = document.getElementById('help');
+
+    if (fileParam && audioFiles.includes(fileParam)) {
+      titleEl.textContent = fileParam;
+      player.src = '/audio/' + encodeURIComponent(fileParam);
+      links.innerHTML = `<a class="button" href="/audio/${encodeURIComponent(fileParam)}" target="_blank">Open direct audio</a>`;
+      help.textContent = 'If playback does not start automatically, press play. Mobile browsers may prevent autoplay.';
+    } else if (fileParam) {
+      titleEl.textContent = 'Invalid file specified';
+      help.textContent = 'The requested file is not available. Check the NFC mapping or use one of the available files below.';
+    } else {
+      titleEl.textContent = 'No file specified';
+      help.textContent = 'Place an NFC tag that points to a short slug (for example /n/charles-wooten) or open a player link with ?file=FILENAME.mp3';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/n/charles-wooten   /player.html?file=CharlesWooten.mp3   302
+/n/eleanor-rathbone /player.html?file=eleanorRathbone.mp3 302
+/n/dorothy-elevenlabs /player.html?file=ElevenLabsDorothy.mp3 302
+/n/jimmi-jagne /player.html?file=jimmiJagne.mp3 302
+/n/joanne-anderson /player.html?file=joanneAnderson.mp3 302
+/n/leroy-copper /player.html?file=LeroyCopper.mp3 302
+/n/margret-simey /player.html?file=MargretSimey.mp3 302
+
+# fallback direct audio redirects (optional)
+/audio/CharlesWooten.mp3  /audio/CharlesWooten.mp3  200
+/audio/eleanorRathbone.mp3 /audio/eleanorRathbone.mp3 200
+/audio/ElevenLabsDorothy.mp3 /audio/ElevenLabsDorothy.mp3 200
+/audio/jimmiJagne.mp3 /audio/jimmiJagne.mp3 200
+/audio/joanneAnderson.mp3 /audio/joanneAnderson.mp3 200
+/audio/LeroyCopper.mp3 /audio/LeroyCopper.mp3 200
+/audio/MargretSimey.mp3 /audio/MargretSimey.mp3 200
