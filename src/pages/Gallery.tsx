@@ -24,7 +24,7 @@ const galleryData = [
                 imageUrl: "/lovable-uploads/beaIcon.png",
                 description:
                         "Pioneer of Media and Representation\n\nA finely detailed 3D portrait of Bea Freeman captures her confidence and presence, fusing the precision of digital imaging with the warmth of personal memory. Light and shadow are carefully sculpted to reflect her impact as a pioneering voice in Liverpool's cultural landscape.\n\nBea Freeman broke barriers as a television and media figure, amplifying underrepresented voices in the city. Her work reshaped the narrative of Liverpool's Black communities, leaving an enduring influence on how the city sees itself.\n\nProcess & Materials — From Image to 3D\n\nImage Capture & Reference: Multiple high-resolution images were used to map her distinctive facial features, particularly her confident gaze and expressive contours.\n\nDigital Sculpting: Created in Blender with precise polygon detailing and digital paint layers to enhance lighting fidelity.\n\nModel Preparation: Sliced for the Prusa XL printer at 0.15 mm layer height, 15% gyroid infill, and a 45 mm/s print speed.\n\n3D Printing: Produced in PLA, a biodegradable thermoplastic, printed at ~200°C and built layer by layer.\n\nPost-Processing: Surface smoothed and fine brush-painted to enhance tonal definition and texture depth.",
-                audioUrl: "",
+                audioUrl: "/audio/BeaFreeman.mp3",
         },
         {
                 id: 3,
@@ -55,21 +55,21 @@ const galleryData = [
                 title: "Jacob Baptista",
                 imageUrl: "/lovable-uploads/jacobIcon.png",
                 description: "Community Builder and Athletic Mentor\n\nA dynamic 3D portrait of Jacob Baptista captures the spirit of dedication and mentorship that defines his work within Liverpool's L8 community. The sculpted form reflects both strength and compassion, embodying his dual role as athlete and guide.\n\nJacob Baptista is a promising footballer and respected mentor at Belv Boxing Gym L8, where he has inspired countless young people through sport and personal development. His commitment to community building has made him a vital figure in local youth engagement.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Action-oriented lighting to capture the energy and movement associated with athletic pursuits.\n\nDigital Sculpting: Modelled in Blender with emphasis on muscular definition and confident posture.\n\nModel Preparation: 0.15 mm layer resolution with reinforced infill patterns for durability.\n\n3D Printing: Produced in PLA using optimized settings for fine detail and structural integrity.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the subject's dynamic presence.",
-                audioUrl: "",
+                audioUrl: "/audio/JacobBaptista.mp3",
         },
         {
                 id: 7,
                 title: "John Archer",
                 imageUrl: "/lovable-uploads/johnIcon.png",
                 description: "Pioneer of Political Representation\n\nThis thoughtful 3D portrait of John Archer presents him with the dignity and gravitas befitting a historic figure who broke significant barriers in British politics. The sculptural work captures both his personal character and his symbolic importance.\n\nJohn Archer (1863-1932) was a pioneering politician who became one of the first Black mayors in London and a significant figure in early 20th-century British politics. His commitment to representation and social justice paved the way for future generations of Black political leaders.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Classical portrait lighting to reflect the formal dignity of his political role.\n\nDigital Sculpting: Crafted in Blender with attention to period-appropriate facial hair and clothing details.\n\nModel Preparation: 0.14 mm layers with enhanced infill for archival longevity.\n\n3D Printing: Printed in PLA with careful temperature control to preserve fine historical details.\n\nPost-Processing: Finished with a subtle patina to suggest the gravitas of historical portraiture.",
-                audioUrl: "",
+                audioUrl: "/audio/JohnArcher.mp3",
         },
         {
                 id: 8,
                 title: "Katy Gardener",
                 imageUrl: "/lovable-uploads/katiyaIcon.png",
                 description: "Healthcare Advocate and Women's Rights Champion\n\nThis compassionate 3D portrait of Katy Gardener reflects the caring nature and professional dedication that have marked her medical career. The sculptural work captures both her clinical expertise and her advocacy for community health.\n\nDr. Katy Gardener has served as a dedicated GP and tireless advocate for women's health within Liverpool's diverse communities. Her work has focused on providing accessible healthcare and championing health equity for underserved populations.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Soft, professional lighting to convey the approachable yet authoritative nature of medical practice.\n\nDigital Sculpting: Modelled in Blender with attention to compassionate facial features and professional bearing.\n\nModel Preparation: 0.15 mm layers with standard infill optimized for smooth surface finish.\n\n3D Printing: Printed in PLA with consistent temperature control for professional-grade detail.\n\nPost-Processing: Polished to a clean, clinical finish reflecting the precision of medical practice.",
-                audioUrl: "",
+                audioUrl: "/audio/KatyGardener.mp3",
         },
         {
                 id: 9,
@@ -83,7 +83,7 @@ const galleryData = [
                 title: "Alan Williams",
                 imageUrl: "/lovable-uploads/alanIcon.png",
                 description: "The Man Who Gave Away The Beatles\n\nA contemplative 3D portrait of Alan Williams captures the entrepreneurial spirit and Liverpool charm of the man who played a pivotal role in The Beatles' early career. The sculptural work reflects both his business acumen and the weight of decisions that would shape music history.\n\nAlan Williams (1930-2016) was a Liverpool entrepreneur and club owner who became The Beatles' first manager, organizing their legendary trip to Hamburg in 1960. Though he famously 'gave away' The Beatles before their meteoric rise, his role in their formative years was crucial to their development as performers and his place in Liverpool's musical heritage is undeniable.\n\nProcess & Materials — From Image to 3D\n\nImage Capture: Atmospheric lighting chosen to evoke the smoky club atmosphere of 1960s Liverpool music venues.\n\nDigital Sculpting: Created in Blender with emphasis on the confident yet reflective expression of a man who witnessed music history in the making.\n\nModel Preparation: 0.15 mm layers with careful support structuring for complex facial geometry.\n\n3D Printing: Fabricated in PLA using optimized settings to capture the character lines and expression of this music industry pioneer.\n\nPost-Processing: Enhanced with selective highlighting to emphasize the storytelling quality of his weathered, experienced features.",
-                audioUrl: "",
+                audioUrl: "/audio/AlanWilliams.mp3",
         },
         {
                 id: 11,
