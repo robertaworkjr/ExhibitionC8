@@ -24,3 +24,17 @@
 /audio/JacobBaptista.mp3 /audio/JacobBaptista.mp3 200
 /audio/JohnArcher.mp3 /audio/JohnArcher.mp3 200
 /audio/KatyGardener.mp3 /audio/KatyGardener.mp3 200
+
+# lowercase / normalized fallbacks to handle case/casing mismatches
+/audio/alanwilliams.mp3 /audio/AlanWilliams.mp3 200
+/audio/beafreeman.mp3 /audio/BeaFreeman.mp3 200
+/audio/charleswooten.mp3 /audio/CharlesWooten.mp3 200
+/audio/elevenlabsdorothy.mp3 /audio/ElevenLabsDorothy.mp3 200
+/audio/jacobbaptista.mp3 /audio/JacobBaptista.mp3 200
+/audio/jimmijagne.mp3 /audio/jimmiJagne.mp3 200
+/audio/joanneanderson.mp3 /audio/joanneAnderson.mp3 200
+/audio/johnarcher.mp3 /audio/JohnArcher.mp3 200
+/audio/katygardener.mp3 /audio/KatyGardener.mp3 200
+/audio/leroycopper.mp3 /audio/LeroyCopper.mp3 200
+/audio/margretsimey.mp3 /audio/MargretSimey.mp3 200
+/audio/eleanorrathbone.mp3 /audio/eleanorRathbone.mp3 200
