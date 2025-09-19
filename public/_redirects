@@ -5,6 +5,11 @@
 /n/joanne-anderson /player.html?file=joanneAnderson.mp3 302
 /n/leroy-copper /player.html?file=LeroyCopper.mp3 302
 /n/margret-simey /player.html?file=MargretSimey.mp3 302
+/n/alan-williams /player.html?file=AlanWilliams.mp3 302
+/n/bea-freeman /player.html?file=BeaFreeman.mp3 302
+/n/jacob-baptista /player.html?file=JacobBaptista.mp3 302
+/n/john-archer /player.html?file=JohnArcher.mp3 302
+/n/katy-gardener /player.html?file=KatyGardener.mp3 302
 
 # fallback direct audio redirects (optional)
 /audio/CharlesWooten.mp3  /audio/CharlesWooten.mp3  200
@@ -14,3 +19,8 @@
 /audio/joanneAnderson.mp3 /audio/joanneAnderson.mp3 200
 /audio/LeroyCopper.mp3 /audio/LeroyCopper.mp3 200
 /audio/MargretSimey.mp3 /audio/MargretSimey.mp3 200
+/audio/AlanWilliams.mp3 /audio/AlanWilliams.mp3 200
+/audio/BeaFreeman.mp3 /audio/BeaFreeman.mp3 200
+/audio/JacobBaptista.mp3 /audio/JacobBaptista.mp3 200
+/audio/JohnArcher.mp3 /audio/JohnArcher.mp3 200
+/audio/KatyGardener.mp3 /audio/KatyGardener.mp3 200
