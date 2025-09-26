@@ -117,19 +117,18 @@ const modelGallery = [
                 process: "Meticulously crafted digital sculpture ensuring accurate representation and historical preservation.",
                 tags: ["Historical", "Heritage", "3D Printed", "Portrait"]
         },
-        // Test model - can be removed if not needed
         {
-                id: "test-cube",
-                name: "Test Cube",
-                subtitle: "Technical Test Model - 2025",
-                file: "/3DObjects/test-cube.glb",
-                material: "Digital",
-                technique: "3D Modeling",
-                dimensions: "10cm x 10cm x 10cm",
-                description: "A simple test cube model for demonstration purposes. This model can be used to verify the 3D viewer functionality and gallery system.",
-                process: "Created as a basic geometric shape for testing 3D viewer compatibility and performance.",
-                tags: ["Test", "Geometric", "3D Model", "Digital"]
-        }
+                id: "ian-freeman",
+                name: "Ian Freeman",
+                subtitle: "Film Maker and Creative Director - 2025",
+                file: "/3DObjects/IanFreeman.glb",
+                material: "PLA Filament",
+                technique: "3D Printing",
+                dimensions: "Portrait scale",
+                description: "This 3D portrait of Ian Freeman honours a life dedicated to creativity, education, and the power of storytelling through film. As a filmmaker, creative director, and teacher, Ian has worked tirelessly within Liverpool 8, transferring his skills to new generations and shaping how digital media is created and understood.\n\nHis practice spans filmmaking, directing, editing, photography, and digital marketing, with expertise in the latest creative software platforms. Beyond the technical, Ian is recognised as a collaborator and mentor — someone who brings people together, nurtures talent, and ensures that creativity is always rooted in community.\n\nIan was chosen for this exhibition because his story represents skill, service, and legacy. He has worked with many film professionals while also teaching, assessing, and guiding learners in digital content production. His role as both practitioner and educator reflects the exhibition's theme: preserving not only individual achievement, but the shared knowledge and creativity that strengthens a community.",
+                process: "Image Capture & Reference: A series of high-resolution images were taken to capture Ian's expressive features, shaped by years of work behind the camera and within the classroom. Digital Sculpting in Blender: The portrait was digitally sculpted with close attention to detail — emphasising the confidence and calm presence of an experienced director, alongside the warmth of a teacher who has given back to his community. Model Preparation for Printing: The digital model was prepared for 3D printing with precise technical settings: Layer height: 0.15 mm for clarity, Infill: 15% gyroid pattern for stability, Print speed: 45 mm/s for accuracy. 3D Printing in PLA: The portrait was produced using PLA, a biodegradable polymer derived from renewable sources. Heated to ~200°C and extruded layer by layer, the form of Ian's likeness gradually emerged in three dimensions. Post-Processing: After printing, the surfaces were smoothed, refined, and finished to capture both likeness and tone.",
+                tags: ["Film", "Education", "Creative", "Mentor", "3D Printed", "PLA"]
+        },
 ];
 
 const ThreeDPage = () => {
@@ -679,6 +678,7 @@ const ThreeDPage = () => {
                                                                                                 : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
                                                                                 }`}
                                                                                 onClick={() => scrollTo(index)}
+                                                                                aria-label={`Go to slide ${index + 1}`}
                                                                         />
                                                                 ))}
                                                         </div>
@@ -734,8 +734,8 @@ const ThreeDPage = () => {
                                                                                                         shadow-softness="0.8"
                                                                                                         field-of-view="45deg"
                                                                                                         min-camera-orbit="auto auto 0.5m"
-                                                                                                        max-camera-orbit="auto auto 2.5m"
-                                                                                                        camera-orbit="0deg 75deg 1.2m"
+                                                                                                        max-camera-orbit="auto auto 6m"
+                                                                                                        camera-orbit="0deg 75deg 4.8m"
                                                                                                         min-field-of-view="30deg"
                                                                                                         max-field-of-view="60deg"
                                                                                                         interaction-prompt="auto"
@@ -798,7 +798,7 @@ const ThreeDPage = () => {
                                                                                                                                 </Button>
                                                                                                                         </div>
                                                                                                                 </div>
-                                                                                                        </div>
+                                                                                                </div>
                                                                                                 )}
                                                                                                 
                                                                                                 {/* Interaction Hints */}

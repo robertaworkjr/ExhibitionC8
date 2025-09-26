@@ -33,6 +33,12 @@ const Navigation = () => {
 
   const navItems = [
     { 
+      path: "/about", 
+      icon: <Info className="h-5 w-5" />, 
+      text: "About",
+      description: "Learn more about this project"
+    },
+    { 
       path: "/", 
       icon: <Home className="h-5 w-5" />, 
       text: "Home",
@@ -48,19 +54,19 @@ const Navigation = () => {
       path: "/research", 
       icon: <Building2 className="h-5 w-5" />, 
       text: "Research",
-      description: "Historical documentation"
+      description: "Methodology and documentation"
+    },
+    { 
+      path: "/3d", 
+      icon: <GiCube className="h-5 w-5" />, 
+      text: "3D",
+      description: "Interactive 3D portraits"
     },
     { 
       path: "/contact", 
       icon: <Mail className="h-5 w-5" />, 
       text: "Contact",
       description: "Get in touch with us"
-    },
-    { 
-      path: "/about", 
-      icon: <Info className="h-5 w-5" />, 
-      text: "About",
-      description: "Learn more about this project"
     },
   ];
 
@@ -116,31 +122,6 @@ const Navigation = () => {
                 )}
               </NavLink>
             ))}
-            
-            {/* 3D Objects Special Link */}
-            <NavLink
-              to="/3d"
-              className={({ isActive }) =>
-                `group relative flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 whitespace-nowrap ml-2 border-2 animate-fade-in-up ${
-                  isActive 
-                    ? "bg-gradient-to-r from-primary to-accent text-primary-foreground border-primary/30 shadow-xl shadow-primary/40 scale-110 animate-glow" 
-                    : "border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/40 hover:scale-105"
-                }`
-              }
-              style={{ animationDelay: '500ms' }}
-            >
-              {({ isActive }) => (
-                <>
-                  <GiCube className="transition-transform group-hover:scale-110 group-hover:rotate-12" />
-                  <span className="text-sm font-semibold">3D Objects</span>
-                  {isActive && (
-                    <Badge variant="secondary" className="ml-2 bg-primary-foreground/20 text-primary-foreground text-xs animate-pulse">
-                      Active
-                    </Badge>
-                  )}
-                </>
-              )}
-            </NavLink>
           </div>
 
           {/* Modern Mobile Sheet Trigger */}

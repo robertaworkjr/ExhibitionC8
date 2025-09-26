@@ -81,14 +81,40 @@
     const links = document.getElementById('links');
     const help = document.getElementById('help');
 
-    if (fileParam && audioFiles.includes(fileParam)) {
-      titleEl.textContent = fileParam;
-      player.src = '/audio/' + encodeURIComponent(fileParam);
-      links.innerHTML = `<a class="button" href="/audio/${encodeURIComponent(fileParam)}" target="_blank">Open direct audio</a>`;
-      help.textContent = 'If playback does not start automatically, press play. Mobile browsers may prevent autoplay.';
-    } else if (fileParam) {
-      titleEl.textContent = 'Invalid file specified';
-      help.textContent = 'The requested file is not available. Check the NFC mapping or use one of the available files below.';
+    // robust matching: accept ?file=name or name.mp3 and try case-insensitive or basename matches
+    function ensureMp3(name){
+      if (!name) return name;
+      return /\.mp3$/i.test(name) ? name : (name + '.mp3');
+    }
+
+    function findAudioMatch(requested){
+      if (!requested) return null;
+      const req = requested.toLowerCase();
+      // exact or case-insensitive match
+      let m = audioFiles.find(f => f.toLowerCase() === req);
+      if (m) return m;
+      // try by basename normalization (handles punctuation / spaces)
+      const normReq = basenameWithoutExt(requested);
+      m = audioFiles.find(f => basenameWithoutExt(f) === normReq);
+      if (m) return m;
+      return null;
+    }
+
+    if (fileParam) {
+      const requested = ensureMp3(fileParam);
+      const matched = findAudioMatch(requested);
+      if (matched) {
+        titleEl.textContent = matched;
+        player.src = '/audio/' + encodeURIComponent(matched);
+        links.innerHTML = `<a class="button" href="/audio/${encodeURIComponent(matched)}" target="_blank">Open direct audio</a>`;
+        help.textContent = 'If playback does not start automatically, press play. Mobile browsers may prevent autoplay.';
+      } else {
+        // final fallback: try to play the requested filename as provided (may 404 if missing)
+        titleEl.textContent = requested;
+        player.src = '/audio/' + encodeURIComponent(requested);
+        links.innerHTML = `<a class="button" href="/audio/${encodeURIComponent(requested)}" target="_blank">Open direct audio</a>`;
+        help.textContent = 'Attempting to play the requested file. If playback fails the file may be missing or the filename/casing does not match the deployed audio list.';
+      }
     } else {
       titleEl.textContent = 'No file specified';
       help.textContent = 'Place an NFC tag that points to a short slug (for example /n/charles-wooten) or open a player link with ?file=FILENAME.mp3';
