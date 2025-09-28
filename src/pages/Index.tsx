@@ -154,7 +154,7 @@ const Index = () => {
               Experience "Capture the Essence of the Eight" Today
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Book your visit now and immerse yourself in a digital art exhibition that brings history to life.
+              Book your visit now and immerse yourself in a digital art exhibition that brings history to life as part of Black History Month 2025.
             </p>
             <Button size="lg" className="bg-gradient-primary hover:shadow-glow" onClick={handleBookVisit}>
               Book Your Visit <ArrowRight className="ml-2" />
@@ -183,7 +183,7 @@ const Index = () => {
             </div>
           </DialogHeader>
           <DialogDescription className="text-muted-foreground text-center">
-            "Capture the Essence of the Eight" Digital Art Exhibition
+            "Capture the Essence of the Eight" Digital Art Exhibition - Part of Black History Month 2025
           </DialogDescription>
           <div className="py-6">
             <div className="text-center space-y-4">
