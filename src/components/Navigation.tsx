@@ -39,7 +39,7 @@ const Navigation = () => {
       description: "Learn more about this project"
     },
     { 
-      path: "/", 
+      path: "/home", 
       icon: <Home className="h-5 w-5" />, 
       text: "Home",
       description: "Welcome to Liverpool's digital heritage"
@@ -82,7 +82,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center" style={{ height: 'var(--header-h)' }}>
           {/* Modern Logo */}
           <Link 
-            to="/" 
+            to="/home" 
             className="group flex items-center gap-3 text-xl font-bold transition-all duration-300 hover:scale-105"
           >
             <div className="relative">
