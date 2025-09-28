@@ -9,12 +9,20 @@ const AdFooter = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Main combined logo for visual consistency */}
         <div className="text-center mb-6">
-          <img
-            src="/LogoHeadFoot.png"
-            alt="Exhibition Partners and Sponsors"
-            className="logo-img-single mx-auto"
-            loading="lazy"
-          />
+          <div className="flex items-center justify-center gap-6">
+            <img
+              src="/BHMlogo.png"
+              alt="Black History Month 2025"
+              className="logo-img-single h-12"
+              loading="lazy"
+            />
+            <img
+              src="/LogoHeadFoot.png"
+              alt="Exhibition Partners and Sponsors"
+              className="logo-img-single mx-auto"
+              loading="lazy"
+            />
+          </div>
         </div>
         
         {/* Individual logos for better accessibility and SEO */}

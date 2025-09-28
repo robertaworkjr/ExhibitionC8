@@ -12,11 +12,19 @@ export interface LogoConfig {
 
 export const logoConfig: LogoConfig[] = [
   {
+    id: "bhm",
+    alt: "Black History Month 2025",
+    lightSrc: "/BHMlogo.png",
+    darkSrc: "/BHMlogo.png",
+    priority: 1,
+    aspectRatio: 'landscape'
+  },
+  {
     id: "culture",
     alt: "Culture Liverpool",
     lightSrc: "/Culturelogo_blk.png",
     darkSrc: "/Culturelogo_wht.png",
-    priority: 1,
+    priority: 2,
     aspectRatio: 'landscape'
   },
   {
@@ -24,7 +32,7 @@ export const logoConfig: LogoConfig[] = [
     alt: "Culture Liverpool Brand",
     lightSrc: "/CLLogo.png",
     darkSrc: "/CLLogo.png",
-    priority: 2,
+    priority: 3,
     aspectRatio: 'square'
   },
   {
@@ -32,7 +40,7 @@ export const logoConfig: LogoConfig[] = [
     alt: "Liverpool City Council",
     lightSrc: "/LCC logo 2023 Landscp BLACK.png",
     darkSrc: "/LCC logo 2023 Landscp WHITE.png",
-    priority: 3,
+    priority: 4,
     aspectRatio: 'landscape'
   },
   {
@@ -40,7 +48,7 @@ export const logoConfig: LogoConfig[] = [
     alt: "Funded by the UK Government",
     lightSrc: "/funded-by-the-uk.jpg",
     darkSrc: "/Funded by UK Gov-stacked-white.png",
-    priority: 4,
+    priority: 5,
     aspectRatio: 'landscape'
   },
   {
@@ -48,7 +56,7 @@ export const logoConfig: LogoConfig[] = [
     alt: "UK Shared Prosperity Fund",
     lightSrc: "/UKSPF Black Mono.jpg",
     darkSrc: "/UKSPF Black Mono.jpg", // Same for both
-    priority: 5,
+    priority: 6,
     aspectRatio: 'landscape'
   },
   {
@@ -56,7 +64,7 @@ export const logoConfig: LogoConfig[] = [
     alt: "Grant Funded",
     lightSrc: "/grant_png_black.png",
     darkSrc: "/grant_png_black.png", // Same for both as it works on both backgrounds
-    priority: 6,
+    priority: 7,
     aspectRatio: 'square'
   }
 ];
